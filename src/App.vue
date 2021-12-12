@@ -5,13 +5,15 @@
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
         crossorigin="anonymous">
         <div class="card">
-            <div class="clock">22:12</div>
-            <div class="notIcons">
-                <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
+            <div>
+                <div class="clock">22:12</div>
+                <div class="notIcons">
+                    <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
+                </div>
             </div>
             
             <div v-if="showWorkflow">
-              <chat/>
+              <ChatList/>
             </div>
 
             <button @click="showWorkflow = true">Show Workflow</button>
@@ -24,18 +26,31 @@
 
 <script>
 import test from './components/test.vue'
-import chat from './components/chatslist.vue'
+import ChatList from './components/ChatsList.vue'
+//import SendData from './components/SendData.vue'
 
 export default {
   name: 'App',
   components: {
     test,
-    chat
+    ChatList
+    //SendData
   },
   data() {
+    /*
+    users: [
+      {name:'player', id: 0},
+      {name:'Marcos', id: 1},
+      {name:'Oscar', id: 2},
+      {name:'Marta', id: 3}
+    ];
+    chatGroups: [
+      {name:'Fiesta Cumple', id: 0},
+      {name:'GrupoAcoso', id: 1}
+    ]*/
     return {
       showWorkflow: false,
-    }
+    };
   }
 }
 </script>
@@ -61,93 +76,50 @@ body{
     
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.0);
     transition: 0.3s;
-    border-radius: 55px; /* 5px rounded corners */
+    border-radius: 35px; /* 5px rounded corners */
     border: 0px solid black;
 
-
-    height: 800px;
-    width: 350px;
+    height: 810px;
+    width: 400px;
     
     margin: auto;
-    padding: 20px 20px 20px 20px;
-    
+    padding: 20px 30px 30px 30px;
 
     background-image: url("https://i.ibb.co/kJ4WFjG/phone-01-generated2-sinfondo.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
-.titlechats{
-    color: black;
-    text-align: left;
-    margin-top:90px;
-    margin-left: 20px;
-
-}
-.user {
-  padding: 0px 10px;
-  box-shadow: 0 4px 8px 0 rgba(87, 66, 66, 0.05);
-  height: 70px;
-  line-height:25px;
-  border-radius: 5px;
-  background-color: #f1f1f1;
-  margin: 5%;
-}
-.user .block{
-    opacity: 0.5;
+    position: relative;
 }
 .clock{
+    font-size: 14px;
     width: 12%;
     margin: 0px;
     text-align: left;
-    margin-top: 4px;
-    margin-left: 10px;
+    margin-top: 0px;
+    margin-left: 15px;
     font-weight: bold;
     float: left;
 }
 .notIcons{
     float: right;
     text-align: right;
-    margin-top: 4px;
-    margin-right: 12px;
+    margin-top: -4px;
+    margin-right: 10px;
+    width: 60px;
 }
 .notIcons img{
     width: 60px;
 }
-.user img {
-    float: left;
-    margin: 0 0 0 -10px;
-    height: 70px;
-    width: 70px;
-    border-radius: 5px;
-}
-.username{
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 0px 0px 0px;
-    text-align: left;
-    padding-left: 70px;
-}
-.msgpreview{
-    font-size: 12px;
-    text-align: left;
-    padding-left: 70px;
-    color: grey;
-}
-.fas{
-    color: #07c286;
-    float: right;
-    margin-right: 5px;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
 .iphone_bar{
     background: black;
     border-radius: 5px;
-    margin: 5px 90px 30px 90px;
     padding: 2px;
     bottom: 0px;
+    position: absolute;
+    width: 150px;
+    margin-left: 25%;
+    margin-bottom: 30px;
     box-shadow: 0 4px 8px 0 rgba(87, 66, 66, 0.1);
 }
 .space{

@@ -81,7 +81,7 @@ export default({
 .titlechats{
     color: black;
     text-align: left;
-    margin-top:90px;
+    margin-top:40px;
     margin-left: 20px;
 
 }
