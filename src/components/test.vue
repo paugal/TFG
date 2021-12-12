@@ -1,171 +1,174 @@
 <template>
     <div>
-        <link rel="stylesheet" 
+    <link rel="stylesheet" 
         href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
         crossorigin="anonymous">
-        <div class="card">
-            <div>
-                <div class="clock">22:12</div>
-                <div class="notIcons">
-                    <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
-                </div>
-            </div>
-            
 
-            <h1 class='titlechats'>Chats</h1>
-            <div class="user">
-                <img src="https://i.ibb.co/S7vP88k/user-image-marcos.jpg" alt="user-image-marcos" border="0">
-                <div class="username">Marcoos</div>
-                <i class="fas fa-chevron-right"></i>
-                <div class="msgpreview">text preview</div>
-            </div>
-
-            <div class="user">
-                <img src="https://i.ibb.co/yh14wQs/user-image-bully.jpg" alt="user_image_bully" border="0">                 
-                <div class="username">Oscar clase</div>
-                <i class="fas fa-chevron-right"></i>
-                <div class="msgpreview">text preview</div>
-            </div>
-
-            <div class="user">
-                <div class="block">
-                    <img src="https://i.ibb.co/S7vP88k/user-image-marcos.jpg" alt="user-image-marcos" border="0">
-                    <div class="username">Marcoos</div>
-                    <i class="fas fa-chevron-right"></i>
-                    <div class="msgpreview">text preview </div>
+        
+        <div class="card xyz-in" xyz="fade up" >
+            <!--Pantalla de carga -->
+            <div v-if="isLoading" class="centredelement">
+                <div class="half-circle-spinner">
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
                 </div>
             </div>
 
-            <div class="user">
-                <div class="block">
-                    <img src="https://i.ibb.co/yh14wQs/user-image-bully.jpg" alt="user_image_bully" border="0">                 
-                    <div class="username">Oscar clase</div>
-                    <i class="fas fa-chevron-right"></i>
-                <div class="msgpreview">text preview</div>
-                </div>
+            <!-- Introduccion -->
+            <div v-if="!isLoading && !showWorkflow" >
+            <button  type="button" class="btn btn-primary" style="margin: 20px 60px 0px 60px" 
+            @click="showWorkflow = true">NEXT</button>
             </div>
 
-            <div class="space"></div>
-            
-            <div class="iphone_bar"></div>
+            <!-- Chat List -->
+            <div v-if="!isLoading && showWorkflow">
+                <ChatsList  class="xyz-in" xyz="fade up" v-if="showWorkflow"/>
+            </div>
+
         </div>
     </div>
 </template>
 
 <script>
 
-//import chat from './chat.vue'
+import ChatsList from './ChatsList.vue'
 
 export default({
     name: 'test',
+    components: {
+        ChatsList
+    },
     data() {
         return{
+            isLoading: true,
+            showWorkflow: false,
+            '--button-bg-color': "#07C286"
         }
     },
+    mounted() {
+        setTimeout(() => {
+        this.isLoading = false;
+        }, 500);
+  }
 })
 
 
 </script>
 
 <style scoped>
-.card{
-    background: #EEEEEF;
-    
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.0);
-    transition: 0.3s;
-    border-radius: 55px; /* 5px rounded corners */
-    border: 0px solid black;
-
-
-    height: 800px;
-    width: 350px;
-    
-    margin: auto;
-    padding: 20px 20px 20px 20px;
-    
-
-    background-image: url("https://i.ibb.co/kJ4WFjG/phone-01-generated2-sinfondo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-.titlechats{
-    color: black;
-    text-align: left;
-    margin-top: 30px;
-    margin-left: 20px;
-
-}
-.user {
-  padding: 0px 10px;
-  box-shadow: 0 4px 8px 0 rgba(87, 66, 66, 0.05);
-  height: 70px;
-  line-height:25px;
-  border-radius: 5px;
-  background-color: #f1f1f1;
-  margin: 5%;
-}
-.user .block{
-    opacity: 0.5;
-}
-.clock{
-    font-size: 14px;
-    width: 12%;
-    margin: 0px;
-    text-align: left;
-    margin-top: 4px;
-    margin-left: 8px;
-    font-weight: bold;
-    float: left;
-}
-.notIcons{
-    float: right;
-    text-align: right;
-    margin-top: 0px;
-    margin-right: 0px;
-    width: 60px;
-}
-.notIcons img{
-    width: 60px;
-}
-.user img {
-    float: left;
-    margin: 0 0 0 -10px;
-    height: 70px;
-    width: 70px;
-    border-radius: 5px;
-}
-.username{
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 0px 0px 0px;
-    text-align: left;
-    padding-left: 70px;
-}
-.msgpreview{
-    font-size: 12px;
-    text-align: left;
-    padding-left: 70px;
-    color: grey;
+#app {
+  
+  font-family: "Segoe UI";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 .fas{
-    color: #07c286;
+    color: white;
     float: right;
     margin-right: 5px;
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-.iphone_bar{
-    background: black;
-    border-radius: 5px;
-    margin: 5px 90px 30px 90px;
-    padding: 2px;
-    bottom: 0px;
-    box-shadow: 0 4px 8px 0 rgba(87, 66, 66, 0.1);
+.btn{
+  color:whitesmoke;
+  border-color:whitesmoke;
 }
-.space{
-    margin: 300px;
+
+.card{
+    background: #07C286;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.0);
+    transition: 0.3s;
+    border-radius: 35px; /* 5px rounded corners */
+    border: 0px solid black;
+
+    height: 800px;
+    width: 380px;
+    
+    margin: auto;
+    padding: 20px 30px 30px 30px;
+    background-image: url("https://i.ibb.co/Lrk1RHy/phone-01-generated2-sinfondo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
 }
+
+.shake {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+.centredelement{
+    padding: 320px 110px 320px 110px;
+}
+
+.half-circle-spinner, .half-circle-spinner * {
+      box-sizing: border-box;
+    }
+
+    .half-circle-spinner {
+      width: 100px;
+      height: 100px;
+      border-radius: 100%;
+      position: relative;
+    }
+
+    .half-circle-spinner .circle {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+      border: calc(100px / 10) solid transparent;
+    }
+
+    .half-circle-spinner .circle.circle-1 {
+      border-top-color: whitesmoke;
+      animation: half-circle-spinner-animation 1s infinite;
+    }
+
+    .half-circle-spinner .circle.circle-2 {
+      border-bottom-color: whitesmoke;
+      animation: half-circle-spinner-animation 1s infinite alternate;
+    }
+
+    @keyframes half-circle-spinner-animation {
+      0% {
+        transform: rotate(0deg);
+
+      }
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
 </style>

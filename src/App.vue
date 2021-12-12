@@ -4,42 +4,46 @@
         href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
         crossorigin="anonymous">
-        <div class="card xyz-in" xyz="fade up">
+
+        <test/>
+        
+        <div id="maincontainer" class="card xyz-in" xyz="fade up" >
+          
             <div>
                 <div class="clock">22:12</div>
                 <div class="notIcons">
                     <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
                 </div>
             </div>
-            
-            <div v-if="showWorkflow">
-              <div class="xyz-in" xyz="fade up"><ChatList/></div>
-            </div>
-            
-
-            <button type="button" class="btn btn-primary" style="margin: 20px 60px 0px 60px" @click="showWorkflow = true">{{name2}}</button>
+            <ChatList/>
+            <button v-if="!isLoading" type="button" class="btn btn-primary" style="margin: 20px 60px 0px 60px" @click="showWorkflow = true">{{name2}}</button>
             <div class="iphone_bar"></div>
         </div>
+        
   </div>
 </template>
 
 <script>
-//import test from './components/test.vue'
+import test from './components/test.vue'
 import ChatList from './components/ChatsList.vue'
+//import LoadingScreen from "./components/LoadingScreen.vue"
 //import SendData from './components/SendData.vue'
 
 export default {
   name: 'App',
   components: {
-    //test,
-    ChatList
+    test,
+    ChatList,
+    //LoadingScreen
     //SendData
   },
   data() {
     /*
     */
     return {
+      isLoading: true,
       showWorkflow: false,
+      backcolor: "#EEEEEF",
       name2: "Show Chats",
       users: [
         {name:'player', id: 0},
@@ -54,7 +58,19 @@ export default {
     };
   },
   computed:{
+    /*<div id="maincontainer" class="card xyz-in" xyz="fade up" :style="{background: backcolor}" >
+        changeMainColor(color){
+      return{
+        backcolor:color
+      }
+    } 
+    */
 
+  },
+  mounted() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 500);
   }
 }
 </script>

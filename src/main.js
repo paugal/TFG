@@ -11,8 +11,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(faCoffee)
 
-const app = createApp(App).mount('#app')
+createApp(App).mount('#app')
 .component('font-awesome-icon', FontAwesomeIcon)
+.use(VueAnimXyz)
 .config.productionTip = false
 
-app.use(VueAnimXyz)
+

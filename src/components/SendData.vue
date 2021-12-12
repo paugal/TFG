@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div id="senddata" class="container">
         <form ref="form" @submit.prevent="sendEmail">
           <label>Name</label>
           <input 

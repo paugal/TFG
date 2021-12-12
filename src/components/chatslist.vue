@@ -1,11 +1,12 @@
 <template>
-    <div>
+    <div id="chatlist" class="chatcard">
         <link rel="stylesheet" 
         href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
         crossorigin="anonymous">
-        <h1 class='titlechats'>Chat</h1>
 
+        <h1 class='titlechats'>Chat</h1>
+            
             <div class="user">
                 <img src="https://i.ibb.co/S7vP88k/user-image-marcos.jpg" alt="user-image-marcos" border="0">
                 <div class="username">Marcoos</div>
@@ -56,7 +57,7 @@ export default({
 
 <style scoped>
 .card{
-    background: #EEEEEF;
+    background: #07C286;
     
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.0);
     transition: 0.3s;
@@ -76,12 +77,22 @@ export default({
     background-size: cover;
     background-position: center;
 }
+.chatcard{
+    background: #EEEEEF;
+    
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.0);
+    transition: 0.3s;
+    border-radius: 20px; /* 5px rounded corners */
+    border: 0px solid black;
+
+    margin-top:40px;
+    padding-bottom: 200px;
+}
 .titlechats{
     color: black;
     text-align: left;
-    margin-top:40px;
+    margin-top:10px;
     margin-left: 20px;
-
 }
 .user {
   padding: 0px 10px;
