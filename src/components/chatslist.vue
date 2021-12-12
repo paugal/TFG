@@ -1,9 +1,15 @@
 <template>
-    <div id="chatlist" class="chatcard">
+    <div id="chatlist">
         <link rel="stylesheet" 
         href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
         crossorigin="anonymous">
+        <div>
+            <div class="clock">22:12</div>
+            <div class="notIcons">
+                <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
+            </div>
+        </div>
 
         <h1 class='titlechats'>Chat</h1>
             
@@ -77,21 +83,11 @@ export default({
     background-size: cover;
     background-position: center;
 }
-.chatcard{
-    background: #EEEEEF;
-    
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.0);
-    transition: 0.3s;
-    border-radius: 20px; /* 5px rounded corners */
-    border: 0px solid black;
 
-    margin-top:40px;
-    padding-bottom: 200px;
-}
 .titlechats{
     color: black;
     text-align: left;
-    margin-top:10px;
+    margin-top:50px;
     margin-left: 20px;
 }
 .user {
@@ -107,19 +103,21 @@ export default({
     opacity: 0.5;
 }
 .clock{
+    font-size: 14px;
     width: 12%;
     margin: 0px;
     text-align: left;
-    margin-top: 4px;
-    margin-left: 10px;
+    margin-top: 0px;
+    margin-left: 15px;
     font-weight: bold;
     float: left;
 }
 .notIcons{
     float: right;
     text-align: right;
-    margin-top: 4px;
-    margin-right: 12px;
+    margin-top: -4px;
+    margin-right: 5px;
+    width: 60px;
 }
 .notIcons img{
     width: 60px;

@@ -6,34 +6,21 @@
         crossorigin="anonymous">
 
         <test/>
-        
-        <div id="maincontainer" class="card xyz-in" xyz="fade up" >
-          
-            <div>
-                <div class="clock">22:12</div>
-                <div class="notIcons">
-                    <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
-                </div>
-            </div>
-            <ChatList/>
-            <button v-if="!isLoading" type="button" class="btn btn-primary" style="margin: 20px 60px 0px 60px" @click="showWorkflow = true">{{name2}}</button>
-            <div class="iphone_bar"></div>
-        </div>
-        
+         
   </div>
 </template>
 
 <script>
 import test from './components/test.vue'
-import ChatList from './components/ChatsList.vue'
+//import ChatList from './components/ChatsList.vue'
 //import LoadingScreen from "./components/LoadingScreen.vue"
 //import SendData from './components/SendData.vue'
 
 export default {
   name: 'App',
   components: {
-    test,
-    ChatList,
+    test
+    //ChatList,
     //LoadingScreen
     //SendData
   },
@@ -70,7 +57,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.isLoading = false;
-    }, 500);
+    }, 3500);
   }
 }
 </script>

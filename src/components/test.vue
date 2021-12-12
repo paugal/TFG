@@ -6,7 +6,7 @@
         crossorigin="anonymous">
 
         
-        <div class="card xyz-in" xyz="fade up" >
+        <div v-if="isLoading || (!showWorkflow && !showWorkflow)" class="card loadscreen xyz-in" xyz="fade up" >
             <!--Pantalla de carga -->
             <div v-if="isLoading" class="centredelement">
                 <div class="half-circle-spinner">
@@ -17,15 +17,14 @@
 
             <!-- Introduccion -->
             <div v-if="!isLoading && !showWorkflow" >
+                <Intro/>
             <button  type="button" class="btn btn-primary" style="margin: 20px 60px 0px 60px" 
             @click="showWorkflow = true">NEXT</button>
             </div>
-
-            <!-- Chat List -->
-            <div v-if="!isLoading && showWorkflow">
-                <ChatsList  class="xyz-in" xyz="fade up" v-if="showWorkflow"/>
-            </div>
-
+        </div>
+                    <!-- Chat List -->
+        <div v-if="!isLoading && showWorkflow" class="card">
+            <ChatsList  class="xyz-in" xyz="fade in" v-if="showWorkflow"/>
         </div>
     </div>
 </template>
@@ -33,11 +32,13 @@
 <script>
 
 import ChatsList from './ChatsList.vue'
+import Intro from './Intro.vue'
 
 export default({
     name: 'test',
     components: {
-        ChatsList
+        ChatsList,
+        Intro
     },
     data() {
         return{
@@ -49,7 +50,7 @@ export default({
     mounted() {
         setTimeout(() => {
         this.isLoading = false;
-        }, 500);
+        }, 3500);
   }
 })
 
@@ -80,6 +81,25 @@ export default({
 }
 
 .card{
+    background: #EEEEEF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.0);
+    transition: 0.3s;
+    border-radius: 35px; /* 5px rounded corners */
+    border: 0px solid black;
+
+    height: 800px;
+    width: 380px;
+    
+    margin: auto;
+    padding: 20px 30px 30px 30px;
+    background-image: url("https://i.ibb.co/Lrk1RHy/phone-01-generated2-sinfondo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.loadscreen{
     background: #07C286;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.0);
     transition: 0.3s;
@@ -97,6 +117,8 @@ export default({
     background-position: center;
     position: relative;
 }
+
+
 
 .shake {
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
