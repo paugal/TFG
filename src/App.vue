@@ -4,7 +4,7 @@
         href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
         crossorigin="anonymous">
-        <div class="card">
+        <div class="card xyz-in" xyz="fade up">
             <div>
                 <div class="clock">22:12</div>
                 <div class="notIcons">
@@ -21,19 +21,17 @@
             <div class="iphone_bar"></div>
         </div>
   </div>
-
-  <div><test/></div>
 </template>
 
 <script>
-import test from './components/test.vue'
+//import test from './components/test.vue'
 import ChatList from './components/ChatsList.vue'
 //import SendData from './components/SendData.vue'
 
 export default {
   name: 'App',
   components: {
-    test,
+    //test,
     ChatList
     //SendData
   },
