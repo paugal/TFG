@@ -31,15 +31,9 @@
 
 <script>
 
-import ChatsList from './ChatsList.vue'
-import Intro from './Intro.vue'
 
 export default({
     name: 'test',
-    components: {
-        ChatsList,
-        Intro
-    },
     data() {
         return{
             isLoading: true,

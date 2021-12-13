@@ -4,44 +4,21 @@
         href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
         crossorigin="anonymous">
-
-        <test/>
+        <p>{{this.$store.users}}</p>
+        <test></test>
          
   </div>
 </template>
 
 <script>
-import test from './components/test.vue'
-//import ChatList from './components/ChatsList.vue'
-//import LoadingScreen from "./components/LoadingScreen.vue"
-//import SendData from './components/SendData.vue'
-
 export default {
   name: 'App',
-  components: {
-    test
-    //ChatList,
-    //LoadingScreen
-    //SendData
-  },
   data() {
-    /*
-    */
     return {
       isLoading: true,
       showWorkflow: false,
       backcolor: "#EEEEEF",
-      name2: "Show Chats",
-      users: [
-        {name:'player', id: 0},
-        {name:'Marcos', id: 1},
-        {name:'Oscar', id: 2},
-        {name:'Marta', id: 3}
-      ],
-      chatGroups: [
-        {name:'Fiesta Cumple', id: 0},
-        {name:'GrupoAcoso', id: 1}
-      ]
+      name2: "Show Chats"
     };
   },
   computed:{
