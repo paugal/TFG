@@ -13,10 +13,11 @@
             </div>
             
             <div v-if="showWorkflow">
-              <ChatList/>
+              <div class="xyz-in" xyz="fade up"><ChatList/></div>
             </div>
+            
 
-            <button @click="showWorkflow = true">Show Workflow</button>
+            <button type="button" class="btn btn-primary" style="margin: 20px 60px 0px 60px" @click="showWorkflow = true">{{name2}}</button>
             <div class="iphone_bar"></div>
         </div>
   </div>
@@ -38,19 +39,24 @@ export default {
   },
   data() {
     /*
-    users: [
-      {name:'player', id: 0},
-      {name:'Marcos', id: 1},
-      {name:'Oscar', id: 2},
-      {name:'Marta', id: 3}
-    ];
-    chatGroups: [
-      {name:'Fiesta Cumple', id: 0},
-      {name:'GrupoAcoso', id: 1}
-    ]*/
+    */
     return {
       showWorkflow: false,
+      name2: "Show Chats",
+      users: [
+        {name:'player', id: 0},
+        {name:'Marcos', id: 1},
+        {name:'Oscar', id: 2},
+        {name:'Marta', id: 3}
+      ],
+      chatGroups: [
+        {name:'Fiesta Cumple', id: 0},
+        {name:'GrupoAcoso', id: 1}
+      ]
     };
+  },
+  computed:{
+
   }
 }
 </script>
@@ -64,6 +70,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.btn{
+  background-color:#07C286;
+  border-color:#07C286;
 }
 body{
   background-color: #EEEEEF;

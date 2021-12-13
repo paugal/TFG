@@ -4,7 +4,7 @@
         href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
         crossorigin="anonymous">
-        <h1 class='titlechats'>Chats</h1>
+        <h1 class='titlechats'>Chat</h1>
 
             <div class="user">
                 <img src="https://i.ibb.co/S7vP88k/user-image-marcos.jpg" alt="user-image-marcos" border="0">
@@ -42,8 +42,6 @@
 </template>
 
 <script>
-
-//import chat from './chat.vue'
 
 export default({
     name: 'test',
