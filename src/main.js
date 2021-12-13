@@ -7,6 +7,7 @@ import Intro from './components/Intro.vue'
 import LoadingScreen from './components/LoadingScreen.vue'
 import SendData from './components/SendData.vue'
 import test from './components/test.vue'
+import Phone from './components/Phone.vue'
 
 import VueAnimXyz from '@animxyz/vue3'
 import '@animxyz/core'
@@ -48,6 +49,7 @@ const app = createApp(App)
 .component('font-awesome-icon', FontAwesomeIcon)
 .component('Chat',Chat)
 .component('ChatsList',ChatsList)
+.component('Phone', Phone)
 .component('Intro',Intro)
 .component('LoadingScreen',LoadingScreen)
 .component('SendData',SendData)

@@ -5,27 +5,55 @@
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
         crossorigin="anonymous">
 
+      <div v-if="!isLoading && !showWorkflow && !isChat" class="marvel-device iphone-x">
+        <div class="notch">
+            <div class="camera"></div>
+            <div class="speaker"></div>
+        </div>
+        <div class="top-bar"></div>
+        <div class="sleep"></div>
+        <div class="bottom-bar"></div>
+        <div class="volume"></div>
+        <div class="overflow">
+            <div class="shadow shadow--tr"></div>
+            <div class="shadow shadow--tl"></div>
+            <div class="shadow shadow--br"></div>
+            <div class="shadow shadow--bl"></div>
+        </div>
+        <div class="inner-shadow"></div>
+        <div class="screen " style="background: #07C286">
         
-        <div v-if="isLoading || (!showWorkflow && !showWorkflow)" class="card loadscreen xyz-in" xyz="fade up" >
+          <div v-if="isLoading || (!showWorkflow && !showWorkflow) && !isChat">
             <!--Pantalla de carga -->
             <div v-if="isLoading" class="centredelement">
-                <div class="half-circle-spinner">
-                    <div class="circle circle-1"></div>
-                    <div class="circle circle-2"></div>
-                </div>
+                  <div class="half-circle-spinner">
+                      <div class="circle circle-1"></div>
+                      <div class="circle circle-2"></div>
+                  </div>
             </div>
 
             <!-- Introduccion -->
-            <div v-if="!isLoading && !showWorkflow" >
-                <Intro/>
-            <button  type="button" class="btn btn-primary" style="margin: 20px 60px 0px 60px" 
-            @click="showWorkflow = true">NEXT</button>
+            <div v-if="!isLoading && !showWorkflow && !isChat" >
+                  <Intro/>
+              <button  type="button" class="btn btn-primary" style="margin: 20px 60px 0px 60px" 
+              @click="showWorkflow = true">NEXT</button>
             </div>
+
+          </div>
         </div>
-                    <!-- Chat List -->
-        <div v-if="!isLoading && showWorkflow" class="card">
-            <ChatsList  class="xyz-in" xyz="fade in" v-if="showWorkflow"/>
-        </div>
+      </div>
+      
+
+      <!-- Chat List -->
+      <div v-if="!isLoading && showWorkflow && !isChat">
+          <ChatsList  class="xyz-in" xyz="fade in" v-if="showWorkflow"/>
+      </div>
+
+
+      <!-- Chat -->
+      <div v-if="isChat">
+        <Chat/>
+      </div>
     </div>
 </template>
 
@@ -38,13 +66,14 @@ export default({
         return{
             isLoading: true,
             showWorkflow: false,
-            '--button-bg-color': "#07C286"
+            isChatList: false,
+            isChat: false
         }
     },
     mounted() {
         setTimeout(() => {
         this.isLoading = false;
-        }, 3500);
+        }, 500);
   }
 })
 
@@ -52,6 +81,7 @@ export default({
 </script>
 
 <style scoped>
+
 #app {
   
   font-family: "Segoe UI";

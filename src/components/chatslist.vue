@@ -1,50 +1,75 @@
 <template>
-    <div id="chatlist">
+    <div v-if="!isChat" id="chatlist">
         <link rel="stylesheet" 
         href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
         crossorigin="anonymous">
-        <div>
-            <div class="clock">22:12</div>
-            <div class="notIcons">
-                <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
-            </div>
+
+        <div class="marvel-device iphone-x">
+        <div class="notch">
+            <div class="camera"></div>
+            <div class="speaker"></div>
         </div>
-
-        <h1 class='titlechats'>Chat</h1>
-            
-            <div class="user">
-                <img src="https://i.ibb.co/S7vP88k/user-image-marcos.jpg" alt="user-image-marcos" border="0">
-                <div class="username">Marcoos</div>
-                <i class="fas fa-chevron-right"></i>
-                <div class="msgpreview">text preview</div>
-            </div>
-
-            <div class="user">
-                <img src="https://i.ibb.co/yh14wQs/user-image-bully.jpg" alt="user_image_bully" border="0">                 
-                <div class="username">Oscar clase</div>
-                <i class="fas fa-chevron-right"></i>
-                <div class="msgpreview">text preview</div>
-            </div>
-
-            <div class="user">
-                <div class="block">
-                    <img src="https://i.ibb.co/S7vP88k/user-image-marcos.jpg" alt="user-image-marcos" border="0">
-                    <div class="username">Marcoos</div>
-                    <i class="fas fa-chevron-right"></i>
-                    <div class="msgpreview">text preview </div>
+        <div class="top-bar"></div>
+        <div class="sleep"></div>
+        <div class="bottom-bar"></div>
+        <div class="volume"></div>
+        <div class="overflow">
+            <div class="shadow shadow--tr"></div>
+            <div class="shadow shadow--tl"></div>
+            <div class="shadow shadow--br"></div>
+            <div class="shadow shadow--bl"></div>
+        </div>
+        <div class="inner-shadow"></div>
+        <div class="screen">
+            <div>
+                <div class="clock">22:12</div>
+                <div class="notIcons">
+                    <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
                 </div>
             </div>
 
-            <div class="user">
-                <div class="block">
+            <h1 class='titlechats'>Chat</h1>
+                
+                <div class="user" @click="isChat = true">
+                    <img src="https://i.ibb.co/S7vP88k/user-image-marcos.jpg" alt="user-image-marcos" border="0">
+                    <div class="username">Marcoos</div>
+                    <i class="fas fa-chevron-right"></i>
+                    <div class="msgpreview">text preview</div>
+                </div>
+
+                <div class="user">
                     <img src="https://i.ibb.co/yh14wQs/user-image-bully.jpg" alt="user_image_bully" border="0">                 
                     <div class="username">Oscar clase</div>
                     <i class="fas fa-chevron-right"></i>
                     <div class="msgpreview">text preview</div>
                 </div>
-            </div>
-            
+
+                <div class="user">
+                    <div class="block">
+                        <img src="https://i.ibb.co/S7vP88k/user-image-marcos.jpg" alt="user-image-marcos" border="0">
+                        <div class="username">Marcoos</div>
+                        <i class="fas fa-chevron-right"></i>
+                        <div class="msgpreview">text preview </div>
+                    </div>
+                </div>
+
+                <div class="user">
+                    <div class="block">
+                        <img src="https://i.ibb.co/yh14wQs/user-image-bully.jpg" alt="user_image_bully" border="0">                 
+                        <div class="username">Oscar clase</div>
+                        <i class="fas fa-chevron-right"></i>
+                        <div class="msgpreview">text preview</div>
+                    </div>
+                </div>
+
+                SELECCIONA MARCOS PARA IR AL CHAT
+        </div>
+        </div>
+    </div>
+
+    <div v-if="isChat">
+        <Chat/>
     </div>
 </template>
 
@@ -54,6 +79,7 @@ export default({
     name: 'test',
     data() {
         return{
+            isChat: false
         }
     },
 })
