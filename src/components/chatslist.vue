@@ -48,7 +48,7 @@
 
                 <div class='bottombar' >
                     
-                    <i class="fas fasMenu fa-question-circle fa-2x"></i>
+                    <router-link  :to="{name:'info'}"> <i class="fas fasMenu fa-question-circle fa-2x"></i> </router-link>
                     <i class="fas fasMenu fa-redo-alt fa-2x"></i>
                     <router-link  :to="{name:'settings'}"> <i class="fas fasMenu fa-cogs fa-2x"></i>  </router-link>
                     
@@ -85,7 +85,7 @@ export default({
 
 <style scoped>
 .card{
-    background: #07C286;
+    background: var(--main-color);
     
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.0);
     transition: 0.3s;
@@ -172,14 +172,14 @@ export default({
 }
 
 .fasArrow{
-    color: #07c286;
+    color: var(--main-color);
     float: right;
     margin-right: 5px;
     margin-top: 25px;
 }
 
 .fasMenu{
-    color: #07c286;
+    color: var(--main-color);
     margin: 20px 30px 0px 30px;
 
 }

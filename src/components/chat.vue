@@ -46,15 +46,14 @@
 
                 <div class='bottombar' >
                     <div v-for="index in this.$store.getters.getOptionsLenght" :key="index">
-                        <div class='msgSelector' v-if="this.$store.getters.getOptionsLenght > 0"  
-                        @click= "enablePathOptions(this.$store.getters.getOptions[index-1].id);
+                        <div class='msgSelector xyz-in'  xyz="fade down" v-if="this.$store.getters.getOptionsLenght > 0"  
+                        @click= " show = !show; enablePathOptions(this.$store.getters.getOptions[index-1].id);
                         setLastPath(this.$store.getters.getOptions[index-1].id); 
                         activePathMsg(this.$store.getters.getActivedMsgforOption.activator);
                         disablePathOptions(this.$store.getters.getOptions[index-1].question)"> 
                                 <div>{{this.$store.getters.getOptions[index-1].text}}</div>
                         </div>
                     </div>
-
                 </div>
             
                 </div>
@@ -69,6 +68,7 @@ import Scrollbar from "vue3-smooth-scrollbar";
 export default {
     components: { Scrollbar },
     props: ["userid"],
+
     mounted () {
         
         //console.log(this.$store.getters.getChatUser);
@@ -81,6 +81,7 @@ export default {
         console.log(this.$store.getters.getChatUserInfo);*/
     },
     methods: {
+
         setLastPath: function (optionId){
             this.$store.commit('setLastPath', optionId)
             console.log(this.$store.getters.getActivedMsgforOption.activator.length);
@@ -93,15 +94,15 @@ export default {
         disablePathOptions: function (questionId){
             this.$store.commit('disablePathOptions', questionId)
         }, 
-        enablePathOptions: function (pathId){
-            this.$store.commit('enablePathOptions', pathId)
+        enablePathOptions: function (questionId){
+            this.$store.commit('enablePathOptions', questionId)
         }, 
-
 
         reload(){
             this.$forceUpdate();
         },
     }
+    
 }
 </script>
 

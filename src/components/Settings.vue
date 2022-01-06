@@ -39,7 +39,7 @@
                  <div class='cardSettings'> 
                      <div class='textSettings'> Imagen de Fondo:</div>
                      <div style='margin:10px'>
-                        <img class='backgroundImage' src="https://i.ibb.co/ZWgR5BJ/wallpaper.jpg" alt="not-icons" border="0">
+                        <img @click= "setBackgroundImage('https://i.ibb.co/ZWgR5BJ/wallpaper.jpg')" class='backgroundImage' src="https://i.ibb.co/ZWgR5BJ/wallpaper.jpg" alt="not-icons" border="0">
                         <img class='backgroundImage' src="https://i.ibb.co/zRNQYd5/wp4410724.jpg" alt="not-icons" border="0">
                         <img  class='backgroundImage' src="https://i.ibb.co/CJQybvx/Pure-black-color-whatsapp-chat-wallpaper.jpg" alt="not-icons" border="0">
                      </div>
@@ -67,7 +67,9 @@ export default({
         }
     },
     methods: {
-
+        setBackgroundImage: function (link){
+            this.$store.commit('setBackgroundImage', link)
+        }
     }
 })
 
@@ -99,7 +101,7 @@ export default({
 }
 .backgroundImage:hover{
     box-shadow: 0 4px 8px 0 rgba(87, 66, 66, 0.35);
-    border: 2px solid #07c286
+    border: 2px solid var(--main-color)
 }
 .topbar{
     background: rgb(228, 228, 228);
@@ -137,14 +139,14 @@ export default({
 
 
 .fasArrow{
-    color: #07c286;
+    color: var(--main-color);
     float: left;
     margin: 118px 10px 0px -50px;
 }
 
 
 .fasMenu{
-    color: #07c286;
+    color: var(--main-color);
     margin: 20px 30px 0px 30px;
 
 }

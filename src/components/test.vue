@@ -21,7 +21,7 @@
             <div class="shadow shadow--bl"></div>
         </div>
         <div class="inner-shadow"></div>
-        <div class="screen " style="background: #07C286">
+        <div class="screen " style="background: var(--main-color)">
         
           <div v-if="isLoading || (!isChatList)">
             <!--Pantalla de carga -->
@@ -112,7 +112,7 @@ export default({
 }
 
 .loadscreen{
-    background: #07C286;
+    background: var(--main-color);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.0);
     transition: 0.3s;
     border-radius: 35px; /* 5px rounded corners */

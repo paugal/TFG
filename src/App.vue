@@ -24,25 +24,28 @@ export default {
       isLoading: true,
       showWorkflow: false,
       backcolor: "#EEEEEF",
-      name2: "Show Chats"
+      name2: "Show Chats",
+      color: '#07C286',
     };
   },
   mounted() {
     setTimeout(() => {
       this.isLoading = false;
     }, 3500);
-  }
+  },
 }
 </script>
 
 <style>
+:root {
+  --main-color:#07C286;
+}
 #app {
   
   font-family: "Segoe UI";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 .nav-link{
@@ -50,15 +53,15 @@ export default {
   color:black
 }
 .nav-link:hover{
-  color: #07C286;
+  color: var(--main-color);
 }
 .btn{
-  background-color:#07C286;
-  border-color:#07C286;
+  background-color:var(--main-color);
+  border-color:var(--main-color);
 }
 body{
   background-color: #EEEEEF;
-  background: radial-gradient(circle, transparent 20%, #EEEEEF 20%, #EEEEEF 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #EEEEEF 20%, #EEEEEF 80%, transparent 80%, transparent) 55px 55px, linear-gradient(#07C286 4.4px, transparent 4.4px) 0 -2.2px, linear-gradient(90deg, #07C286 4.4px, #EEEEEF 4.4px) -2.2px 0;
+  background: radial-gradient(circle, transparent 20%, #EEEEEF 20%, #EEEEEF 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #EEEEEF 20%, #EEEEEF 80%, transparent 80%, transparent) 55px 55px, linear-gradient(var(--main-color) 4.4px, transparent 4.4px) 0 -2.2px, linear-gradient(90deg, var(--main-color) 4.4px, #EEEEEF 4.4px) -2.2px 0;
   background-size: 110px 110px, 110px 110px, 55px 55px, 55px 55px;
 }
 .nav{
