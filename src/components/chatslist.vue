@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!isChat" id="chatlist">
+    <div id="chatslist" v-if="!isChat" >
         <link rel="stylesheet" 
         href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
@@ -22,66 +22,62 @@
         </div>
         <div class="inner-shadow"></div>
         <div class="screen">
-            <div>
-                <div class="clock">22:12</div>
-                <div class="notIcons">
-                    <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
+
+            <div class="topbar" >
+                <div>
+                    <div class="clock">22:12</div>
+                    <div class="notIcons">
+                        <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
+                    </div>
+                </div>
+                <h1 class='titlechats'>Chat</h1>
+            </div>
+            
+
+            <div class='userlist'>
+                <div  class="xyz-in" xyz="fade down" v-for="index in 2" :key="index">
+                    <router-link class="nav-link" :to="{name:'chat'}" @click= "changeUser(this.$store.getters.getUserInfo(index+1).id)"> 
+                    <div class="user">
+                        <img :src="this.$store.getters.getUserInfo(index+1).image">
+                        <div class="username">{{this.$store.getters.getUserInfo(index+1).name}}</div>
+                        <i class="fas fasArrow fa-chevron-right fa-lg"></i>
+                    </div>
+                    </router-link>
                 </div>
             </div>
 
-            <h1 class='titlechats'>Chat</h1>
-                
-                <div class="user" @click="isChat = true">
-                    <img src="https://i.ibb.co/S7vP88k/user-image-marcos.jpg" alt="user-image-marcos" border="0">
-                    <div class="username">Marcoos</div>
-                    <i class="fas fa-chevron-right"></i>
-                    <div class="msgpreview">text preview</div>
+                <div class='bottombar' >
+                    
+                    <i class="fas fasMenu fa-question-circle fa-2x"></i>
+                    <i class="fas fasMenu fa-redo-alt fa-2x"></i>
+                    <router-link  :to="{name:'settings'}"> <i class="fas fasMenu fa-cogs fa-2x"></i>  </router-link>
+                    
                 </div>
 
-                <div class="user">
-                    <img src="https://i.ibb.co/yh14wQs/user-image-bully.jpg" alt="user_image_bully" border="0">                 
-                    <div class="username">Oscar clase</div>
-                    <i class="fas fa-chevron-right"></i>
-                    <div class="msgpreview">text preview</div>
-                </div>
 
-                <div class="user">
-                    <div class="block">
-                        <img src="https://i.ibb.co/S7vP88k/user-image-marcos.jpg" alt="user-image-marcos" border="0">
-                        <div class="username">Marcoos</div>
-                        <i class="fas fa-chevron-right"></i>
-                        <div class="msgpreview">text preview </div>
-                    </div>
-                </div>
-
-                <div class="user">
-                    <div class="block">
-                        <img src="https://i.ibb.co/yh14wQs/user-image-bully.jpg" alt="user_image_bully" border="0">                 
-                        <div class="username">Oscar clase</div>
-                        <i class="fas fa-chevron-right"></i>
-                        <div class="msgpreview">text preview</div>
-                    </div>
-                </div>
-
-                SELECCIONA MARCOS PARA IR AL CHAT
         </div>
         </div>
-    </div>
-
-    <div v-if="isChat">
-        <Chat/>
     </div>
 </template>
 
 <script>
-
 export default({
     name: 'test',
     data() {
         return{
-            isChat: false
+            isChat: false,
+            userid: "001102",
+            link: 'yh14wQs/user-image-bully' ,
+            playerId: 1,
+            marcosId: 2,
+            oscarId: 3,
         }
     },
+    methods: {
+        changeUser: function (id){
+            this.$store.commit('setUserChat', id)
+        }
+    }
 })
 
 
@@ -109,44 +105,55 @@ export default({
     background-size: cover;
     background-position: center;
 }
+.topbar{
+    background: rgb(228, 228, 228);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.05);
+    transition: 0.3s;
+    border: 1px solid rgb(185, 185, 185);
+    
+}
+.userlist{
+    padding-top: 20px;
+    min-height: 555px;
+}
+.bottombar{
+    background: rgb(228, 228, 228);
+    transition: 0.3s;
+    border: 1px solid rgb(185, 185, 185);
+    height: 70px;
+}
 
 .titlechats{
     color: black;
     text-align: left;
-    margin-top:50px;
-    margin-left: 20px;
+    font-size: 50px;
+    margin: 100px 0px 25px 20px;
 }
 .user {
   padding: 0px 10px;
-  box-shadow: 0 4px 8px 0 rgba(87, 66, 66, 0.05);
+  box-shadow: 0 4px 8px 0 rgba(87, 66, 66, 0.15);
   height: 70px;
   line-height:25px;
   border-radius: 5px;
   background-color: #f1f1f1;
-  margin: 5%;
+  margin: 0%;
+  
+}
+.user:hover{
+    box-shadow: 0 4px 8px 0 rgba(87, 66, 66, 0.35);
 }
 .user .block{
     opacity: 0.5;
 }
 .clock{
-    font-size: 14px;
-    width: 12%;
-    margin: 0px;
-    text-align: left;
-    margin-top: 0px;
-    margin-left: 15px;
-    font-weight: bold;
-    float: left;
+    margin: 5px 0 0 25px;
+    font-size: 17px;
 }
 .notIcons{
-    float: right;
-    text-align: right;
-    margin-top: -4px;
-    margin-right: 5px;
-    width: 60px;
+    margin: 5px 23px 0 0;
 }
 .notIcons img{
-    width: 60px;
+    width: 70px;
 }
 .user img {
     float: left;
@@ -156,26 +163,27 @@ export default({
     border-radius: 5px;
 }
 .username{
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
-    padding: 10px 0px 0px 0px;
+    padding-top: 22px;
     text-align: left;
-    padding-left: 70px;
+    padding-left: 20px;
+    float: left;
 }
-.msgpreview{
-    font-size: 12px;
-    text-align: left;
-    padding-left: 70px;
-    color: grey;
-}
-.fas{
+
+.fasArrow{
     color: #07c286;
     float: right;
     margin-right: 5px;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    margin-top: 25px;
 }
+
+.fasMenu{
+    color: #07c286;
+    margin: 20px 30px 0px 30px;
+
+}
+
 .iphone_bar{
     background: black;
     border-radius: 5px;
@@ -184,7 +192,5 @@ export default({
     bottom: 0px;
     box-shadow: 0 4px 8px 0 rgba(87, 66, 66, 0.1);
 }
-.space{
-    margin: 300px;
-}
+
 </style>

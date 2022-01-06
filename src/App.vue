@@ -5,7 +5,13 @@
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
         crossorigin="anonymous">
     
-    <test/>
+    <div id="nav" class="nav">
+      <router-link class="nav-link" :to="{path:'/', name:'Home'}" > HOME </router-link>
+      <router-link to="/chatslist" class="nav-link"> ChatsList </router-link>
+      <router-link to="/chat" class="nav-link"> Chat </router-link>
+      
+    </div>
+    <router-view/>
     
   </div>
 </template>
@@ -20,16 +26,6 @@ export default {
       backcolor: "#EEEEEF",
       name2: "Show Chats"
     };
-  },
-  computed:{
-    /*<div id="maincontainer" class="card xyz-in" xyz="fade up" :style="{background: backcolor}" >
-        changeMainColor(color){
-      return{
-        backcolor:color
-      }
-    } 
-    */
-
   },
   mounted() {
     setTimeout(() => {
@@ -49,6 +45,13 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+.nav-link{
+  font-family: "Segoe UI";
+  color:black
+}
+.nav-link:hover{
+  color: #07C286;
+}
 .btn{
   background-color:#07C286;
   border-color:#07C286;
@@ -57,6 +60,17 @@ body{
   background-color: #EEEEEF;
   background: radial-gradient(circle, transparent 20%, #EEEEEF 20%, #EEEEEF 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #EEEEEF 20%, #EEEEEF 80%, transparent 80%, transparent) 55px 55px, linear-gradient(#07C286 4.4px, transparent 4.4px) 0 -2.2px, linear-gradient(90deg, #07C286 4.4px, #EEEEEF 4.4px) -2.2px 0;
   background-size: 110px 110px, 110px 110px, 55px 55px, 55px 55px;
+}
+.nav{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 35px;
+  padding: 5px 15px 5px 15px;
+  background: whitesmoke;
+  margin: 0 40% 10px 40%;
+  text-align: center;
+  padding-left: 60px;
+
 }
 
 .card{

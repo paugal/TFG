@@ -16,9 +16,11 @@
     border-radius: 35px; /* 5px rounded corners */
     border: 0px solid black;
     padding: 10px;
+    margin: 10px;
 }
 .avatar{
-    width: 100%;
+    margin-top: 50px;
+    width: 350px;
     -webkit-filter: drop-shadow(5px 5px 5px #222);
     filter:         drop-shadow(5px 5px 5px #222);
 }
