@@ -26,6 +26,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import PerfectScrollbar from 'vue3-perfect-scrollbar'
 import 'vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css'
 
+
 //Librerias
 import naive from "naive-ui";
 

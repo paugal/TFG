@@ -29,7 +29,7 @@
                         <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
                     </div>
 
-                    <router-link to="/chatslist"> <i class="fas fasArrow fa-chevron-left"></i> </router-link>
+                    <router-link :to="{name:'chatslist'}"> <i class="fas fasArrow fa-chevron-left"></i> </router-link>
                     <img class="userImage" :src="this.$store.getters.getChatUserInfo.image" alt="user_image_bully" border="0">                 
                     <div class="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
                     

@@ -36,8 +36,9 @@
             <!-- Introduccion -->
             <div v-if="!isLoading && !isChatList && !isChat" >
                   <Intro/>
+              <router-link  class="nav-link" :to="{name:'chatslist'}"> 
               <button  type="button" class="btn btn-primary" style="margin: 20px 60px 0px 60px" 
-              @click="isChatList = true">NEXT</button>
+              @click="isChatList = true">NEXT</button>  </router-link>
             </div>
 
           </div>

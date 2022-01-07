@@ -6,10 +6,9 @@
         crossorigin="anonymous">
     
     <div id="nav" class="nav">
-      <router-link class="nav-link" :to="{path:'/', name:'Home'}" > HOME </router-link>
-      <router-link to="/chatslist" class="nav-link"> ChatsList </router-link>
-      <router-link to="/chat" class="nav-link"> Chat </router-link>
-      
+      <router-link class="nav-link" :to="{name:'Home'}" > HOME </router-link>
+      <router-link class="nav-link" :to="{name:'chatslist'}" > ChatsList </router-link>
+      <router-link class="nav-link" :to="{name:'chat'}" > Chat </router-link>
     </div>
     <router-view/>
     
