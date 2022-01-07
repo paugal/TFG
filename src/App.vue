@@ -69,9 +69,11 @@ body{
   border-radius: 35px;
   padding: 5px 15px 5px 15px;
   background: whitesmoke;
-  margin: 0 40% 10px 40%;
+  margin: auto;
+  margin-bottom: 10px;
   text-align: center;
   padding-left: 60px;
+  width: 350px;
 
 }
 
