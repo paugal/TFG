@@ -1,43 +1,36 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import test from '../components/test.vue'
+import Intro from '../components/Intro.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: test
+    component: Intro
+  },
+  {
+    path: '/',
+    name: 'HomeMobile',
+    component: () => import( '../components/mobile/IntroMobile.vue'),
   },
   {
     path: '/chat',
     name: 'chat',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../components/Chat.vue'),
+    component: () => import('../components/Chat.vue'),
   },
   {
     path: '/chatslist',
     name: 'chatslist',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../components/ChatsList.vue')
+    component: () => import( '../components/ChatsList.vue')
   },
   {
     path: '/settings',
     name: 'settings',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../components/Settings.vue')
+    component: () => import( '../components/Settings.vue')
   },
   {
     path: '/info',
     name: 'info',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../components/Info.vue')
+    component: () => import('../components/Info.vue')
   }
 ]
 

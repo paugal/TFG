@@ -1,0 +1,115 @@
+:root {
+  --main-color:#07C286;
+}
+body{
+  background-color: #EEEEEF;
+  background: radial-gradient(circle, transparent 20%, #EEEEEF 20%, #EEEEEF 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #EEEEEF 20%, #EEEEEF 80%, transparent 80%, transparent) 55px 55px, linear-gradient(var(--main-color) 4.4px, transparent 4.4px) 0 -2.2px, linear-gradient(90deg, var(--main-color) 4.4px, #EEEEEF 4.4px) -2.2px 0;
+  background-size: 110px 110px, 110px 110px, 55px 55px, 55px 55px;
+}
+
+#app {
+  font-family: "Segoe UI";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.nav-link{
+  font-family: "Segoe UI";
+  color:black
+}
+
+.nav-link:hover{
+  color: var(--main-color);
+}
+
+.btn{
+  background-color:var(--main-color);
+  border-color:var(--main-color);
+}
+
+.nav{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 35px;
+  padding: 5px 15px 5px 15px;
+  background: whitesmoke;
+  margin: auto;
+  margin-bottom: 10px;
+  text-align: center;
+  padding-left: 60px;
+  width: 350px;
+
+}
+
+.clock{
+    width: 12%;
+    text-align: left;
+    font-weight: bold;
+    float: left;
+    margin: 5px 0 0 25px;
+    font-size: 17px;
+}
+
+.notIcons{
+    float: right;
+    text-align: right;
+    width: 60px;
+    margin: 5px 23px 0 0;
+}
+
+.notIcons img{
+    width: 60px;
+}
+
+.shake {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+/*  ESTILOS COMPARTIDOS ESTRE VARIOS COMPONENTES PERO NO TODOS*/
+.topbar{
+  background: rgb(228, 228, 228);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.05);
+  transition: 0.3s;
+  border: 1px solid rgb(185, 185, 185);
+}
+.bottombar{
+  background: rgb(228, 228, 228);
+  transition: 0.3s;
+  border: 1px solid rgb(185, 185, 185);
+  height: 70px;
+}
+.fasMenu{
+  color: var(--main-color);
+  margin: 20px 30px 0px 30px;
+}
+.fasArrow{
+  color: var(--main-color);
+  float: left;
+  margin: 118px 10px 0px -50px;
+}
+.titlechats{
+  color: black;
+  text-align: left;
+  font-size: 45px;
+  margin: 100px 0px 25px 50px;
+}

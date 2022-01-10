@@ -126,9 +126,6 @@ export default createStore({
     getBackgroundImage: (state) => {
       return state.backgroundImage;
     }
-
-
-
   },
   mutations: {
 
@@ -143,12 +140,6 @@ export default createStore({
 
     setLastPath(state, optionId){
       state.lastPath = optionId
-      console.log(state.lastPath)
-      /*
-      for(let i = 0; i < getters.getActivedMsgforOption.activator.length; i++){
-        //state.getters.getMsgById(getters.getActivedMsgforOption.activator[i-1]).shown = true
-        console.log(getters.getActivedMsgforOption.activator[i-1])
-      }*/
     },
 
     activePathMsg(state, msgsId){
@@ -164,7 +155,6 @@ export default createStore({
       for(let i = 0; i < questions.length; i++){
         questions[i].shown = false
       }
-
     },
 
     enablePathOptions(state, optionId){
@@ -174,13 +164,8 @@ export default createStore({
         try{
           state.path.find(path => path.id == questions[i]).shown = true;
         }catch(error){console.log('Error enablePathoptions')}
-        
       }
-
     },
-
-    
-
   },
   actions: {
   },

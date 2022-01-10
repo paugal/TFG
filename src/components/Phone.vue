@@ -1,4 +1,5 @@
 <template>
+
     <div class="marvel-device iphone-x">
         <div class="notch">
             <div class="camera"></div>
@@ -16,11 +17,14 @@
         </div>
         <div class="inner-shadow"></div>
         <div class="screen">
-            <!-- Content goes here -->
+            <slot></slot>
         </div>
     </div>
+
 </template>
 
-<style scoped>
-@import "../assets/devices.min.css"
-</style>
+<script>
+export default {
+    name:'Phone',
+}
+</script>
