@@ -2,7 +2,7 @@
     <Phone>
         <div class="screen xyz-in" xyz="fade right" style='background-image: url("https://i.ibb.co/7SFMs56/Captura-de-pantalla-2022-01-04-165226.png"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
             
-            <div class="topbar" >
+            <div class="topbar">
                 <div>
                     <div class="clock">22:12</div>
                     <div class="notIcons">
@@ -135,7 +135,6 @@ h1{
 }
 .cardSettings{
     background: rgb(228, 228, 228);
-    
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 20px; /* 5px rounded corners */
@@ -161,7 +160,7 @@ h1{
 }
 .settingslist{
     padding-top: 20px;
-    min-height: 555px;
+    min-height: 480px;
     background-color: white;
 }
 </style>

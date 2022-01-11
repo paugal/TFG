@@ -46,7 +46,7 @@ export default({
 <style scoped>
 .userlist{
     padding-top: 20px;
-    min-height: 477px;
+    min-height: 480px;
 }
 .user {
   padding: 0px 10px;

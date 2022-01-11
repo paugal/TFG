@@ -1,5 +1,4 @@
 <template>
-
     <div class="marvel-device iphone-x">
         <div class="notch">
             <div class="camera"></div>
@@ -20,7 +19,6 @@
             <slot></slot>
         </div>
     </div>
-
 </template>
 
 <script>

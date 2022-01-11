@@ -105,11 +105,11 @@ body{
 .fasArrow{
   color: var(--main-color);
   float: left;
-  margin: 118px 10px 0px -50px;
+  margin: 85px 10px 0px -50px;
 }
 .titlechats{
   color: black;
   text-align: left;
   font-size: 45px;
-  margin: 100px 0px 25px 50px;
+  margin: 70px 0px 10px 50px;
 }

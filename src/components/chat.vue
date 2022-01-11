@@ -3,16 +3,20 @@
         <div class="screen" style='background-image: url("https://i.ibb.co/7SFMs56/Captura-de-pantalla-2022-01-04-165226.png"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
             <div class="xyz-in" xyz="fade right">
                 
-                <div class="topbar" >
-
-                    <div class="clock">22:12</div>
-                    <div class="notIcons">
-                        <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
+                <div class="topbar" style="box-shadow: inset 0px -5px 10px 5px rgba(0,0,0,0.2);">
+                    <div>
+                        <div class="clock">22:12</div>
+                        <div class="notIcons">
+                            <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
+                        </div>
                     </div>
-
-                    <router-link :to="{name:'chatslist'}"> <i class="fas fasArrow fa-chevron-left"></i> </router-link>
-                    <img class="userImage" :src="this.$store.getters.getChatUserInfo.image" alt="user_image_bully" border="0">                 
-                    <div class="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
+                    
+                    <div style="margin: 50px 0px 7px 20px; display: flex; gap: 15px; align-items: center;">
+                        <router-link :to="{name:'chatslist'}"> <i class="fas fa-chevron-left"></i> </router-link>
+                        <img class="userImage" :src="this.$store.getters.getChatUserInfo.image" alt="user_image_bully" border="0">                 
+                        <div class="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
+                    </div>
+                    
                     
                 </div>
                 
@@ -78,7 +82,7 @@ export default {
 .msgSelector{
     background: white ;
     border: 2px solid var(--main-color);
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 35px;
     margin: 10px;
@@ -89,10 +93,11 @@ export default {
     background: var(--main-color);
 }
 .bottombarchat{
-  background: rgb(228, 228, 228);
-  transition: 0.3s;
-  border: 1px solid rgb(185, 185, 185);
-  height: 300px;
+    box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
+    background: rgb(228, 228, 228);
+    transition: 0.3s;
+    border: 1px solid rgb(185, 185, 185);
+    height: 300px;
 }
 .chatbox{
     background-image: url("https://i.ibb.co/ZWgR5BJ/wallpaper.jpg");
@@ -101,7 +106,7 @@ export default {
     background-size: cover;
     background-position: center;
     position: relative;
-    height: 500px;
+    height: 400px;
     padding: 10px;
 }
 .chattext{
@@ -112,6 +117,7 @@ export default {
     max-width: 80%;
     position: relative;
     padding: 5px 20px 5px 20px;
+    overflow-x: hidden;
 }
 .chattext.receive{
     background: rgba(245, 245, 245, 0.9);
@@ -129,16 +135,11 @@ export default {
     color: var(--main-color);
     text-shadow: 0 0 1px black;
     font-size: 25px;
-    float: left;
-    margin-left: -10px;
-    margin-top: 65px;
-    top: 50%;
 }
 .userImage{
     width: 70px;
+    height: 70px;
     border-radius: 25px;
-    margin: 40px 10px 10px 20px;
-    position: relative;
     border: 3px solid var(--main-color);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.13);
 }
@@ -146,6 +147,8 @@ export default {
     text-align: center;
     margin-bottom: 5px;
     text-shadow: 0 0 0.5px black;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 </style>
