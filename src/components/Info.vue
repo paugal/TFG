@@ -35,7 +35,7 @@
             </div>
 
             <div class='bottombar' >
-                <i class="fas fasMenu fa-question-circle fa-2x"></i>
+                <i class="fas fasMenu fa-user fa-2x"></i>
                 <i class="fas fasMenu fa-redo-alt fa-2x"></i>
                 <i class="fas fasMenu fa-cogs fa-2x"></i>
             </div>

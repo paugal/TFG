@@ -6,7 +6,6 @@ body{
   background: radial-gradient(circle, transparent 20%, #EEEEEF 20%, #EEEEEF 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #EEEEEF 20%, #EEEEEF 80%, transparent 80%, transparent) 55px 55px, linear-gradient(var(--main-color) 4.4px, transparent 4.4px) 0 -2.2px, linear-gradient(90deg, var(--main-color) 4.4px, #EEEEEF 4.4px) -2.2px 0;
   background-size: 110px 110px, 110px 110px, 55px 55px, 55px 55px;
 }
-
 #app {
   font-family: "Segoe UI";
   -webkit-font-smoothing: antialiased;
@@ -86,30 +85,43 @@ body{
 }
 
 /*  ESTILOS COMPARTIDOS ESTRE VARIOS COMPONENTES PERO NO TODOS*/
+/*
 .topbar{
   background: rgb(228, 228, 228);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.05);
   transition: 0.3s;
   border: 1px solid rgb(185, 185, 185);
 }
-.bottombar{
-  background: rgb(228, 228, 228);
+*/
+.topbar{
+  background: var(--main-color);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
   transition: 0.3s;
-  border: 1px solid rgb(185, 185, 185);
+  border-radius: 30px;
+  border: 1px solid var(--main-color);
+  color: white;
+}
+.bottombar{
+  background: var(--main-color);
+  transition: 0.3s;
+  border-radius: 30px;
+  border: 1px solid var(--main-color);
   height: 70px;
+  box-shadow: 0px 3px 3px 4px rgba(0,0,0,0.3);
+  display: flex; 
+  gap: 15px; 
+  align-items: center;
+  justify-content: space-evenly;
 }
 .fasMenu{
-  color: var(--main-color);
-  margin: 20px 30px 0px 30px;
+  color: white;
 }
 .fasArrow{
-  color: var(--main-color);
-  float: left;
-  margin: 85px 10px 0px -50px;
+  color: white;
+  margin-top: 14px;
 }
 .titlechats{
-  color: black;
-  text-align: left;
+  color: White;
+  font-weight: bolder;
   font-size: 45px;
-  margin: 70px 0px 10px 50px;
 }

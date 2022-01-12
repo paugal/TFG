@@ -20,10 +20,10 @@ import '@animxyz/core'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import VueFeather from 'vue-feather';
 
 //Scrollbar
-import PerfectScrollbar from 'vue3-perfect-scrollbar'
-import 'vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css'
+import VueSmoothScroll from 'vue3-smooth-scroll'
 
 //css
 import './assets/styles/global-style.css'
@@ -46,11 +46,12 @@ const app = createApp(App)
 .component('SendData',SendData)
 .component('intro', Intro)
 .component('IntroMobile', IntroMobile)
+.component(VueFeather.name, VueFeather)
+.use(VueSmoothScroll)
 .use(naive)
 .use(store)
 .use(VueAnimXyz)
 .use(Vuex)
-.use(PerfectScrollbar)
 .use(router)
 
 app.mount('#app')

@@ -1,6 +1,6 @@
 <template>
     <Phone>
-        <div class="screen" style='background-image: url("https://i.ibb.co/7SFMs56/Captura-de-pantalla-2022-01-04-165226.png"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
+        <div class="screen" style='background: white'>
             <div class="xyz-in" xyz="fade right">
                 <div class="topbar" >
                     <div>
@@ -9,8 +9,10 @@
                             <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
                         </div>
                     </div>
+                    <div style=" margin: 50px 0px 7px 20px; display: flex; gap: 15px; align-items: flex-start;">
                     <router-link  :to="{name:'chatslist'}"> <i class="fas fasArrow fa-chevron-left fa-2x"></i> </router-link>
                     <h1 class='titlechats'>Settings</h1>
+                    </div>
                 </div>
                
 
@@ -77,7 +79,6 @@ export default({
 }
 .settingslist{
     padding-top: 20px;
-    min-height: 555px;
-    background-color: white;
+    min-height: 500px;
 }
 </style>

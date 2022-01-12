@@ -1,9 +1,9 @@
 <template>
     <Phone>
-        <div class="screen" style='background-image: url("https://i.ibb.co/7SFMs56/Captura-de-pantalla-2022-01-04-165226.png"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
-            <div class="xyz-in" xyz="fade right">
+        <div class="screen" style='background-image: url("https://i.ibb.co/zRNQYd5/wp4410724.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
+            <div class="xyz-in" xyz="fade in">
                 
-                <div class="topbar" style="box-shadow: inset 0px -5px 10px 5px rgba(0,0,0,0.2);">
+                <div class="topbar">
                     <div>
                         <div class="clock">22:12</div>
                         <div class="notIcons">
@@ -20,13 +20,12 @@
                 </div>
                 
                 <div class='chatbox'>
-                    {{this.$store.getters.getBackgroundImage}}
-                        <scrollbar v-if="this.$store.getters.getMsgLenght > 0">
+                    <scrollbar v-if="this.$store.getters.getMsgLenght > 0">
                         <div v-for="index in this.$store.getters.getMsgLenght" :key="index">
                             <div v-if="this.$store.getters.getMsg[index-1].sender === 1" class ="chattext send xyz-in" xyz="fade right"> {{this.$store.getters.getMsg[index-1].text}}</div>
                             <div v-else class="chattext receive xyz-in" xyz="fade left"> {{this.$store.getters.getMsg[index-1].text}}</div>
                         </div>                      
-                        </scrollbar>
+                    </scrollbar>
                 </div>
 
                 <div class='bottombarchat' >
@@ -83,10 +82,12 @@ export default {
 
 <style scoped>
 
+
+
 .msgSelector{
     background: white ;
     border: 2px solid var(--main-color);
-    box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
     transition: 0.3s;
     border-radius: 35px;
     margin: 10px;
@@ -94,18 +95,17 @@ export default {
     position: relative;
 }
 .msgSelector:hover{
-    background: var(--main-color);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
 }
 .bottombarchat{
-    box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
-    background: rgb(228, 228, 228);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background: var(--main-color);
     transition: 0.3s;
-    border: 1px solid rgb(185, 185, 185);
+    padding: 5px;
     height: 300px;
+    border-radius: 30px;
 }
 .chatbox{
-    background-image: url("https://i.ibb.co/ZWgR5BJ/wallpaper.jpg");
-    background-image: url("https://i.ibb.co/zRNQYd5/wp4410724.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -136,14 +136,13 @@ export default {
     margin: 5px 5px 5px 15%;
 }
 .fas{
-    color: var(--main-color);
-    text-shadow: 0 0 1px black;
+    color: white;
     font-size: 25px;
 }
 .userImage{
     width: 70px;
     height: 70px;
-    border-radius: 25px;
+    border-radius: 40px;
     border: 3px solid var(--main-color);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.13);
 }

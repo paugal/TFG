@@ -71,11 +71,6 @@ export default({
 }
 .fas{
     color: white;
-    float: right;
-    margin-right: 5px;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
 }
 .btn{
   color:black;
