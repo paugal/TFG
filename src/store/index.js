@@ -144,9 +144,12 @@ export default createStore({
 
     activePathMsg(state, msgsId){
       for(let i = 0; i < msgsId.length; i++){
-        try{
-          state.msg.find(msg => msg.id === msgsId[i]).shown = true
-        }catch(error){return 0}
+        setTimeout(function () {
+          try{
+            state.msg.find(msg => msg.id === msgsId[i]).shown = true
+          }catch(error){return 0}
+      }, i*1000);
+        
       }
     },
 

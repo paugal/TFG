@@ -17,10 +17,10 @@
                         <div class="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
                     </div>
                     
-                    
                 </div>
                 
                 <div class='chatbox'>
+                    {{this.$store.getters.getBackgroundImage}}
                         <scrollbar v-if="this.$store.getters.getMsgLenght > 0">
                         <div v-for="index in this.$store.getters.getMsgLenght" :key="index">
                             <div v-if="this.$store.getters.getMsg[index-1].sender === 1" class ="chattext send xyz-in" xyz="fade right"> {{this.$store.getters.getMsg[index-1].text}}</div>
@@ -49,6 +49,10 @@
 import Scrollbar from "vue3-smooth-scrollbar";
 
 export default {
+    data(){
+        return{
+        }
+    },
     components: { Scrollbar },
     mounted () {
     },
