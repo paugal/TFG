@@ -6,7 +6,7 @@ export default createStore({
       username: 'matt',
       fullName: 'Matt Maribojoc'
     },
-
+    day: 0,
     chatUser: 3,
     lastPath: 1,
     colorScheme: 'var(--main-color)',
@@ -50,6 +50,10 @@ export default createStore({
     ]
   },
   getters: {
+
+    getDay: state =>{
+      return state.day
+    },
 
     firstName: state => {
       return state.user.fullName.split(' ')[0]
@@ -128,6 +132,10 @@ export default createStore({
     }
   },
   mutations: {
+
+    setDay(state, dayId){
+      state.day = dayId;
+    },
 
     setBackgroundImage(state, link){
       state.backgroundImage = link;

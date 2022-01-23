@@ -1,15 +1,18 @@
 <template>
     <Phone>
         <div class="screen" style='background: white'>
-            <div class="xyz-in" xyz="fade right">
+            <div class="xyz-in" xyz="fade in">
                 <div class="topbar" >
                     <div>
                         <div class="clock">22:12</div>
+                        
                         <div class="notIcons">
-                            <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
+                            <vue-feather type="wifi" stroke="white" size="15px"></vue-feather>
+                            <vue-feather type="battery" stroke="white" size="15px"></vue-feather>
+                            <vue-feather type="bar-chart" stroke="white" size="15px"></vue-feather>
                         </div>
                     </div>
-                    <div style=" margin: 50px 0px 7px 20px; display: flex; gap: 15px; align-items: flex-start;">
+                    <div class="tituloyflecha">
                     <router-link  :to="{name:'chatslist'}"> <i class="fas fasArrow fa-chevron-left fa-2x"></i> </router-link>
                     <h1 class='titlechats'>Settings</h1>
                     </div>
@@ -26,13 +29,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class='bottombar' >
-                    <i class="fas fasMenu fa-question-circle fa-2x"></i>
-                    <i class="fas fasMenu fa-redo-alt fa-2x"></i>
-                    <i class="fas fasMenu fa-cogs fa-2x"></i>
-                </div>
-
             </div>
         </div>
     </Phone>
@@ -51,6 +47,14 @@ export default({
 </script>
 
 <style scoped>
+.tituloyflecha{
+    margin: 50px 0px 7px 20px; 
+    display: flex; 
+    gap: 15px; 
+    align-items: flex-start; 
+    align-items: center;
+}
+
 .cardSettings{
     background: rgb(228, 228, 228);
     
@@ -65,6 +69,12 @@ export default({
 .textSettings{
     margin: 0px 0px 0px 25px;
     font-size: 20px;
+}
+.titlechats{
+    margin-bottom: 0px;
+}
+.fasArrow{
+    margin-bottom: 12px;
 }
 .backgroundImage{
     width: 90px;

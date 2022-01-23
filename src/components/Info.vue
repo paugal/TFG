@@ -1,7 +1,5 @@
 <template>
     <Phone>
-        <div class="screen xyz-in" xyz="fade right" style='background-image: url("https://i.ibb.co/7SFMs56/Captura-de-pantalla-2022-01-04-165226.png"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
-            
             <div class="topbar">
                 <div>
                     <div class="clock">22:12</div>
@@ -9,10 +7,10 @@
                         <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
                     </div>
                 </div>
+                
                 <router-link  :to="{name:'chatslist'}"> <i class="fas fasArrow fa-chevron-left fa-2x"></i> </router-link>
                 <h2 class='titlechats'>Información</h2>
             </div>
-            
 
             <div class='settingslist'>
                 <div class='home'>
@@ -22,6 +20,7 @@
                     <div v-for="index in this.msg.length" :key="index">
                         {{setText(this.msg[index-1].text)}}
                         <h1 v-html="paper"> </h1>
+                        {{this.titleText}}
                     </div>
                 </div>
 
@@ -33,14 +32,6 @@
                     <button :style="btnStyles">My button</button>
                 </div>
             </div>
-
-            <div class='bottombar' >
-                <i class="fas fasMenu fa-user fa-2x"></i>
-                <i class="fas fasMenu fa-redo-alt fa-2x"></i>
-                <i class="fas fasMenu fa-cogs fa-2x"></i>
-            </div>
-
-        </div>
     </Phone>
 </template>
 
@@ -93,6 +84,7 @@ export default({
                 const x = i%this.titleText.length
                 this.paper += this.titleText[x]
             }, 100-(Math.random()*50))
+
         },
         stopper(){
             clearInterval(this.timer)
@@ -134,7 +126,6 @@ h1{
     to{border-right: 2px transparent solid;}
 }
 .cardSettings{
-    background: rgb(228, 228, 228);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 20px; /* 5px rounded corners */
@@ -161,6 +152,5 @@ h1{
 .settingslist{
     padding-top: 20px;
     min-height: 480px;
-    background-color: white;
 }
 </style>

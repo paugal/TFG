@@ -1,17 +1,18 @@
 <template>
     <Phone>
-        <div class="screen" style='background-image: url("https://i.ibb.co/zRNQYd5/wp4410724.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
-            <div class="xyz-in" xyz="fade in">
-                
-                <div class="topbar">
+        <div class="screen xyz-in" xyz="fade in" style='background-image: url("https://i.ibb.co/zRNQYd5/wp4410724.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
+                <div class="topbarchat">
                     <div>
                         <div class="clock">22:12</div>
+                        
                         <div class="notIcons">
-                            <img src="https://i.ibb.co/b6p3Z4N/not-icons.png" alt="not-icons" border="0">
+                            <vue-feather type="wifi" stroke="white" size="15px"></vue-feather>
+                            <vue-feather type="battery" stroke="white" size="15px"></vue-feather>
+                            <vue-feather type="bar-chart" stroke="white" size="15px"></vue-feather>
                         </div>
                     </div>
                     
-                    <div style="margin: 50px 0px 7px 20px; display: flex; gap: 15px; align-items: center;">
+                    <div style="margin: 20px 0px 10px 35px; display: flex; gap: 25px; align-items: center;">
                         <router-link :to="{name:'chatslist'}"> <i class="fas fa-chevron-left"></i> </router-link>
                         <img class="userImage" :src="this.$store.getters.getChatUserInfo.image" alt="user_image_bully" border="0">                 
                         <div class="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
@@ -38,8 +39,11 @@
                                 <div>{{this.$store.getters.getOptions[index-1].text}}</div>
                         </div>
                     </div>
+                    <div v-if="this.$store.getters.getOptionsLenght == 0">
+                        <div class="tipmsg"> De momento no puedes decir nada mas, prueva a hablar con otra persona</div>
+                    </div>
                 </div>
-            </div>
+            
         </div>
     </Phone>
 </template>
@@ -86,7 +90,7 @@ export default {
 
 .msgSelector{
     background: white ;
-    border: 2px solid var(--main-color);
+    border: 2px solid var(--chat-color);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
     transition: 0.3s;
     border-radius: 35px;
@@ -99,19 +103,35 @@ export default {
 }
 .bottombarchat{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    background: var(--main-color);
+    background-color: var(--chat-color);
     transition: 0.3s;
     padding: 5px;
-    height: 300px;
+    height: 160px;
     border-radius: 30px;
+    backdrop-filter: blur(2px);
+}
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .backdrop-blur {
+    background-color: rgba(255, 255, 255, .5);
+    -webkit-backdrop-filter: blur(2em);
+    backdrop-filter: blur(2em);
+  }
+}
+
+.tipmsg{
+    border-radius: 35px;
+    width: fit-content;
+    padding: 5px 20px 5px 20px;
+    background: rgba(255, 255, 255, 0.9);
 }
 .chatbox{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;
-    height: 400px;
+    height: 405px;
     padding: 10px;
+    
 }
 .chattext{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -124,13 +144,15 @@ export default {
     overflow-x: hidden;
 }
 .chattext.receive{
-    background: rgba(245, 245, 245, 0.9);
+    background: rgba(253, 253, 253, 0.9);
+    color: black;
     float: left;
     text-align: left;
     margin: 5px 15% 5px 5px;
 }
 .chattext.send{
-    background: #DCF8C6;
+    background: var(--chat-color);
+    color: black;
     float: right;
     text-align: right;
     margin: 5px 5px 5px 15%;
@@ -143,8 +165,7 @@ export default {
     width: 70px;
     height: 70px;
     border-radius: 40px;
-    border: 3px solid var(--main-color);
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.13);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
 }
 .userName{
     text-align: center;

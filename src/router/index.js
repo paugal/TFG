@@ -23,9 +23,9 @@ const routes = [
     component: () => import( '../components/ChatsList.vue')
   },
   {
-    path: '/settings',
-    name: 'settings',
-    component: () => import( '../components/Settings.vue')
+    path: '/daytitle',
+    name: 'daytitle',
+    component: () => import( '../components/IntroDay.vue')
   },
   {
     path: '/info',
