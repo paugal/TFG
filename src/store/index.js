@@ -2,21 +2,13 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    user: {
-      username: 'matt',
-      fullName: 'Matt Maribojoc'
-    },
     day: 0,
     chatUser: 3,
     lastPath: 1,
     colorScheme: 'var(--main-color)',
     backgroundImage: "https://i.ibb.co/zRNQYd5/wp4410724.jpg",
 
-    persons: [
-      { id: 1, name: "player", image: "NULL"}, 
-      { id: 2, name: "Marcoos", image:"https://i.ibb.co/S7vP88k/user-image-marcos.jpg"},
-      { id: 3, name: "Oscar Clase", image: "https://i.ibb.co/yh14wQs/user-image-bully.jpg"}],
-    
+    persons:[{id: 2, name: 'Marcoos', image:  'https://i.ibb.co/S7vP88k/user-image-marcos.jpg'},{id: 3, name: 'Oscar clase', image:  'https://i.ibb.co/yh14wQs/user-image-bully.jpg'},],
     msg: [
 
       {id: 1, text: "Hola Marcoss 👋🏼", sender: 1, to: 2,question: null, shown: false},
