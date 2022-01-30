@@ -9,6 +9,7 @@ import Chat from './components/Chat.vue'
 import ChatsList from './components/ChatsList.vue'
 import SendData from './components/SendData.vue'
 import Intro from './components/Intro.vue'
+import IntroDay from './components/IntroDay.vue'
 import Phone from './components/Phone.vue'
 import IntroMobile from './components/mobile/IntroMobile.vue'
 
@@ -45,6 +46,7 @@ const app = createApp(App)
 .component('Phone', Phone)
 .component('SendData',SendData)
 .component('intro', Intro)
+.component('IntroDay', IntroDay)
 .component('IntroMobile', IntroMobile)
 .component(VueFeather.name, VueFeather)
 .use(VueSmoothScroll)

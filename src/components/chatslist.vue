@@ -1,6 +1,8 @@
 <template>
     <Phone>
-
+            
+        <IntroDay v-if="this.$store.getters.getShownDayInfo"></IntroDay>
+        
         <div class="topbar" >
             <div>
                 <div class="clock">22:12</div>
@@ -41,6 +43,11 @@
 <script>
 export default({
     name: 'chatslist',
+    data() {
+        return{
+            infoDay: true,
+        }
+    },
     methods: {
         changeUser: function (id){
             this.$store.commit('setUserChat', id)

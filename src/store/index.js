@@ -2,7 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    day: 0,
+    day: 1,
+    shownDayInfo: true,
     chatUser: 3,
     lastPath: 1,
     colorScheme: 'var(--main-color)',
@@ -45,6 +46,10 @@ export default createStore({
 
     getDay: state =>{
       return state.day
+    },
+
+    getShownDayInfo: state =>{
+      return state.shownDayInfo;
     },
 
     firstName: state => {
@@ -127,6 +132,10 @@ export default createStore({
 
     setDay(state, dayId){
       state.day = dayId;
+    },
+
+    setShownDayInfo(state, visibility){
+      state.shownDayInfo = visibility;
     },
 
     setBackgroundImage(state, link){
