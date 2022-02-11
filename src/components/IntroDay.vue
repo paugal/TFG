@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "chatslist",
+  name: "introDay",
   data() {
     return {
       infoDay: true,

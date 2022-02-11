@@ -4,12 +4,19 @@ export default createStore({
   state: {
     day: 1,
     shownDayInfo: true,
+    newMsg: {new: true, username: 'marcos'},
     chatUser: 3,
     lastPath: 1,
     colorScheme: 'var(--main-color)',
     backgroundImage: "https://i.ibb.co/zRNQYd5/wp4410724.jpg",
 
-    persons:[{id: 2, name: 'Marcoos', image:  'https://i.ibb.co/S7vP88k/user-image-marcos.jpg'},{id: 3, name: 'Oscar clase', image:  'https://i.ibb.co/yh14wQs/user-image-bully.jpg'},],
+    persons:[
+      {id: 2, name: 'Marcoos', image:  'https://i.ibb.co/S7vP88k/user-image-marcos.jpg'},
+      {id: 3, name: 'Oscar clase', image:  'https://i.ibb.co/yh14wQs/user-image-bully.jpg'},
+      {id: 4, name: 'Marta', image:  'https://i.ibb.co/yh14wQs/user-image-bully.jpg'},
+      {id: 5, name: 'Grupo Amigos', image:  'https://i.ibb.co/yh14wQs/user-image-bully.jpg'},
+      {id: 6, name: 'Hugo', image:  'https://i.ibb.co/yh14wQs/user-image-bully.jpg'},
+    ],
     msg: [
 
       {id: 1, text: "Hola Marcoss 👋🏼", sender: 1, to: 2,question: null, shown: false},
@@ -46,6 +53,10 @@ export default createStore({
 
     getDay: state =>{
       return state.day
+    },
+
+    getNotificacion: state =>{
+      return state.newMsg;
     },
 
     getShownDayInfo: state =>{
@@ -132,6 +143,10 @@ export default createStore({
 
     setDay(state, dayId){
       state.day = dayId;
+    },
+
+    setNotificacion(state, visibility, username){
+      state.newMsg = { new: visibility, user: username}
     },
 
     setShownDayInfo(state, visibility){

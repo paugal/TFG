@@ -11,6 +11,7 @@ import SendData from './components/SendData.vue'
 import Intro from './components/Intro.vue'
 import IntroDay from './components/IntroDay.vue'
 import Phone from './components/Phone.vue'
+import Notificacion from './components/Notificacion.vue'
 import IntroMobile from './components/mobile/IntroMobile.vue'
 
 //Animaciones
@@ -48,6 +49,7 @@ const app = createApp(App)
 .component('intro', Intro)
 .component('IntroDay', IntroDay)
 .component('IntroMobile', IntroMobile)
+.component('Notificacion', Notificacion)
 .component(VueFeather.name, VueFeather)
 .use(VueSmoothScroll)
 .use(naive)

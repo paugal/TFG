@@ -2,6 +2,7 @@
     <Phone>
             
         <IntroDay v-if="this.$store.getters.getShownDayInfo"></IntroDay>
+        <Notificacion></Notificacion>
         
         <div class="topbar" >
             <div>
@@ -16,7 +17,7 @@
             <h1 class='titlechats'>Mensajes</h1> 
         </div>
         <div class='userlist'>
-            <div  class="xyz-in" xyz="fade down" v-for="index in 2" :key="index">
+            <div  class="xyz-in" xyz="fade down" v-for="index in 5" :key="index">
                 <router-link class="nav-link" :to="{name:'chat'}" @click= "changeUser(this.$store.getters.getUserInfo(index+1).id)"> 
                     <div class="user">
                         <div class="groupPhotoName">
