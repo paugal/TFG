@@ -26,7 +26,6 @@ export default createStore({
       {id: 3, text: 'Oscar me ha abierto y me ha dicho que ha pasado algo', sender: 1, to: 2, question: null, shown: false},
       {id: 11, text: 'No me ha contado nada, pero parecia grabe', sender: 1, to: 2, question: null, shown: false},
       {id: 12, text: 'Dime algo cuando puedas', sender: 1, to: 2, question: null, shown: false},
-      
       {id: 4, text: 'Tio te has enterado de lo de marcos!!!', sender: 3, to: 3, question: 1, shown: true},
       {id: 5, text: 'Que va, pero me da igual', sender: 1, to: 3, question: null, shown: false},
       {id: 6, text: 'Como te va a dar igual si es tu amigoo', sender: 3, to: 3, question: null, shown: false},
@@ -34,7 +33,6 @@ export default createStore({
       {id: 8, text: 'Bua pues vas a flipar, todos estan hablardo de eso en clase', sender: 3, to: 3, question: null, shown: false},
       {id: 9, text: 'Aunque no me sorprende, Marcos siempre a sido un friki', sender: 3, to: 3, question: null, shown: false},
       {id: 10, text: 'Que asco me da', sender: 3, to: 3, question: null, shown: false},
-      
       {id: 13, text: 'Holaa! Sabes algo de Marcos???', sender: 4, to: 4, question: null, shown: false},
       {id: 14, text: 'hoy no ha venido a basquet', sender: 4, to: 4, question: null, shown: false},
       {id: 15, text: 'y le he enviado mensajes y no contesta', sender: 4, to: 4, question: null, shown: false},
@@ -50,16 +48,18 @@ export default createStore({
       {id: 25, text: 'A insultado a Marcos?', sender: 4, to: 4, question: null, shown: false},
       {id: 26, text: 'Si ha pasado algo pero no me lo ha contado', sender: 1, to: 4, question: null, shown: false},
       {id: 27, text: 'uff espero que no sea nada grabe', sender: 4, to: 4, question: null, shown: false},
-    ],
+      ],
 
     path:[
       {id: 1, question: 1, to: 3, text: 'No', activator: [7, 8, 9, 10], enableOption: [3], shown: true},
       {id: 2, question: 1, to: 3, text: 'Me da igual', activator: [5, 6, 8, 9, 10], enableOption: [3], shown: true},
       {id: 3, question: 2, to: 2, text: 'Hola Marcos!', activator: [1], enableOption: [4], shown: false},
-      {id: 4, question: 3, to: 2, text: 'Estas bien?', activator: [2], enableOption: [5, 6], shown: false},
-      {id: 5, question: 4, to: 2, text: 'No insistir', activator: [0], enableOption: [0], shown: false},
+      {id: 4, question: 3, to: 2, text: 'Estas bien?', activator: [2,13,14,15], enableOption: [5, 6, 7], shown: false},
+      {id: 5, question: 4, to: 2, text: 'No insistir', activator: [13,14,15], enableOption: [7], shown: false},
       {id: 6, question: 4, to: 2, text: 'Preguntar por lo que te ha dicho Oscar', activator: [3, 11, 12], enableOption: [0], shown: false},
-    ],
+      {id: 7, question: 5, to: 4, text: 'Hola!', activator: [16, 17, 18], enableOption: [0], shown: false},
+      {id: 8, question: 5, to: 4, text: 'Contar lo de Oscar', activator: [19, 20, 21, 22, 23, 24, 25, 26, 27], enableOption: [0] , shown: false},
+      ],
 
   },
   getters: {
