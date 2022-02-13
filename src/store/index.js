@@ -9,45 +9,58 @@ export default createStore({
     lastPath: 1,
     colorScheme: 'var(--main-color)',
     backgroundImage: "https://i.ibb.co/zRNQYd5/wp4410724.jpg",
+    newNotifi: null,
 
     persons:[
+      {id: 1, name: 'player', image:  'NULL'},
       {id: 2, name: 'Marcoos', image:  'https://i.ibb.co/S7vP88k/user-image-marcos.jpg'},
       {id: 3, name: 'Oscar clase', image:  'https://i.ibb.co/yh14wQs/user-image-bully.jpg'},
-      {id: 4, name: 'Marta', image:  'https://i.ibb.co/yh14wQs/user-image-bully.jpg'},
-      {id: 5, name: 'Grupo Amigos', image:  'https://i.ibb.co/yh14wQs/user-image-bully.jpg'},
-      {id: 6, name: 'Hugo', image:  'https://i.ibb.co/yh14wQs/user-image-bully.jpg'},
+      {id: 4, name: 'Marta', image:  'https://i.ibb.co/qMntbqt/marta.jpg'},
+      {id: 5, name: 'A la playa', image:  'https://i.ibb.co/BgJRxN5/playa.jpg'},
+      {id: 6, name: 'Hugo', image:  'https://i.ibb.co/4FdtMNW/hugo.jpg'},
     ],
-    msg: [
 
-      {id: 1, text: "Hola Marcoss 👋🏼", sender: 1, to: 2,question: null, shown: false},
-      {id: 2, text: "Como estas?", sender: 1, to: 2,question: null, shown: false},
-      {id: 3, text: "Oscar me ha abierto y me ha dicho que ha pasado algo", sender: 1, to: 2,question: null, shown: false},
-      {id: 11, text: "No me ha contado nada, pero parecia grabe", sender: 1, to: 2,question: null, shown: false},
-      {id: 12, text: "Dime algo cuando puedas", sender: 1, to: 2,question: null, shown: false},
+    msg:[
+      {id: 1, text: 'Hola Marcoss 👋🏼', sender: 1, to: 2, question: null, shown: false},
+      {id: 2, text: 'Como estas?', sender: 1, to: 2, question: null, shown: false},
+      {id: 3, text: 'Oscar me ha abierto y me ha dicho que ha pasado algo', sender: 1, to: 2, question: null, shown: false},
+      {id: 11, text: 'No me ha contado nada, pero parecia grabe', sender: 1, to: 2, question: null, shown: false},
+      {id: 12, text: 'Dime algo cuando puedas', sender: 1, to: 2, question: null, shown: false},
       
-      //DIA 1:
-      {id: 4, text: "Tio te has enterado de lo de marcos!!!", sender: 3,to: 3, question: 1, shown: true},
-      //Si respondes: ME DA IGUAL
-      {id: 5, text: "Que va, pero me da igual", sender: 1,to: 3, question: null, shown: false},
-      {id: 6, text: "Como te va a dar igual si es tu amigoo", sender: 3, to: 3, question: null, shown: false},
-      //Si respondes: NO
-      {id: 7, text: "No, hace un par de dias que no hablamos", sender: 1, to: 3, question: null, shown: false},
-      {id: 8, text: "Bua pues vas a flipar, todos estan hablardo de eso en clase", sender: 3, to: 3, question: null, shown: false},
-      {id: 9, text: "Aunque no me sorprende, Marcos siempre a sido un friki", sender: 3, to: 3,question: null, shown: false},
-      {id: 10, text: "Que asco me da", sender: 3, to: 3, question: null, shown: false},
-
+      {id: 4, text: 'Tio te has enterado de lo de marcos!!!', sender: 3, to: 3, question: 1, shown: true},
+      {id: 5, text: 'Que va, pero me da igual', sender: 1, to: 3, question: null, shown: false},
+      {id: 6, text: 'Como te va a dar igual si es tu amigoo', sender: 3, to: 3, question: null, shown: false},
+      {id: 7, text: 'No, hace un par de dias que no hablamos', sender: 1, to: 3, question: null, shown: false},
+      {id: 8, text: 'Bua pues vas a flipar, todos estan hablardo de eso en clase', sender: 3, to: 3, question: null, shown: false},
+      {id: 9, text: 'Aunque no me sorprende, Marcos siempre a sido un friki', sender: 3, to: 3, question: null, shown: false},
+      {id: 10, text: 'Que asco me da', sender: 3, to: 3, question: null, shown: false},
+      
+      {id: 13, text: 'Holaa! Sabes algo de Marcos???', sender: 4, to: 4, question: null, shown: false},
+      {id: 14, text: 'hoy no ha venido a basquet', sender: 4, to: 4, question: null, shown: false},
+      {id: 15, text: 'y le he enviado mensajes y no contesta', sender: 4, to: 4, question: null, shown: false},
+      {id: 16, text: 'Hola Marta', sender: 1, to: 4, question: null, shown: false},
+      {id: 17, text: 'Yo tambien le he enviado un mensaje pero no contesta', sender: 1, to: 4, question: null, shown: false},
+      {id: 18, text: 'Que raro que se haya saltado basquet', sender: 1, to: 4, question: null, shown: false},
+      {id: 19, text: 'Me ha abierto Oscar de clase', sender: 1, to: 4, question: null, shown: false},
+      {id: 20, text: 'Sois amigos?', sender: 4, to: 4, question: null, shown: false},
+      {id: 21, text: 'Que vaa me ha contado algo que ha pasado con Marcos', sender: 1, to: 4, question: null, shown: false},
+      {id: 22, text: 'Que ha pasado?', sender: 4, to: 4, question: null, shown: false},
+      {id: 23, text: 'No me ha quedado muy claro', sender: 1, to: 4, question: null, shown: false},
+      {id: 24, text: 'Lo ha empezado a insultar y no queria discutir', sender: 1, to: 4, question: null, shown: false},
+      {id: 25, text: 'A insultado a Marcos?', sender: 4, to: 4, question: null, shown: false},
+      {id: 26, text: 'Si ha pasado algo pero no me lo ha contado', sender: 1, to: 4, question: null, shown: false},
+      {id: 27, text: 'uff espero que no sea nada grabe', sender: 4, to: 4, question: null, shown: false},
     ],
-    
-    path: [
-      {id: 1, question: 1, to: 3, text: "No", activator: [7, 8, 9, 10], enableOption: [3], shown: true},
-      {id: 2, question: 1, to: 3, text: "Me da igual", activator: [5, 6, 8, 9, 10], enableOption: [3], shown: true},
 
-      
-      {id: 3, question: 2, to: 2, text: "Hola Marcos!", activator: [1], enableOption: [4], shown: false},
-      {id: 4, question: 3, to: 2, text: "Estas bien?", activator: [2], enableOption: [5, 6], shown: false},
-      {id: 5, question: 4, to: 2, text: "No insistir", activator: [0], enableOption: [0], shown: false},
-      {id: 6, question: 4, to: 2, text: "Preguntar por lo que te ha dicho Oscar", activator: [3, 11, 12], enableOption: [0], shown: false},
-    ]
+    path:[
+      {id: 1, question: 1, to: 3, text: 'No', activator: [7, 8, 9, 10], enableOption: [3], shown: true},
+      {id: 2, question: 1, to: 3, text: 'Me da igual', activator: [5, 6, 8, 9, 10], enableOption: [3], shown: true},
+      {id: 3, question: 2, to: 2, text: 'Hola Marcos!', activator: [1], enableOption: [4], shown: false},
+      {id: 4, question: 3, to: 2, text: 'Estas bien?', activator: [2], enableOption: [5, 6], shown: false},
+      {id: 5, question: 4, to: 2, text: 'No insistir', activator: [0], enableOption: [0], shown: false},
+      {id: 6, question: 4, to: 2, text: 'Preguntar por lo que te ha dicho Oscar', activator: [3, 11, 12], enableOption: [0], shown: false},
+    ],
+
   },
   getters: {
 
@@ -85,6 +98,11 @@ export default createStore({
 
     getChatUser: (state) => {
       return state.chatUser
+    },
+
+    //Consultamos si hemos recivido un nuevo mensaje
+    getNewNotifi: (state) => {
+      return state.newNotifi
     },
 
     getMsg: (state, getters) => {

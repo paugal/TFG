@@ -1,7 +1,9 @@
 <template>
-    <div class="notContainer xyz-in" xyz="fade up delay-20">
+<div class="xyz-in" xyz="fade up delay-5">
+    <div class="notContainer xyz-out" xyz="fade up  ease-out-back delay-30">
         <div class="notiText"> Nuevo mensaje de Marcos </div>
     </div>
+</div>
 </template>
 
 <script>

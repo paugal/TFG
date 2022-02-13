@@ -2,7 +2,8 @@
     <Phone>
             
         <IntroDay v-if="this.$store.getters.getShownDayInfo"></IntroDay>
-        <Notificacion></Notificacion>
+        <component :is="newNotification"></component>
+        
         
         <div class="topbar" >
             <div>
@@ -47,6 +48,7 @@ export default({
     data() {
         return{
             infoDay: true,
+            newNotification: 'null',
         }
     },
     methods: {
