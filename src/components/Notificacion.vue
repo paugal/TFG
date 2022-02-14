@@ -1,7 +1,7 @@
 <template>
-<div class="xyz-in" xyz="fade up delay-5">
+<div id='Notificacion' class="xyz-in" xyz="fade up delay-5">
     <div class="notContainer xyz-out" xyz="fade up  ease-out-back delay-30">
-        <div class="notiText"> Nuevo mensaje de Marcos </div>
+        <div class="notiText"> Nuevo mensaje de {{this.$store.getters.getNotificacion.username}} </div>
     </div>
 </div>
 </template>
@@ -12,6 +12,17 @@ export default {
     data(){
 
     },
+    methods: {
+        changeShownNot: function (visibility, username) {
+        this.$store.commit("setNotificacion", visibility, username);
+        },
+    },
+    mounted() {
+        var info = document.getElementById("Notificacion");
+        if (info != null) {
+        setTimeout(() => this.changeShownNot(false, null), 5000);
+        }
+  },
 }
 </script>
 

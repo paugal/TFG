@@ -4,22 +4,20 @@ export default createStore({
   state: {
     day: 1,
     shownDayInfo: true,
-    newMsg: {new: true, username: 'marcos'},
+    newMsg: {new: true, username: 'Oscar'},
     chatUser: 3,
     lastPath: 1,
     colorScheme: 'var(--main-color)',
     backgroundImage: "https://i.ibb.co/zRNQYd5/wp4410724.jpg",
-    newNotifi: null,
 
     persons:[
       {id: 1, name: 'player', image:  'NULL'},
       {id: 2, name: 'Marcoos', image:  'https://i.ibb.co/S7vP88k/user-image-marcos.jpg'},
-      {id: 3, name: 'Oscar clase', image:  'https://i.ibb.co/yh14wQs/user-image-bully.jpg'},
+      {id: 3, name: 'Oscar', image:  'https://i.ibb.co/yh14wQs/user-image-bully.jpg'},
       {id: 4, name: 'Marta', image:  'https://i.ibb.co/qMntbqt/marta.jpg'},
       {id: 5, name: 'A la playa', image:  'https://i.ibb.co/BgJRxN5/playa.jpg'},
       {id: 6, name: 'Hugo', image:  'https://i.ibb.co/4FdtMNW/hugo.jpg'},
     ],
-
     msg:[
       {id: 1, text: 'Hola Marcoss 👋🏼', sender: 1, to: 2, question: null, shown: false},
       {id: 2, text: 'Como estas?', sender: 1, to: 2, question: null, shown: false},
@@ -48,19 +46,18 @@ export default createStore({
       {id: 25, text: 'A insultado a Marcos?', sender: 4, to: 4, question: null, shown: false},
       {id: 26, text: 'Si ha pasado algo pero no me lo ha contado', sender: 1, to: 4, question: null, shown: false},
       {id: 27, text: 'uff espero que no sea nada grabe', sender: 4, to: 4, question: null, shown: false},
+    ],
+    
+      path:[
+        {id: 1, question: 1, to: 3, text: 'No', activator: [7, 8, 9, 10], enableOption: [3], shown: true},
+        {id: 2, question: 1, to: 3, text: 'Me da igual', activator: [5, 6, 8, 9, 10], enableOption: [3], shown: true},
+        {id: 3, question: 2, to: 2, text: 'Hola Marcos!', activator: [1], enableOption: [4], shown: false},
+        {id: 4, question: 3, to: 2, text: 'Estas bien?', activator: [2,13,14,15], enableOption: [5, 6, 7], shown: false},
+        {id: 5, question: 4, to: 2, text: 'No insistir', activator: [13,14,15], enableOption: [7], shown: false},
+        {id: 6, question: 4, to: 2, text: 'Preguntar por lo que te ha dicho Oscar', activator: [3, 11, 12], enableOption: [7], shown: false},
+        {id: 7, question: 5, to: 4, text: 'Hola!', activator: [16, 17, 18], enableOption: [8], shown: false},
+        {id: 8, question: 6, to: 4, text: 'Contar lo de Oscar', activator: [19, 20, 21, 22, 23, 24, 25, 26, 27], enableOption:[0] , shown: false},
       ],
-
-    path:[
-      {id: 1, question: 1, to: 3, text: 'No', activator: [7, 8, 9, 10], enableOption: [3], shown: true},
-      {id: 2, question: 1, to: 3, text: 'Me da igual', activator: [5, 6, 8, 9, 10], enableOption: [3], shown: true},
-      {id: 3, question: 2, to: 2, text: 'Hola Marcos!', activator: [1], enableOption: [4], shown: false},
-      {id: 4, question: 3, to: 2, text: 'Estas bien?', activator: [2,13,14,15], enableOption: [5, 6, 7], shown: false},
-      {id: 5, question: 4, to: 2, text: 'No insistir', activator: [13,14,15], enableOption: [7], shown: false},
-      {id: 6, question: 4, to: 2, text: 'Preguntar por lo que te ha dicho Oscar', activator: [3, 11, 12], enableOption: [0], shown: false},
-      {id: 7, question: 5, to: 4, text: 'Hola!', activator: [16, 17, 18], enableOption: [0], shown: false},
-      {id: 8, question: 5, to: 4, text: 'Contar lo de Oscar', activator: [19, 20, 21, 22, 23, 24, 25, 26, 27], enableOption: [0] , shown: false},
-      ],
-
   },
   getters: {
 
@@ -68,6 +65,7 @@ export default createStore({
       return state.day
     },
 
+    //Nombre del personaje que envia el mensaje
     getNotificacion: state =>{
       return state.newMsg;
     },
@@ -98,11 +96,6 @@ export default createStore({
 
     getChatUser: (state) => {
       return state.chatUser
-    },
-
-    //Consultamos si hemos recivido un nuevo mensaje
-    getNewNotifi: (state) => {
-      return state.newNotifi
     },
 
     getMsg: (state, getters) => {

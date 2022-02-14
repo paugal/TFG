@@ -12,9 +12,9 @@
               </div>
 
               <!-- Introduccion -->
-              <div v-if="!isLoading && !isChatList && !isChat" >
-                    <img class='avatar xyz-in' xyz="fade in" src="https://i.ibb.co/zPnjm2k/person-talking-in-podcast-character-by-Vexels.png" alt="not-icons" border="0">
-                    <div class="textbox xyz-in" xyz="fade in">
+              <div class="xyz-in" xyz='fade delay-20' >
+                    <img class='avatar' src="https://i.ibb.co/M2pV632/intro.png" alt="not-icons" border="0">
+                    <div class="textbox">
                         <p>¡Hola! En este juego se simularán conversaciones de WhatsApp.
                             Tu amigo Marcos tiene problemas, durante el juego podrás escoger diferentes
                             opciones. ¡Pero cuidado cada acción tiene sus consecuencias!

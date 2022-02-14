@@ -1,7 +1,7 @@
 <template>
     <Phone>
         <div class="screen xyz-in" xyz="fade in" style='background-image: url("https://i.ibb.co/zRNQYd5/wp4410724.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
-                <div class="topbarchat">
+                <div class="topbarchat xyz-in" xyz="up">
                     <div>
                         <div class="clock">22:12</div>
                         
@@ -29,7 +29,7 @@
                     </scrollbar>
                 </div>
 
-                <div class='bottombarchat' >
+                <div class='bottombarchat xyz-in' xyz="down" >
                     <div v-for="index in this.$store.getters.getOptionsLenght" :key="index">
                         <div class='msgSelector xyz-in'  xyz="fade down" v-if="this.$store.getters.getOptionsLenght > 0"  
                         @click= " show = !show; enablePathOptions(this.$store.getters.getOptions[index-1].id);
