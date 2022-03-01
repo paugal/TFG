@@ -24,7 +24,9 @@
                     <scrollbar v-if="this.$store.getters.getMsgLenght > 0 ">
                         <div v-for="index in this.$store.getters.getMsgLenght" :key="index">
                             <div v-if="this.$store.getters.getMsg[index-1].sender === 1" class ="chattext send xyz-in" xyz="fade right"> {{this.$store.getters.getMsg[index-1].text}}</div>
-                            <div v-else class="chattext receive xyz-in" xyz="fade left"> {{this.$store.getters.getMsg[index-1].text}}</div>
+                            <div v-else class="chattext receive xyz-in" xyz="fade left"> {{this.$store.getters.getMsg[index-1].text}}
+                                {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
+                            </div>
                         </div>                      
                     </scrollbar>
                 </div>
@@ -33,10 +35,12 @@
                     <div v-for="index in this.$store.getters.getOptionsLenght" :key="index">
                         <div class='msgSelector xyz-in'  xyz="fade down" v-if="this.$store.getters.getOptionsLenght > 0"  
                         @click= " show = !show; enablePathOptions(this.$store.getters.getOptions[index-1].id);
+                        enablePathQuestion(this.$store.getters.getOptions[index-1].question);
                         setLastPath(this.$store.getters.getOptions[index-1].id); 
                         activePathMsg(this.$store.getters.getActivedMsgforOption.activator);
                         disablePathOptions(this.$store.getters.getOptions[index-1].question)"> 
-                                <div>{{this.$store.getters.getOptions[index-1].text}}</div>
+                                <div>{{this.$store.getters.getOptions[index-1].text}}
+                                </div>
                         </div>
                     </div>
                     <div v-if="this.$store.getters.getOptionsLenght == 0">
@@ -52,14 +56,38 @@
 import Scrollbar from "vue3-smooth-scrollbar";
 
 export default {
-    data(){
+    data() {
         return{
+            questionId: 0,
+            questinsList: [],
         }
     },
     components: { Scrollbar },
     mounted () {
     },
     methods: {
+        enablePathQuestion: function(question){
+            
+            if(!this.questinsList.includes(question) && question != null){
+                this.questinsList.push(question);
+                this.$store.commit('enablePathQuestion', question);
+                /*
+                console.log('Question ID: ', question)
+                console.log(this.$store.getters.getPathByQuestion)
+                
+                console.log('Question ID 2: ', this.$store.getters.getLastQuestionUser.question)
+                
+                //console.log(this.$store.getters.getOptionsLenght)
+                //.filter(path => path.question === getters.getLastQuestionUser.question).filter(path => path.shown === true).filter(path => path.to === getters.getChatUser).length;
+                var path = this.$store.getters.getAllPaths;
+                var finalp = path.filter(path => path.question === question).filter(path => path.shown === true).filter(path => path.to === this.$store.getters.getChatUser);
+                //console.log(this.$store.getters.getAllPaths)
+                console.log(finalp)
+                //console.log(this.$store.getters.getChatUser)
+    */
+            }
+            
+        },
 
         setLastPath: function (optionId){
             this.$store.commit('setLastPath', optionId)

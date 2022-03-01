@@ -7,6 +7,7 @@ export default createStore({
     newMsg: {new: true, username: 'Oscar'},
     chatUser: 3,
     lastPath: 1,
+    lastQuestion: 0,
     colorScheme: 'var(--main-color)',
     backgroundImage: "https://i.ibb.co/zRNQYd5/wp4410724.jpg",
 
@@ -55,8 +56,8 @@ export default createStore({
       {id: 34, text: 'Que has hecho que???', sender: 4, to: 4, question: null, shown: false},
       {id: 35, text: 'Por que narices haces eso???', sender: 4, to: 4, question: null, shown: false},
       {id: 36, text: 'Marcos es tu amigo y no ha hecho nada para que lo vayas insultando', sender: 4, to: 4, question: null, shown: false},
-      {id: 37, text: 'Estoy muy enfadada pensaba que eras mejor persona', sender: 4, to: 4, question: 7, shown: false},
-      {id: 38, text: 'Lo siento...', sender: 1, to: 4, question: 8, shown: false},
+      {id: 37, text: 'Estoy muy enfadada pensaba que eras mejor persona', sender: 4, to: 4, question: null, shown: false},
+      {id: 38, text: 'Lo siento...', sender: 1, to: 4, question: null, shown: false},
       {id: 39, text: '(mentir) No le he contestado (verdad) defender', sender: 1, to: 4, question: null, shown: false},
       {id: 40, text: 'Me estas mientiendo?', sender: 4, to: 4, question: null, shown: false},
       {id: 41, text: 'Oscar me acaba de enviar esto', sender: 4, to: 4, question: null, shown: false},
@@ -75,13 +76,15 @@ export default createStore({
       {id: 54, text: 'Pensaba que Marcos era tu amigo', sender: 4, to: 4, question: null, shown: false},
       {id: 55, text: 'Insultarlo no te hace mejor que Oscar', sender: 4, to: 4, question: null, shown: false},
       {id: 56, text: '(mentir) Lo defendi (verdad) negativo', sender: 1, to: 4, question: null, shown: false},
-      {id: 57, text: 'Perdon por no contestar ayer, no me encontraba bien', sender: 2, to: 2, question: null, shown: false},
+      {id: 57, text: 'Perdon por no contestar ayer, no me encontraba bien', sender: 2, to: 2, question: 7, shown: false},
       {id: 58, text: 'Ha pasado algo con Oscar?', sender: 1, to: 2, question: null, shown: false},
       {id: 59, text: 'Marcos??', sender: 1, to: 2, question: null, shown: false},
+      {id: 260, text: 'Ya no hace falta que contestes... ', sender: 1, to: 2, question: null, shown: false},
+      {id: 261, text: 'Hace mas de un dia que te envie el mensaje', sender: 1, to: 2, question: null, shown: false},
       {id: 60, text: 'Lo que ha hecho Oscar no esta bien', sender: 4, to: 4, question: null, shown: false},
-      {id: 61, text: 'Tenemos que hacer algo para ayudar a Marcos', sender: 4, to: 4, question: null, shown: false},
+      {id: 61, text: 'Tenemos que hacer algo para ayudar a Marcos', sender: 4, to: 4, question: 11, shown: false},
       {id: 62, text: 'Estoy harto de Oscar', sender: 1, to: 4, question: null, shown: false},
-      {id: 62, text: 'Tenemos que hacerle lo mismo que le ha hecho a Marcos!', sender: 1, to: 4, question: null, shown: false},
+      {id: 362, text: 'Tenemos que hacerle lo mismo que le ha hecho a Marcos!', sender: 1, to: 4, question: null, shown: false},
       {id: 63, text: 'No creo que eso sea buena idea', sender: 4, to: 4, question: null, shown: false},
       {id: 64, text: 'No se va a solucionar nada', sender: 4, to: 4, question: null, shown: false},
       {id: 65, text: 'No seremos mejor que el si hacemos lo mismo', sender: 4, to: 4, question: null, shown: false},
@@ -89,23 +92,23 @@ export default createStore({
       {id: 67, text: 'Si lo ignoramos mejor', sender: 1, to: 4, question: null, shown: false},
       {id: 68, text: 'Que no tiene importancia!', sender: 4, to: 4, question: null, shown: false},
       {id: 69, text: 'Vete a saber que va diciendo de Marcos', sender: 4, to: 4, question: null, shown: false},
-      {id: 70, text: 'O incluso si le ha hecho algo', sender: 4, to: 4, question: null, shown: false},
+      {id: 70, text: 'O incluso le ha hecho algo', sender: 4, to: 4, question: 12, shown: false},
       {id: 71, text: 'Lo siento tienes razon', sender: 1, to: 4, question: null, shown: false},
-      {id: 72, text: 'Podemos quedar para ir a playa esta tarde', sender: 4, to: 4, question: null, shown: false},
-      {id: 73, text: 'Buena idea, eso le ayudara a espejarse', sender: 1, to: 4, question: null, shown: false},
-      {id: 74, text: 'y tal vez nos cuenta que ha pasado', sender: 1, to: 4, question: null, shown: false},
-      {id: 75, text: 'Hago un grupo con los de siempre', sender: 1, to: 4, question: null, shown: false},
-      {id: 76, text: 'Marta: Hola chicos!!', sender: 4, to: 5, question: null, shown: false},
-      {id: 77, text: ' Hugo: Holaa', sender: 6, to: 5, question: null, shown: false},
-      {id: 78, text: 'Silvia: que tal??', sender: 7, to: 5, question: null, shown: false},
-      {id: 79, text: 'Marta: Quereis ir esta tarde a la playa?', sender: 4, to: 5, question: null, shown: false},
+      {id: 72, text: 'Podemos quedar para ir a playa esta tarde', sender: 1, to: 4, question: null, shown: false},
+      {id: 73, text: 'Buena idea, eso le ayudara a espejarse', sender: 4, to: 4, question: null, shown: false},
+      {id: 74, text: 'y tal vez nos cuenta que ha pasado', sender: 4, to: 4, question: null, shown: false},
+      {id: 75, text: 'Hago un grupo con los de siempre', sender: 4, to: 4, question: 13, shown: false},
+      {id: 76, text: 'Marta: Hola chicos!!', sender: 5, to: 5, question: null, shown: false},
+      {id: 77, text: ' Hugo: Holaa', sender: 5, to: 5, question: null, shown: false},
+      {id: 78, text: 'Silvia: que tal??', sender: 5, to: 5, question: null, shown: false},
+      {id: 79, text: 'Marta: Quereis ir esta tarde a la playa?', sender: 5, to: 5, question: null, shown: false},
       {id: 80, text: 'Hugo: Por mi genial', sender: 5, to: 5, question: null, shown: false},
-      {id: 81, text: 'Silvia: Buena idea, contad conmigo', sender: 6, to: 5, question: null, shown: false},
+      {id: 81, text: 'Silvia: Buena idea, contad conmigo', sender: 5, to: 5, question: 9, shown: false},
       {id: 82, text: 'Tu: yo tambien me apunto', sender: 1, to: 5, question: null, shown: false},
       {id: 83, text: 'Tu: y tu Marcos??', sender: 1, to: 5, question: null, shown: false},
-      {id: 84, text: 'Marcos: Si yo tambien me apunto', sender: 2, to: 5, question: null, shown: false},
-      {id: 85, text: 'Marta: Genial!', sender: 4, to: 5, question: null, shown: false},
-      {id: 86, text: 'Marta: pues a las 16 donde siempre', sender: 4, to: 5, question: null, shown: false},
+      {id: 84, text: 'Marcos: Si yo tambien me apunto', sender: 5, to: 5, question: null, shown: false},
+      {id: 85, text: 'Marta: Genial!', sender: 5, to: 5, question: null, shown: false},
+      {id: 86, text: 'Marta: pues a las 16 donde siempre', sender: 5, to: 5, question: null, shown: false},
       {id: 87, text: 'Estoy preocupada he visto a Marcos muy triste esta tarde', sender: 4, to: 4, question: null, shown: false},
       {id: 88, text: 'Deberiamos habler hablado con el del tema?', sender: 4, to: 4, question: null, shown: false},
       {id: 89, text: 'No lo se ', sender: 1, to: 4, question: null, shown: false},
@@ -137,13 +140,13 @@ export default createStore({
       {id: 115, text: 'Mala opcion', sender: 1, to: 4, question: null, shown: false},
       {id: 116, text: 'Como vamos a hacer eso!! ', sender: 4, to: 4, question: null, shown: false},
       {id: 117, text: 'Vale pues vamos ahora mismo!', sender: 4, to: 4, question: null, shown: false},
-      {id: 118, text: 'Hugo: Marcos nos hemos enterado de lo de Oscar', sender: 6, to: 5, question: null, shown: false},
-      {id: 119, text: 'No te preocupes, estamos contigo', sender: 6, to: 5, question: null, shown: false},
-      {id: 120, text: 'Silvia: sii, cualquier cosa que necesites', sender: 7, to: 5, question: null, shown: false},
-      {id: 121, text: 'Marta: No has hecho nada malo, todo es culpa de Oscar y sus amigos', sender: 4, to: 5, question: null, shown: false},
-      {id: 122, text: 'Tu: Somos tus amigos y te apoyaremos siempre', sender: 1, to: 5, question: null, shown: false},
-      {id: 123, text: 'Marcos: Muchas gracias chicos', sender: 2, to: 5, question: null, shown: false},
-      {id: 124, text: 'De verdad, me alegra tener amigos como vosotros', sender: 2, to: 5, question: null, shown: false},
+      {id: 118, text: 'Hugo: Marcos nos hemos enterado de lo de Oscar', sender: 5, to: 5, question: null, shown: false},
+      {id: 119, text: 'No te preocupes, estamos contigo', sender: 5, to: 5, question: null, shown: false},
+      {id: 120, text: 'Silvia: sii, cualquier cosa que necesites', sender: 5, to: 5, question: null, shown: false},
+      {id: 121, text: 'Marta: No has hecho nada malo, todo es culpa de Oscar y sus amigos', sender: 5, to: 5, question: null, shown: false},
+      {id: 122, text: 'Tu: Somos tus amigos y te apoyaremos siempre', sender: 5, to: 5, question: null, shown: false},
+      {id: 123, text: 'Marcos: Muchas gracias chicos', sender: 5, to: 5, question: null, shown: false},
+      {id: 124, text: 'De verdad, me alegra tener amigos como vosotros', sender: 5, to: 5, question: null, shown: false},
       {id: 125, text: 'Hola', sender: 2, to: 2, question: null, shown: false},
       {id: 126, text: 'Ya sabes que estos dias han sido dificiles', sender: 2, to: 2, question: null, shown: false},
       {id: 127, text: 'Y queria hablar contigo del tema', sender: 2, to: 2, question: null, shown: false},
@@ -167,29 +170,36 @@ export default createStore({
       {id: 145, text: 'Lo siento mucho, no se por que lo hice.', sender: 1, to: 2, question: null, shown: false},
       ],
     
-    path:[
-      {id: 1, question: 1, to: 3, text: 'No', activator: [7, 8, 9, 10], enableOption: [3, 4, 5, 6], shown: true},
-      {id: 2, question: 1, to: 3, text: 'Me da igual', activator: [5, 6, 8, 9, 10], enableOption: [3, 4, 5, 6], shown: true},
-      {id: 3, question: 8, to: 3, text: 'Defender a Marcos', activator: [0], enableOption: [0], shown: false},
-      {id: 4, question: 8, to: 3, text: 'No contestar', activator: [0], enableOption: [0], shown: false},
-      {id: 5, question: 8, to: 3, text: 'Insultar a Marcos', activator: [0], enableOption: [0], shown: false},
-      {id: 6, question: 2, to: 2, text: 'Hola Marcos!', activator: [1], enableOption: [7], shown: false},
-      {id: 7, question: 3, to: 2, text: 'Estas bien?', activator: [2,13,14,15], enableOption: [8, 9, 10], shown: false},
-      {id: 8, question: 4, to: 2, text: 'No insistir', activator: [13,14,15], enableOption: [0], shown: false},
-      {id: 9, question: 4, to: 2, text: 'Preguntar por lo que te ha dicho Oscar', activator: [3, 11, 12], enableOption: [0], shown: false},
-      {id: 10, question: 5, to: 4, text: 'Hola!', activator: [16, 17, 18], enableOption: [11], shown: false},
-      {id: 11, question: 9, to: 4, text: 'Contar lo de Oscar', activator: [19, 20, 21, 22, 23, 24, 25, 26, 27], enableOption: [12, 13, 14], shown: false},
-      {id: 12, question: 6, to: 4, text: 'He defendido a Marcos', activator: [30,31], enableOption: [0], shown: false},
-      {id: 13, question: 6, to: 4, text: 'No he contestado', activator: [29], enableOption: [0], shown: false},
-      {id: 14, question: 6, to: 4, text: 'He insultado a Marcos', activator: [34,35,36,37], enableOption: [21], shown: false},
-      {id: 15, question: 6, to: 4, text: '(mentir) No le he contestado (verdad) defender', activator: [40, 41, 42, 43, 44, 45], enableOption: [21], shown: false},
-      {id: 16, question: 6, to: 4, text: '(mentir) Insulte a Marcos (verdad) defender', activator: [40, 41, 42, 43, 44, 45], enableOption: [21], shown: false},
-      {id: 17, question: 6, to: 4, text: '(mentir) Insulte a Marcos (verdad) neutro', activator: [40, 41, 42, 43, 49], enableOption: [21], shown: false},
-      {id: 18, question: 6, to: 4, text: '(mentir) defendi a Marcos (verdad) neutro', activator: [40, 41, 42, 43, 51, 52], enableOption: [21], shown: false},
-      {id: 19, question: 6, to: 4, text: '(mentir) No conteste (vedad) negativo', activator: [40, 41, 42, 43, 54, 55], enableOption: [21], shown: false},
-      {id: 20, question: 6, to: 4, text: '(mentir) Lo defendi (verdad) negativo', activator: [40, 41, 42, 43, 54, 55], enableOption: [21], shown: false},
-      {id: 21, question: 7, to: 4, text: 'Lo siento', activator: [38], enableOption: [0], shown: false},
-      ],
+      path:[
+        {id: 1, question: 1, to: 3, text: 'No', activator: [7, 8, 9, 10], enableOption: [6], shown: false},
+        {id: 2, question: 1, to: 3, text: 'Me da igual', activator: [5, 6, 8, 9, 10], enableOption: [3, 4, 5, 6], shown: false},
+        {id: 3, question: 8, to: 3, text: 'Defender a Marcos', activator: [0], enableOption: [0], shown: false},
+        {id: 4, question: 8, to: 3, text: 'No contestar', activator: [0], enableOption: [0], shown: false},
+        {id: 5, question: 8, to: 3, text: 'Insultar a Marcos', activator: [0], enableOption: [0], shown: false},
+        {id: 6, question: 2, to: 2, text: 'Hola Marcos!', activator: [1], enableOption: [7], shown: false},
+        {id: 7, question: 3, to: 2, text: 'Estas bien?', activator: [2,13,14,15], enableOption: [8, 9, 10], shown: false},
+        {id: 8, question: 4, to: 2, text: 'No insistir', activator: [13,14,15], enableOption: [0], shown: false},
+        {id: 9, question: 4, to: 2, text: 'Preguntar por lo que te ha dicho Oscar', activator: [3, 11, 12], enableOption: [0], shown: false},
+        {id: 10, question: 5, to: 4, text: 'Hola!', activator: [16, 17, 18], enableOption: [11], shown: false},
+        {id: 11, question: 9, to: 4, text: 'Contar lo de Oscar', activator: [19, 20, 21, 22, 23, 24, 25, 26, 27], enableOption: [12, 13, 14], shown: false},
+        {id: 12, question: 6, to: 4, text: 'He defendido a Marcos', activator: [30,31, 57], enableOption: [22,23], shown: false},
+        {id: 13, question: 6, to: 4, text: 'No he contestado', activator: [29], enableOption: [22,23], shown: false},
+        {id: 14, question: 6, to: 4, text: 'He insultado a Marcos', activator: [34,35,36,37], enableOption: [21], shown: false},
+        {id: 15, question: 6, to: 4, text: '(mentir) No le he contestado (verdad) defender', activator: [40, 41, 42, 43, 44, 45], enableOption: [21], shown: false},
+        {id: 16, question: 6, to: 4, text: '(mentir) Insulte a Marcos (verdad) defender', activator: [40, 41, 42, 43, 44, 45], enableOption: [21], shown: false},
+        {id: 17, question: 6, to: 4, text: '(mentir) Insulte a Marcos (verdad) neutro', activator: [40, 41, 42, 43, 49], enableOption: [21], shown: false},
+        {id: 18, question: 6, to: 4, text: '(mentir) defendi a Marcos (verdad) neutro', activator: [40, 41, 42, 43, 51, 52], enableOption: [21], shown: false},
+        {id: 19, question: 6, to: 4, text: '(mentir) No conteste (vedad) negativo', activator: [40, 41, 42, 43, 54, 55], enableOption: [21], shown: false},
+        {id: 20, question: 6, to: 4, text: '(mentir) Lo defendi (verdad) negativo', activator: [40, 41, 42, 43, 54, 55], enableOption: [21], shown: false},
+        {id: 21, question: 6, to: 4, text: 'Lo siento', activator: [38, 57], enableOption: [22, 23], shown: false},
+        {id: 22, question: 7, to: 2, text: 'Que paso ayer?', activator: [58, 59, 60, 61], enableOption: [0], shown: false},
+        {id: 23, question: 7, to: 2, text: 'Ya no me importa', activator: [260, 261, 60, 61], enableOption: [0], shown: false},
+        {id: 24, question: 11, to: 4, text: 'Quitar importancia', activator: [66, 67, 68, 69, 70], enableOption: [0], shown: false},
+        {id: 25, question: 11, to: 4, text: 'Quedar por la tarde', activator: [72, 73, 74, 75], enableOption: [0], shown: false},
+        {id: 26, question: 11, to: 4, text: 'Hacer lo mismo a Oscar', activator: [62, 362, 63, 64], enableOption: [27], shown: false},
+        {id: 27, question: 12, to: 4, text: 'Lo siento tienes razon', activator: [71,76,77,78,79,80,81], enableOption: [0], shown: false},
+        {id: 28, question: 13, to: 4, text: 'Genial!', activator: [375, 76,77,78,79,80,81], enableOption: [0], shown: false},
+        ],
   },
 
   getters: {
@@ -247,7 +257,16 @@ export default createStore({
       return state.msg.filter(msg => msg.sender === getters.getChatUser).filter(msg => msg.shown === true).filter(msg => msg.question !== null).length
     },
 
+    getAllPaths: (state) => {
+      return state.path
+    },
+
+    getPathByQuestion: (state) => {
+      return state.path.filter(path => path.question === state.lastQuestion);
+    },
+
     getOptions: (state, getters) => {
+      
       try{
         return state.path.filter(path => path.question === getters.getLastQuestionUser.question).filter(path => path.shown === true).filter(path => path.to === getters.getChatUser)
       }catch(error){console.log('Error getOptions')}
@@ -310,6 +329,10 @@ export default createStore({
       state.lastPath = optionId
     },
 
+    setLastQuestion(state, questionId){
+      state.lastQuestion = questionId
+    },
+
     activePathMsg(state, msgsId){
       for(let i = 0; i < msgsId.length; i++){
         setTimeout(function () {
@@ -321,6 +344,19 @@ export default createStore({
       }
     },
 
+    enablePathQuestion(state, question2){
+      state.lastQuestion = question2;
+      var questions = state.path.filter(path => path.question === question2);
+      try{
+        for(let i = 0; i < questions.length; i++){
+          try{
+            questions[i].shown = true;
+            
+          }catch(error){console.log('Error enablePathQuestions')}
+        }
+      }catch(error){console.log('Error enablePathQuestions')}
+    },
+
     disablePathOptions(state, questionId){
       var questions = state.path.filter(path => path.question === questionId);
       for(let i = 0; i < questions.length; i++){
@@ -330,7 +366,6 @@ export default createStore({
 
     enablePathOptions(state, optionId){
       var questions = state.path.find(path => path.id === optionId).enableOption;
-
       for(let i = 0; i < questions.length; i++){
         try{
           state.path.find(path => path.id == questions[i]).shown = true;
