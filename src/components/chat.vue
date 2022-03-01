@@ -20,8 +20,8 @@
                     
                 </div>
                 
-                <div class='chatbox'>
-                    <scrollbar v-if="this.$store.getters.getMsgLenght > 0">
+                <div class='chatbox' id='chatbox'>
+                    <scrollbar v-if="this.$store.getters.getMsgLenght > 0 ">
                         <div v-for="index in this.$store.getters.getMsgLenght" :key="index">
                             <div v-if="this.$store.getters.getMsg[index-1].sender === 1" class ="chattext send xyz-in" xyz="fade right"> {{this.$store.getters.getMsg[index-1].text}}</div>
                             <div v-else class="chattext receive xyz-in" xyz="fade left"> {{this.$store.getters.getMsg[index-1].text}}</div>
@@ -63,10 +63,11 @@ export default {
 
         setLastPath: function (optionId){
             this.$store.commit('setLastPath', optionId)
-            console.log(this.$store.getters.getActivedMsgforOption.activator.length);
+            console.log('new msg:' + this.$store.getters.getActivedMsgforOption.activator);
         },
 
         activePathMsg: function (msgsId){
+            console.log(this.$store.getters.getOptionsLenght);
             this.$store.commit('activePathMsg', msgsId)
         },
 
