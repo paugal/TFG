@@ -5,9 +5,10 @@ export default createStore({
     day: 1,
     shownDayInfo: true,
     newMsg: {new: true, username: 'Oscar'},
-    chatUser: 3,
+    chatUser: 5,
     lastPath: 1,
     lastQuestion: 0,
+    selectedOptionsList: [],
     colorScheme: 'var(--main-color)',
     backgroundImage: "https://i.ibb.co/zRNQYd5/wp4410724.jpg",
 
@@ -19,6 +20,7 @@ export default createStore({
       {id: 5, name: 'A la playa', image:  'https://i.ibb.co/BgJRxN5/playa.jpg'},
       {id: 6, name: 'Hugo', image:  'https://i.ibb.co/4FdtMNW/hugo.jpg'},
     ],
+    
     msg:[
       {id: 1, text: 'Hola Marcoss 👋🏼', sender: 1, to: 2, question: null, shown: false},
       {id: 2, text: 'Como estas?', sender: 1, to: 2, question: null, shown: false},
@@ -98,19 +100,20 @@ export default createStore({
       {id: 73, text: 'Buena idea, eso le ayudara a espejarse', sender: 4, to: 4, question: null, shown: false},
       {id: 74, text: 'y tal vez nos cuenta que ha pasado', sender: 4, to: 4, question: null, shown: false},
       {id: 75, text: 'Hago un grupo con los de siempre', sender: 4, to: 4, question: 13, shown: false},
+      {id: 375, text: 'Genial!', sender: 1, to: 4, question: null, shown: false},
       {id: 76, text: 'Marta: Hola chicos!!', sender: 5, to: 5, question: null, shown: false},
       {id: 77, text: ' Hugo: Holaa', sender: 5, to: 5, question: null, shown: false},
       {id: 78, text: 'Silvia: que tal??', sender: 5, to: 5, question: null, shown: false},
       {id: 79, text: 'Marta: Quereis ir esta tarde a la playa?', sender: 5, to: 5, question: null, shown: false},
       {id: 80, text: 'Hugo: Por mi genial', sender: 5, to: 5, question: null, shown: false},
-      {id: 81, text: 'Silvia: Buena idea, contad conmigo', sender: 5, to: 5, question: 9, shown: false},
+      {id: 81, text: 'Silvia: Buena idea, contad conmigo', sender: 5, to: 5, question: 14, shown: false},
       {id: 82, text: 'Tu: yo tambien me apunto', sender: 1, to: 5, question: null, shown: false},
       {id: 83, text: 'Tu: y tu Marcos??', sender: 1, to: 5, question: null, shown: false},
       {id: 84, text: 'Marcos: Si yo tambien me apunto', sender: 5, to: 5, question: null, shown: false},
       {id: 85, text: 'Marta: Genial!', sender: 5, to: 5, question: null, shown: false},
       {id: 86, text: 'Marta: pues a las 16 donde siempre', sender: 5, to: 5, question: null, shown: false},
       {id: 87, text: 'Estoy preocupada he visto a Marcos muy triste esta tarde', sender: 4, to: 4, question: null, shown: false},
-      {id: 88, text: 'Deberiamos habler hablado con el del tema?', sender: 4, to: 4, question: null, shown: false},
+      {id: 88, text: 'Deberiamos habler hablado con el del tema?', sender: 4, to: 4, question: 16, shown: false},
       {id: 89, text: 'No lo se ', sender: 1, to: 4, question: null, shown: false},
       {id: 90, text: 'No era el momento, se hubiera sentido incomodo', sender: 1, to: 4, question: null, shown: false},
       {id: 91, text: 'Tal vez cuando estavmos los tres solos podriamos haver hablado con el', sender: 1, to: 4, question: null, shown: false},
@@ -119,7 +122,7 @@ export default createStore({
       {id: 94, text: 'Esta mañana Oscar ha creado un chat de grupo con sus amigos', sender: 6, to: 6, question: null, shown: false},
       {id: 95, text: 'y Marcos, y lo han empezado a insultar y cosas peores', sender: 6, to: 6, question: null, shown: false},
       {id: 96, text: 'yo al ver de que era el grupo me he salido', sender: 6, to: 6, question: null, shown: false},
-      {id: 97, text: 'que deberiamos hacer?', sender: 6, to: 6, question: null, shown: false},
+      {id: 97, text: 'que deberiamos hacer?', sender: 6, to: 6, question: 17, shown: false},
       {id: 98, text: 'No me quiero meter, se van a meter conmigo sino', sender: 1, to: 6, question: null, shown: false},
       {id: 99, text: 'Enserio???? Despues de lo que te he encontado', sender: 6, to: 6, question: null, shown: false},
       {id: 100, text: 'No podemos mirar a otro lado!', sender: 6, to: 6, question: null, shown: false},
@@ -130,7 +133,7 @@ export default createStore({
       {id: 105, text: 'Porfavor contesta', sender: 1, to: 2, question: null, shown: false},
       {id: 106, text: 'Marcos no ha venido a clase hoy', sender: 4, to: 4, question: null, shown: false},
       {id: 107, text: 'Esto cada vez va a peor', sender: 4, to: 4, question: null, shown: false},
-      {id: 108, text: 'Tenemos que hacer algo ya!', sender: 4, to: 4, question: null, shown: false},
+      {id: 108, text: 'Tenemos que hacer algo ya!', sender: 4, to: 4, question: 19, shown: false},
       {id: 109, text: 'Tenemos que ir a casa de Marcos y hablar con el de una vez', sender: 1, to: 4, question: null, shown: false},
       {id: 110, text: 'Tienes razon creo que es lo mejor', sender: 4, to: 4, question: null, shown: false},
       {id: 111, text: 'Con suerte tal vez podemos decir que se lo cuente a su madre', sender: 4, to: 4, question: null, shown: false},
@@ -139,12 +142,13 @@ export default createStore({
       {id: 114, text: 'Es buena idea pero creo que primero tenemos que haclararlo con Marcos', sender: 4, to: 4, question: null, shown: false},
       {id: 115, text: 'Mala opcion', sender: 1, to: 4, question: null, shown: false},
       {id: 116, text: 'Como vamos a hacer eso!! ', sender: 4, to: 4, question: null, shown: false},
+      {id: 1162, text: 'Dejalo, creo que es mejor que vaya a casa de Marcos yo sola', sender: 4, to: 4, question: null, shown: false},
       {id: 117, text: 'Vale pues vamos ahora mismo!', sender: 4, to: 4, question: null, shown: false},
       {id: 118, text: 'Hugo: Marcos nos hemos enterado de lo de Oscar', sender: 5, to: 5, question: null, shown: false},
       {id: 119, text: 'No te preocupes, estamos contigo', sender: 5, to: 5, question: null, shown: false},
       {id: 120, text: 'Silvia: sii, cualquier cosa que necesites', sender: 5, to: 5, question: null, shown: false},
-      {id: 121, text: 'Marta: No has hecho nada malo, todo es culpa de Oscar y sus amigos', sender: 5, to: 5, question: null, shown: false},
-      {id: 122, text: 'Tu: Somos tus amigos y te apoyaremos siempre', sender: 5, to: 5, question: null, shown: false},
+      {id: 121, text: 'Marta: No has hecho nada malo, todo es culpa de Oscar y sus amigos', sender: 5, to: 5, question: 20, shown: false},
+      {id: 122, text: 'Tu: Somos tus amigos y te apoyaremos siempre', sender: 1, to: 5, question: null, shown: false},
       {id: 123, text: 'Marcos: Muchas gracias chicos', sender: 5, to: 5, question: null, shown: false},
       {id: 124, text: 'De verdad, me alegra tener amigos como vosotros', sender: 5, to: 5, question: null, shown: false},
       {id: 125, text: 'Hola', sender: 2, to: 2, question: null, shown: false},
@@ -154,16 +158,16 @@ export default createStore({
       {id: 129, text: 'He estado hablando con Marta y me ha dicho ', sender: 2, to: 2, question: null, shown: false},
       {id: 130, text: 'lo mucho que te has preocupado y has hecho', sender: 2, to: 2, question: null, shown: false},
       {id: 131, text: 'no se que hubiera pasado si no tuviera unos amigos como vosotros', sender: 2, to: 2, question: null, shown: false},
-      {id: 132, text: 'Asi que nada, solo queria dar las gracias por todo lo que habeis hecho', sender: 2, to: 2, question: null, shown: false},
+      {id: 132, text: 'Asi que nada, solo queria dar las gracias por todo lo que habeis hecho', sender: 2, to: 2, question: 21, shown: false},
       {id: 133, text: 'Se que han sido unos dias dificiles pero me he enterado', sender: 2, to: 2, question: null, shown: false},
       {id: 134, text: 'de algunas cosas que no me han gusta', sender: 2, to: 2, question: null, shown: false},
       {id: 135, text: 'pensaba que eramos amigos pero has hecho cosas', sender: 2, to: 2, question: null, shown: false},
       {id: 136, text: 'que no son de buen amigo', sender: 2, to: 2, question: null, shown: false},
-      {id: 137, text: 'Creo que necesito unos dias sin hablar', sender: 2, to: 2, question: null, shown: false},
+      {id: 137, text: 'Creo que necesito unos dias sin hablar', sender: 2, to: 2, question: 22, shown: false},
       {id: 138, text: 'Me he enterado de cosas que me han dolido mucho', sender: 2, to: 2, question: null, shown: false},
       {id: 139, text: 'Pensaba que eramos amigos pero me ha quedado claro que no', sender: 2, to: 2, question: null, shown: false},
       {id: 140, text: 'Si he podido salir de esta a sido gracias a mis amigos de verdad', sender: 2, to: 2, question: null, shown: false},
-      {id: 141, text: 'y no gracias a ti', sender: 2, to: 2, question: null, shown: false},
+      {id: 141, text: 'y no gracias a ti', sender: 2, to: 2, question: 23, shown: false},
       {id: 142, text: 'De nada, era lo minimo que podiamos hacer', sender: 1, to: 2, question: null, shown: false},
       {id: 143, text: 'Lo siento, me equivoque ', sender: 1, to: 2, question: null, shown: false},
       {id: 144, text: 'cuando quieras podemos hablar', sender: 1, to: 2, question: null, shown: false},
@@ -199,6 +203,22 @@ export default createStore({
         {id: 26, question: 11, to: 4, text: 'Hacer lo mismo a Oscar', activator: [62, 362, 63, 64], enableOption: [27], shown: false},
         {id: 27, question: 12, to: 4, text: 'Lo siento tienes razon', activator: [71,76,77,78,79,80,81], enableOption: [0], shown: false},
         {id: 28, question: 13, to: 4, text: 'Genial!', activator: [375, 76,77,78,79,80,81], enableOption: [0], shown: false},
+        {id: 29, question: 14, to: 5, text: 'Apuntarse', activator: [82], enableOption: [30], shown: false},
+        {id: 30, question: 15, to: 5, text: 'Preguntar a Marcos', activator: [83, 84, 85, 86, 87, 88], enableOption: [0], shown: false},
+        {id: 31, question: 16, to: 4, text: 'No lo se', activator: [89, 92, 93, 94, 95, 96, 97], enableOption: [0], shown: false},
+        {id: 32, question: 16, to: 4, text: 'Tal vez', activator: [90, 92, 93, 94, 95, 96, 97], enableOption: [0], shown: false},
+        {id: 33, question: 16, to: 4, text: 'Deberiamos  haberlo hecho', activator: [91, 92, 93, 94, 95, 96, 97], enableOption: [0], shown: false},
+        {id: 34, question: 17, to: 6, text: 'No me quiero meter', activator: [98, 99, 100, 102, 102], enableOption: [0], shown: false},
+        {id: 35, question: 17, to: 6, text: 'Voy a hablar seriamente con Marcos', activator: [101, 102, 103], enableOption: [36], shown: false},
+        {id: 36, question: 18, to: 2, text: 'Marcos tenemos que hablar', activator: [104, 105, 106, 107, 108], enableOption: [0], shown: false},
+        {id: 37, question: 19, to: 4, text: 'Hablar con los profesores', activator: [113, 114, 117, 118, 119, 120, 121], enableOption: [0], shown: false},
+        {id: 38, question: 19, to: 4, text: 'Ir a casa de Marcos', activator: [109, 110, 111, 112, 117,118, 119, 120, 121], enableOption: [0], shown: false},
+        {id: 39, question: 19, to: 4, text: 'Mala opcion', activator: [115, 116, 1162, 118, 119, 120, 121], enableOption: [0], shown: false},
+        {id: 40, question: 20, to: 5, text: 'Animar a Marcos', activator: [122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132], enableOption: [0], shown: false},
+        {id: 41, question: 20, to: 5, text: 'No decir nada', activator: [123, 124, 125, 126, 127, 128, 129, 130, 131, 132], enableOption: [0], shown: false},
+        {id: 42, question: 21, to: 2, text: 'De nada', activator: [142], enableOption: [0], shown: false},
+        {id: 43, question: 22, to: 2, text: 'Lo siento', activator: [143, 144], enableOption: [0], shown: false},
+        {id: 44, question: 23, to: 2, text: 'Lo siento mucho', activator: [145], enableOption: [0], shown: false},
         ],
   },
 
@@ -250,11 +270,15 @@ export default createStore({
     },
 
     getLastQuestionUser: (state, getters) => {
-      return state.msg.filter(msg => msg.sender === getters.getChatUser).filter(msg => msg.shown === true).filter(msg => msg.question !== null)[getters.getQuestionUserLenght-1]
+      return state.msg.filter(msg => msg.sender === getters.getChatUser || msg.sender === 1).filter(msg => msg.shown === true).filter(msg => msg.question !== null)[getters.getQuestionUserLenght-1]
     },
 
     getQuestionUserLenght: (state, getters) => {
-      return state.msg.filter(msg => msg.sender === getters.getChatUser).filter(msg => msg.shown === true).filter(msg => msg.question !== null).length
+      return state.msg.filter(msg => msg.sender === getters.getChatUser || msg.sender === 1).filter(msg => msg.shown === true).filter(msg => msg.question !== null).length
+    },
+
+    getSelectedOptionsList: (state) => {
+      return state.selectedOptionsList;
     },
 
     getAllPaths: (state) => {
@@ -327,6 +351,10 @@ export default createStore({
 
     setLastPath(state, optionId){
       state.lastPath = optionId
+    },
+
+    setSelectedOptionsList(state, optionId){
+      state.selectedOptionsList.push(optionId);
     },
 
     setLastQuestion(state, questionId){

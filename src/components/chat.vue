@@ -68,9 +68,15 @@ export default {
     methods: {
         enablePathQuestion: function(question){
             
-            if(!this.questinsList.includes(question) && question != null){
-                this.questinsList.push(question);
+            if(!this.$store.getters.getSelectedOptionsList.includes(question) && question != null){
+                this.$store.commit('setSelectedOptionsList', question);
                 this.$store.commit('enablePathQuestion', question);
+                console.log('Question ID: ', question)
+                console.log(this.$store.getters.getSelectedOptionsList)
+                var path = this.$store.getters.getAllPaths;
+                var finalp = path.filter(path => path.question === question).filter(path => path.shown === true).filter(path => path.to === this.$store.getters.getChatUser);
+                //console.log(this.$store.getters.getAllPaths)
+                console.log(finalp)
                 /*
                 console.log('Question ID: ', question)
                 console.log(this.$store.getters.getPathByQuestion)
