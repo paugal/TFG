@@ -9,9 +9,6 @@
 <script>
 export default {
     name: 'Notificacion',
-    data(){
-
-    },
     methods: {
         changeShownNot: function (visibility, username) {
         this.$store.commit("setNotificacion", visibility, username);

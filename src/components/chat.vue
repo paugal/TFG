@@ -21,6 +21,7 @@
                 </div>
                 
                 <div class='chatbox' id='chatbox'>
+                    <!--
                     <scrollbar v-if="this.$store.getters.getMsgLenght > 0 ">
                         <div v-for="index in this.$store.getters.getMsgLenght" :key="index">
                             <div v-if="this.$store.getters.getMsg[index-1].sender === 1" class ="chattext send xyz-in" xyz="fade right"> {{this.$store.getters.getMsg[index-1].text}}</div>
@@ -29,6 +30,25 @@
                             </div>
                         </div>                      
                     </scrollbar>
+                    -->
+                    <div class='scrollChat' id='scrollChat' v-if="this.$store.getters.getMsgLenght > 0 ">
+                        <div v-for="index in this.$store.getters.getMsgLenght" :key="index">
+                            <div v-if="this.$store.getters.getMsg[index-1].sender === 1" class ="chattext send xyz-in" xyz="fade right"> 
+                                {{this.$store.getters.getMsg[index-1].text}}
+                                {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
+                                {{this.autoScroll()}}
+                            </div>
+                            <div v-if='this.$store.getters.getMsg[index-1].visto === false' class="chattext newMsg xyz-in" xyz="fade left">
+                                    <div id="unseenMsg">Nuevos mensajes</div>
+                                </div>
+                            <div v-if="this.$store.getters.getMsg[index-1].sender !== 1" class="chattext receive xyz-in" xyz="fade left">
+                                {{this.$store.getters.getMsg[index-1].text}}
+                                {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
+                                {{this.autoScroll()}}
+                            </div>
+                        </div>    
+                    </div>
+                    
                 </div>
 
                 <div class='bottombarchat xyz-in' xyz="down" >
@@ -39,8 +59,7 @@
                         setLastPath(this.$store.getters.getOptions[index-1].id); 
                         activePathMsg(this.$store.getters.getActivedMsgforOption.activator);
                         disablePathOptions(this.$store.getters.getOptions[index-1].question)"> 
-                                <div>{{this.$store.getters.getOptions[index-1].text}}
-                                </div>
+                            <div>{{this.$store.getters.getOptions[index-1].text}}</div>
                         </div>
                     </div>
                     <div v-if="this.$store.getters.getOptionsLenght == 0">
@@ -53,7 +72,8 @@
 </template>
 
 <script>
-import Scrollbar from "vue3-smooth-scrollbar";
+//import func from 'vue-editor-bridge';
+//import Scrollbar from "vue3-smooth-scrollbar";
 
 export default {
     data() {
@@ -62,47 +82,39 @@ export default {
             questinsList: [],
         }
     },
-    components: { Scrollbar },
+    //components: { Scrollbar },
     mounted () {
+        this.autoScroll();    
     },
+
     methods: {
+        autoScroll: function(){
+            var element = document.getElementById("scrollChat");
+            if(element != null){
+                element.scrollTop = element.scrollHeight;
+                this.reload
+            }
+        },
+        
         enablePathQuestion: function(question){
-            
             if(!this.$store.getters.getSelectedOptionsList.includes(question) && question != null){
                 this.$store.commit('setSelectedOptionsList', question);
                 this.$store.commit('enablePathQuestion', question);
-                console.log('Question ID: ', question)
-                console.log(this.$store.getters.getSelectedOptionsList)
-                var path = this.$store.getters.getAllPaths;
-                var finalp = path.filter(path => path.question === question).filter(path => path.shown === true).filter(path => path.to === this.$store.getters.getChatUser);
-                //console.log(this.$store.getters.getAllPaths)
-                console.log(finalp)
-                /*
-                console.log('Question ID: ', question)
-                console.log(this.$store.getters.getPathByQuestion)
-                
-                console.log('Question ID 2: ', this.$store.getters.getLastQuestionUser.question)
-                
-                //console.log(this.$store.getters.getOptionsLenght)
-                //.filter(path => path.question === getters.getLastQuestionUser.question).filter(path => path.shown === true).filter(path => path.to === getters.getChatUser).length;
-                var path = this.$store.getters.getAllPaths;
-                var finalp = path.filter(path => path.question === question).filter(path => path.shown === true).filter(path => path.to === this.$store.getters.getChatUser);
-                //console.log(this.$store.getters.getAllPaths)
-                console.log(finalp)
-                //console.log(this.$store.getters.getChatUser)
-    */
+                this.autoScroll(); 
             }
-            
+        },
+
+        moveUserTopList: function (msgId){
+            this.$store.commit('moveUserTopList', msgId )
         },
 
         setLastPath: function (optionId){
             this.$store.commit('setLastPath', optionId)
-            console.log('new msg:' + this.$store.getters.getActivedMsgforOption.activator);
         },
 
         activePathMsg: function (msgsId){
-            console.log(this.$store.getters.getOptionsLenght);
             this.$store.commit('activePathMsg', msgsId)
+            this.autoScroll(); 
         },
 
         disablePathOptions: function (questionId){
@@ -121,7 +133,13 @@ export default {
 
 <style scoped>
 
-
+.scrollChat{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    
+}
 
 .msgSelector{
     background: white ;
@@ -191,6 +209,12 @@ export default {
     float: right;
     text-align: right;
     margin: 5px 5px 5px 15%;
+}
+.chattext.newMsg{
+    background: rgb(214, 193, 121);
+    font-size: 12px;
+    padding: 1px 5px 1px 5px;
+    margin: auto;
 }
 .fas{
     color: white;

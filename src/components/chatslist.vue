@@ -18,12 +18,15 @@
             <h1 class='titlechats'>Mensajes</h1> 
         </div>
         <div class='userlist'>
-            <div  class="xyz-in" xyz="fade down" v-for="index in 5" :key="index">
-                <router-link class="nav-link" :to="{name:'chat'}" @click= "changeUser(this.$store.getters.getUserInfo(index+1).id)"> 
+            <div  class="xyz-in" xyz="fade down" v-for="index in this.$store.getters.getChatOrder" :key="index">
+                <router-link class="nav-link" :to="{name:'chat'}" @click= "changeUser(this.$store.getters.getUserInfo(index).id)"> 
                     <div class="user">
                         <div class="groupPhotoName">
-                            <img :src="this.$store.getters.getUserInfo(index+1).image">
-                            <div class="username">{{this.$store.getters.getUserInfo(index+1).name}}</div>
+                            <img :src="this.$store.getters.getUserInfo(index).image">
+                            <div class="previeAndName">
+                                <div class="username">{{this.$store.getters.getUserInfo(index).name}}</div>
+                                <p class="previewMsg">{{this.$store.getters.getLastMsgChat(index).text}}</p>
+                            </div>
                         </div>
                         <i class="fas fasArrow fa-chevron-right fa-lg"></i>
                     </div>
@@ -54,7 +57,7 @@ export default({
     methods: {
         changeUser: function (id){
             this.$store.commit('setUserChat', id)
-        }
+        },
     }
 })
 </script>
@@ -96,10 +99,25 @@ export default({
     border-radius: 40px;
     border: 2px solid var(--main-color);
 }
+.previeAndName{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
 .username{
     font-size: 20px;
     font-weight: bold;
     text-align: left;
+}
+.previewMsg{
+    font-size: 10px;
+    font-weight: 500;
+    text-align: left;
+    color: rgb(77, 77, 77);
+    white-space: nowrap;
+    overflow: hidden;
+    width: 150px;
+    text-overflow: ellipsis;
 }
 .groupPhotoName{
     display: flex; 
