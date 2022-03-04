@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     day: 1,
-    chatOrder: [2, 3, 4, 5, 6],
+    chatOrder: [3, 2, 4, 5, 6],
     shownDayInfo: true,
     newMsg: {new: true, username: 'Oscar'},
     chatUser: 3,
@@ -23,125 +23,125 @@ export default createStore({
     ],
     
     msg:[
-      {id: 1, text: 'Hola Marcoss 👋🏼', sender: 1, to: 2, question: null, shown: false, visto: false},
-      {id: 2, text: 'Como estas?', sender: 1, to: 2, question: null, shown: false, visto: false},
-      {id: 3, text: 'Oscar me ha abierto y me ha dicho que ha pasado algo', sender: 1, to: 2, question: null, shown: false, visto: false},
-      {id: 11, text: 'No me ha contado nada, pero parecia grabe', sender: 1, to: 2, question: null, shown: false, visto: false},
-      {id: 12, text: 'Dime algo cuando puedas', sender: 1, to: 2, question: null, shown: false, visto: false},
+      {id: 1, text: 'Hola Marcoss 👋🏼', sender: 1, to: 2, question: null, shown: false, visto: true},
+      {id: 2, text: 'Como estas?', sender: 1, to: 2, question: null, shown: false, visto: true},
+      {id: 3, text: 'Oscar me ha abierto y me ha dicho que ha pasado algo', sender: 1, to: 2, question: null, shown: false, visto: true},
+      {id: 11, text: 'No me ha contado nada, pero parecia grabe', sender: 1, to: 2, question: null, shown: false, visto: true},
+      {id: 12, text: 'Dime algo cuando puedas', sender: 1, to: 2, question: null, shown: false, visto: true},
       {id: 4, text: 'Tio te has enterado de lo de marcos!!!', sender: 3, to: 3, question: 1, shown: true, visto: false},
-      {id: 5, text: 'Que va, pero me da igual', sender: 1, to: 3, question: null, shown: false, visto: false},
+      {id: 5, text: 'Que va, pero me da igual', sender: 1, to: 3, question: null, shown: false, visto: true},
       {id: 6, text: 'Como te va a dar igual si es tu amigoo', sender: 3, to: 3, question: null, shown: false, visto: false},
-      {id: 7, text: 'No, hace un par de dias que no hablamos', sender: 1, to: 3, question: null, shown: false, visto: false},
+      {id: 7, text: 'No, hace un par de dias que no hablamos', sender: 1, to: 3, question: null, shown: false, visto: true},
       {id: 8, text: 'Bua pues vas a flipar, todos estan hablardo de eso en clase', sender: 3, to: 3, question: null, shown: false, visto: false},
       {id: 9, text: 'Aunque no me sorprende, Marcos siempre a sido un friki', sender: 3, to: 3, question: null, shown: false, visto: false},
       {id: 10, text: 'Que asco me da', sender: 3, to: 3, question: 8, shown: false, visto: false},
       {id: 13, text: 'Holaa! Sabes algo de Marcos???', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 14, text: 'hoy no ha venido a basquet', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 15, text: 'y le he enviado mensajes y no contesta', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 16, text: 'Hola Marta', sender: 1, to: 4, question: null, shown: false, visto: false},
-      {id: 17, text: 'Yo tambien le he enviado un mensaje pero no contesta', sender: 1, to: 4, question: null, shown: false, visto: false},
-      {id: 18, text: 'Que raro que se haya saltado basquet', sender: 1, to: 4, question: null, shown: false, visto: false},
-      {id: 19, text: 'Me ha abierto Oscar de clase', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 16, text: 'Hola Marta', sender: 1, to: 4, question: null, shown: false, visto: true},
+      {id: 17, text: 'Yo tambien le he enviado un mensaje pero no contesta', sender: 1, to: 4, question: null, shown: false, visto: true},
+      {id: 18, text: 'Que raro que se haya saltado basquet', sender: 1, to: 4, question: null, shown: false, visto: true},
+      {id: 19, text: 'Me ha abierto Oscar de clase', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 20, text: 'Sois amigos?', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 21, text: 'Que vaa me ha contado algo que ha pasado con Marcos', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 21, text: 'Que vaa me ha contado algo que ha pasado con Marcos', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 22, text: 'Que ha pasado?', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 23, text: 'No me ha quedado muy claro', sender: 1, to: 4, question: null, shown: false, visto: false},
-      {id: 24, text: 'Lo ha empezado a insultar y no queria discutir', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 23, text: 'No me ha quedado muy claro', sender: 1, to: 4, question: null, shown: false, visto: true},
+      {id: 24, text: 'Lo ha empezado a insultar y no queria discutir', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 25, text: 'A insultado a Marcos?', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 26, text: 'Si ha pasado algo pero no me lo ha contado', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 26, text: 'Si ha pasado algo pero no me lo ha contado', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 27, text: 'Y tu que le has dicho', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 28, text: 'No le he contestado', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 28, text: 'No le he contestado', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 29, text: 'Bueno a veces es mejor no seguir la corriente', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 30, text: 'Le he dicho que parara de insultar a Marcos', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 30, text: 'Le he dicho que parara de insultar a Marcos', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 31, text: 'Muy bieen! Gracias por defenderlo', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 32, text: 'Espero que asi le quede claro  a Oscar que hacer lo que hace es horrible', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 33, text: 'Le he seguido el juego ', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 33, text: 'Le he seguido el juego ', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 34, text: 'Que has hecho que???', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 35, text: 'Por que narices haces eso???', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 36, text: 'Marcos es tu amigo y no ha hecho nada para que lo vayas insultando', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 37, text: 'Estoy muy enfadada pensaba que eras mejor persona', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 38, text: 'Lo siento...', sender: 1, to: 4, question: null, shown: false, visto: false},
-      {id: 39, text: '(mentir) No le he contestado (verdad) defender', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 38, text: 'Lo siento...', sender: 1, to: 4, question: null, shown: false, visto: true},
+      {id: 39, text: '(mentir) No le he contestado (verdad) defender', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 40, text: 'Me estas mientiendo?', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 41, text: 'Oscar me acaba de enviar esto', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 42, text: 'captura de pantalla ', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 43, text: 'No entiendo por que me mientes', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 44, text: ' defendiste a Marcos es lo mejor que pudiste hacer', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 45, text: 'No me vuelvas a mentir porfavor', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 46, text: 'Tienes razon lo siento', sender: 1, to: 4, question: null, shown: false, visto: false},
-      {id: 47, text: '(mentir) Insulte a Marcos (verdad) defender', sender: 1, to: 4, question: null, shown: false, visto: false},
-      {id: 48, text: '(mentir) Insulte a Marcos (verdad) neutro', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 46, text: 'Tienes razon lo siento', sender: 1, to: 4, question: null, shown: false, visto: true},
+      {id: 47, text: '(mentir) Insulte a Marcos (verdad) defender', sender: 1, to: 4, question: null, shown: false, visto: true},
+      {id: 48, text: '(mentir) Insulte a Marcos (verdad) neutro', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 49, text: 'No lo defendiste pero almenos no lo insultaste', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 50, text: '(mentir) defendi a Marcos (verdad) neutro', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 50, text: '(mentir) defendi a Marcos (verdad) neutro', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 51, text: 'Si no tuviste el valor de defender a tu amigos', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 52, text: 'Como minimo no mientas y digas que lo hiciste', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 53, text: '(mentir) No conteste (vedad) negativo', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 53, text: '(mentir) No conteste (vedad) negativo', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 54, text: 'Pensaba que Marcos era tu amigo', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 55, text: 'Insultarlo no te hace mejor que Oscar', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 56, text: '(mentir) Lo defendi (verdad) negativo', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 56, text: '(mentir) Lo defendi (verdad) negativo', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 57, text: 'Perdon por no contestar ayer, no me encontraba bien', sender: 2, to: 2, question: 7, shown: false, visto: false},
-      {id: 58, text: 'Ha pasado algo con Oscar?', sender: 1, to: 2, question: null, shown: false, visto: false},
-      {id: 59, text: 'Marcos??', sender: 1, to: 2, question: null, shown: false, visto: false},
-      {id: 260, text: 'Ya no hace falta que contestes... ', sender: 1, to: 2, question: null, shown: false, visto: false},
-      {id: 261, text: 'Hace mas de un dia que te envie el mensaje', sender: 1, to: 2, question: null, shown: false, visto: false},
+      {id: 58, text: 'Ha pasado algo con Oscar?', sender: 1, to: 2, question: null, shown: false, visto: true},
+      {id: 59, text: 'Marcos??', sender: 1, to: 2, question: null, shown: false, visto: true},
+      {id: 260, text: 'Ya no hace falta que contestes... ', sender: 1, to: 2, question: null, shown: false, visto: true},
+      {id: 261, text: 'Hace mas de un dia que te envie el mensaje', sender: 1, to: 2, question: null, shown: false, visto: true},
       {id: 60, text: 'Lo que ha hecho Oscar no esta bien', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 61, text: 'Tenemos que hacer algo para ayudar a Marcos', sender: 4, to: 4, question: 11, shown: false, visto: false},
-      {id: 62, text: 'Estoy harto de Oscar', sender: 1, to: 4, question: null, shown: false, visto: false},
-      {id: 362, text: 'Tenemos que hacerle lo mismo que le ha hecho a Marcos!', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 62, text: 'Estoy harto de Oscar', sender: 1, to: 4, question: null, shown: false, visto: true},
+      {id: 362, text: 'Tenemos que hacerle lo mismo que le ha hecho a Marcos!', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 63, text: 'No creo que eso sea buena idea', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 64, text: 'No se va a solucionar nada', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 65, text: 'No seremos mejor que el si hacemos lo mismo', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 66, text: 'Marta no tiene importancia', sender: 1, to: 4, question: null, shown: false, visto: false},
-      {id: 67, text: 'Si lo ignoramos mejor', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 66, text: 'Marta no tiene importancia', sender: 1, to: 4, question: null, shown: false, visto: true},
+      {id: 67, text: 'Si lo ignoramos mejor', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 68, text: 'Que no tiene importancia!', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 69, text: 'Vete a saber que va diciendo de Marcos', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 70, text: 'O incluso le ha hecho algo', sender: 4, to: 4, question: 12, shown: false, visto: false},
-      {id: 71, text: 'Lo siento tienes razon', sender: 1, to: 4, question: null, shown: false, visto: false},
-      {id: 72, text: 'Podemos quedar para ir a playa esta tarde', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 71, text: 'Lo siento tienes razon', sender: 1, to: 4, question: null, shown: false, visto: true},
+      {id: 72, text: 'Podemos quedar para ir a playa esta tarde', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 73, text: 'Buena idea, eso le ayudara a espejarse', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 74, text: 'y tal vez nos cuenta que ha pasado', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 75, text: 'Hago un grupo con los de siempre', sender: 4, to: 4, question: 13, shown: false, visto: false},
-      {id: 375, text: 'Genial!', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 375, text: 'Genial!', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 76, text: 'Marta: Hola chicos!!', sender: 5, to: 5, question: null, shown: false, visto: false},
       {id: 77, text: ' Hugo: Holaa', sender: 5, to: 5, question: null, shown: false, visto: false},
       {id: 78, text: 'Silvia: que tal??', sender: 5, to: 5, question: null, shown: false, visto: false},
       {id: 79, text: 'Marta: Quereis ir esta tarde a la playa?', sender: 5, to: 5, question: null, shown: false, visto: false},
       {id: 80, text: 'Hugo: Por mi genial', sender: 5, to: 5, question: null, shown: false, visto: false},
       {id: 81, text: 'Silvia: Buena idea, contad conmigo', sender: 5, to: 5, question: 14, shown: false, visto: false},
-      {id: 82, text: 'Tu: yo tambien me apunto', sender: 1, to: 5, question: null, shown: false, visto: false},
-      {id: 83, text: 'Tu: y tu Marcos??', sender: 1, to: 5, question: null, shown: false, visto: false},
+      {id: 82, text: 'Tu: yo tambien me apunto', sender: 1, to: 5, question: null, shown: false, visto: true},
+      {id: 83, text: 'Tu: y tu Marcos??', sender: 1, to: 5, question: null, shown: false, visto: true},
       {id: 84, text: 'Marcos: Si yo tambien me apunto', sender: 5, to: 5, question: null, shown: false, visto: false},
       {id: 85, text: 'Marta: Genial!', sender: 5, to: 5, question: null, shown: false, visto: false},
       {id: 86, text: 'Marta: pues a las 16 donde siempre', sender: 5, to: 5, question: null, shown: false, visto: false},
       {id: 87, text: 'Estoy preocupada he visto a Marcos muy triste esta tarde', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 88, text: 'Deberiamos habler hablado con el del tema?', sender: 4, to: 4, question: 16, shown: false, visto: false},
-      {id: 89, text: 'No lo se ', sender: 1, to: 4, question: null, shown: false, visto: false},
-      {id: 90, text: 'No era el momento, se hubiera sentido incomodo', sender: 1, to: 4, question: null, shown: false, visto: false},
-      {id: 91, text: 'Tal vez cuando estavmos los tres solos podriamos haver hablado con el', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 89, text: 'No lo se ', sender: 1, to: 4, question: null, shown: false, visto: true},
+      {id: 90, text: 'No era el momento, se hubiera sentido incomodo', sender: 1, to: 4, question: null, shown: false, visto: true},
+      {id: 91, text: 'Tal vez cuando estavmos los tres solos podriamos haver hablado con el', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 92, text: 'Puff no se que tendria que hacer..', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 93, text: 'Hola, ha pasado algo grave', sender: 6, to: 6, question: null, shown: false, visto: false},
       {id: 94, text: 'Esta mañana Oscar ha creado un chat de grupo con sus amigos', sender: 6, to: 6, question: null, shown: false, visto: false},
       {id: 95, text: 'y Marcos, y lo han empezado a insultar y cosas peores', sender: 6, to: 6, question: null, shown: false, visto: false},
       {id: 96, text: 'yo al ver de que era el grupo me he salido', sender: 6, to: 6, question: null, shown: false, visto: false},
       {id: 97, text: 'que deberiamos hacer?', sender: 6, to: 6, question: 17, shown: false, visto: false},
-      {id: 98, text: 'No me quiero meter, se van a meter conmigo sino', sender: 1, to: 6, question: null, shown: false, visto: false},
+      {id: 98, text: 'No me quiero meter, se van a meter conmigo sino', sender: 1, to: 6, question: null, shown: false, visto: true},
       {id: 99, text: 'Enserio???? Despues de lo que te he encontado', sender: 6, to: 6, question: null, shown: false, visto: false},
       {id: 100, text: 'No podemos mirar a otro lado!', sender: 6, to: 6, question: null, shown: false, visto: false},
-      {id: 101, text: 'Tengo que hablar con Marcos y enterarme de que esta pasando', sender: 1, to: 6, question: null, shown: false, visto: false},
+      {id: 101, text: 'Tengo que hablar con Marcos y enterarme de que esta pasando', sender: 1, to: 6, question: null, shown: false, visto: true},
       {id: 102, text: 'Tenemos que ayudarlo', sender: 6, to: 6, question: null, shown: false, visto: false},
       {id: 103, text: 'Esto esta muy mal', sender: 6, to: 6, question: null, shown: false, visto: false},
-      {id: 104, text: 'Marcos tenemos que hablar es importante', sender: 1, to: 2, question: null, shown: false, visto: false},
-      {id: 105, text: 'Porfavor contesta', sender: 1, to: 2, question: null, shown: false, visto: false},
+      {id: 104, text: 'Marcos tenemos que hablar es importante', sender: 1, to: 2, question: null, shown: false, visto: true},
+      {id: 105, text: 'Porfavor contesta', sender: 1, to: 2, question: null, shown: false, visto: true},
       {id: 106, text: 'Marcos no ha venido a clase hoy', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 107, text: 'Esto cada vez va a peor', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 108, text: 'Tenemos que hacer algo ya!', sender: 4, to: 4, question: 19, shown: false, visto: false},
-      {id: 109, text: 'Tenemos que ir a casa de Marcos y hablar con el de una vez', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 109, text: 'Tenemos que ir a casa de Marcos y hablar con el de una vez', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 110, text: 'Tienes razon creo que es lo mejor', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 111, text: 'Con suerte tal vez podemos decir que se lo cuente a su madre', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 112, text: 'Ella seguro que sabe mejor que hacer', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 113, text: 'Tenemos que hablar con los profesores sobre esto', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 113, text: 'Tenemos que hablar con los profesores sobre esto', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 114, text: 'Es buena idea pero creo que primero tenemos que haclararlo con Marcos', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 115, text: 'Mala opcion', sender: 1, to: 4, question: null, shown: false, visto: false},
+      {id: 115, text: 'Mala opcion', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 116, text: 'Como vamos a hacer eso!! ', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 1162, text: 'Dejalo, creo que es mejor que vaya a casa de Marcos yo sola', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 117, text: 'Vale pues vamos ahora mismo!', sender: 4, to: 4, question: null, shown: false, visto: false},
@@ -149,7 +149,7 @@ export default createStore({
       {id: 119, text: 'No te preocupes, estamos contigo', sender: 5, to: 5, question: null, shown: false, visto: false},
       {id: 120, text: 'Silvia: sii, cualquier cosa que necesites', sender: 5, to: 5, question: null, shown: false, visto: false},
       {id: 121, text: 'Marta: No has hecho nada malo, todo es culpa de Oscar y sus amigos', sender: 5, to: 5, question: 20, shown: false, visto: false},
-      {id: 122, text: 'Tu: Somos tus amigos y te apoyaremos siempre', sender: 1, to: 5, question: null, shown: false, visto: false},
+      {id: 122, text: 'Tu: Somos tus amigos y te apoyaremos siempre', sender: 1, to: 5, question: null, shown: false, visto: true},
       {id: 123, text: 'Marcos: Muchas gracias chicos', sender: 5, to: 5, question: null, shown: false, visto: false},
       {id: 124, text: 'De verdad, me alegra tener amigos como vosotros', sender: 5, to: 5, question: null, shown: false, visto: false},
       {id: 125, text: 'Hola', sender: 2, to: 2, question: null, shown: false, visto: false},
@@ -169,10 +169,10 @@ export default createStore({
       {id: 139, text: 'Pensaba que eramos amigos pero me ha quedado claro que no', sender: 2, to: 2, question: null, shown: false, visto: false},
       {id: 140, text: 'Si he podido salir de esta a sido gracias a mis amigos de verdad', sender: 2, to: 2, question: null, shown: false, visto: false},
       {id: 141, text: 'y no gracias a ti', sender: 2, to: 2, question: 23, shown: false, visto: false},
-      {id: 142, text: 'De nada, era lo minimo que podiamos hacer', sender: 1, to: 2, question: null, shown: false, visto: false},
-      {id: 143, text: 'Lo siento, me equivoque ', sender: 1, to: 2, question: null, shown: false, visto: false},
-      {id: 144, text: 'cuando quieras podemos hablar', sender: 1, to: 2, question: null, shown: false, visto: false},
-      {id: 145, text: 'Lo siento mucho, no se por que lo hice.', sender: 1, to: 2, question: null, shown: false, visto: false},
+      {id: 142, text: 'De nada, era lo minimo que podiamos hacer', sender: 1, to: 2, question: null, shown: false, visto: true},
+      {id: 143, text: 'Lo siento, me equivoque ', sender: 1, to: 2, question: null, shown: false, visto: true},
+      {id: 144, text: 'cuando quieras podemos hablar', sender: 1, to: 2, question: null, shown: false, visto: true},
+      {id: 145, text: 'Lo siento mucho, no se por que lo hice.', sender: 1, to: 2, question: null, shown: false, visto: true},
       ],
     
       path:[
@@ -338,10 +338,26 @@ export default createStore({
       }else{
         return aux[aux.length-1];
       }
-      
+    },
+
+    getNumUnseenMsgFromUser: (state) => (id)  => {
+      var numNewMsg = state.msg.filter(msg => msg.shown === true).filter(msg => msg.sender === id).filter(msg => msg.visto === false).length;
+      if(numNewMsg == null){
+        return 0
+      }
+      else{
+        return numNewMsg
+      }
     },
   },
   mutations: {
+
+    setSeenMsg(state, id){
+      var seenMsg = state.msg.filter(msg => msg.shown === true).filter(msg => msg.sender === id).filter(msg => msg.visto === false);
+      for(let index in seenMsg){
+        seenMsg[index].visto = true;
+      }
+    },
 
     setDay(state, dayId){
       state.day = dayId;
@@ -387,24 +403,28 @@ export default createStore({
         setTimeout(function () {
           try{
             //Mostramos los mensajes nuevos
-            state.msg.find(msg => msg.id === msgsId[i]).shown = true;
+            var msg = state.msg.find(msg => msg.id === msgsId[i]);
+            msg.shown = true;
             
 
             //Modificamos el ordes de la lista de chats segun los mas recientes
-            var user = [state.msg.find(msg => msg.id === msgsId[i]).sender]
+            var user = [msg.sender]
             if( user != 1){
               var aux = state.chatOrder.filter(chatOrder => chatOrder !== user[0]);
               aux = user.concat(aux);
               state.chatOrder = aux;
             }else if(user == 1){
-              user = [state.msg.find(msg => msg.id === msgsId[i]).to]
+              user = [msg.to]
               aux = state.chatOrder.filter(chatOrder => chatOrder !== user[0]);
               aux = user.concat(aux);
               state.chatOrder = aux;
             }
-
-            //Marcamos aquellos mensajes que han sido leidos
             
+            //Modificamos la notificacion
+            if(state.newMsg.username != msg.sender && state.getChatUser != msg.sender && msg.sender != 1){
+              state.newMsg.username = state.persons.find(persons => persons.id == msg.sender).name;
+              state.newMsg.new = true;
+            }
             
           }catch(error){return 0}
       }, i*1000);

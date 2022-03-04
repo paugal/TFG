@@ -1,6 +1,7 @@
 <template>
     <Phone>
         <div class="screen xyz-in" xyz="fade in" style='background-image: url("https://i.ibb.co/zRNQYd5/wp4410724.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
+                <Notificacion v-if="this.$store.getters.getNotificacion.new"/>
                 <div class="topbarchat xyz-in" xyz="up">
                     <div>
                         <div class="clock">22:12</div>
@@ -13,9 +14,9 @@
                     </div>
                     
                     <div style="margin: 20px 0px 10px 35px; display: flex; gap: 25px; align-items: center;">
-                        <router-link :to="{name:'chatslist'}"> <i class="fas fa-chevron-left"></i> </router-link>
-                        <img class="userImage" :src="this.$store.getters.getChatUserInfo.image" alt="user_image_bully" border="0">                 
-                        <div class="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
+                        <router-link :to="{name:'chatslist'}" @click="setSeenMsg(this.$store.getters.getChatUser); setUserChat(0)"> <i class="fas fa-chevron-left"></i> </router-link>
+                        <img v-if='this.$store.getters.getChatUser != 0' class="userImage" :src="this.$store.getters.getChatUserInfo.image" alt="user_image_bully" border="0">                 
+                        <div v-if='this.$store.getters.getChatUser != 0' class="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
                     </div>
                     
                 </div>
@@ -33,19 +34,25 @@
                     -->
                     <div class='scrollChat' id='scrollChat' v-if="this.$store.getters.getMsgLenght > 0 ">
                         <div v-for="index in this.$store.getters.getMsgLenght" :key="index">
+                            
                             <div v-if="this.$store.getters.getMsg[index-1].sender === 1" class ="chattext send xyz-in" xyz="fade right"> 
                                 {{this.$store.getters.getMsg[index-1].text}}
                                 {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
                                 {{this.autoScroll()}}
                             </div>
-                            <div v-if='this.$store.getters.getMsg[index-1].visto === false' class="chattext newMsg xyz-in" xyz="fade left">
-                                    <div id="unseenMsg">Nuevos mensajes</div>
+                            <!--
+                            <div id='unseenBox' v-if='this.$store.getters.getMsg[index-1].visto === false && notRepetDiv()'>
+                                <div id='aux2' class="chattext newMsg xyz-in" xyz="fade left">
+                                    {{'Mensajes sin leer'}}
                                 </div>
+                            </div>
+                            -->
                             <div v-if="this.$store.getters.getMsg[index-1].sender !== 1" class="chattext receive xyz-in" xyz="fade left">
                                 {{this.$store.getters.getMsg[index-1].text}}
                                 {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
                                 {{this.autoScroll()}}
                             </div>
+
                         </div>    
                     </div>
                     
@@ -55,6 +62,7 @@
                     <div v-for="index in this.$store.getters.getOptionsLenght" :key="index">
                         <div class='msgSelector xyz-in'  xyz="fade down" v-if="this.$store.getters.getOptionsLenght > 0"  
                         @click= " show = !show; enablePathOptions(this.$store.getters.getOptions[index-1].id);
+                        setSeenMsg(this.$store.getters.getChatUser);
                         enablePathQuestion(this.$store.getters.getOptions[index-1].question);
                         setLastPath(this.$store.getters.getOptions[index-1].id); 
                         activePathMsg(this.$store.getters.getActivedMsgforOption.activator);
@@ -84,10 +92,83 @@ export default {
     },
     //components: { Scrollbar },
     mounted () {
-        this.autoScroll();    
+        this.autoScroll();  
+        
+        console.log("WebMontada")  
     },
 
     methods: {
+        //No funciona
+        addMsg: function(msgInfo){
+            console.log()
+            var msg = document.createElement('div');
+            if(msgInfo.sender == 1){
+                msg.setAttribute('id', msgInfo.id);
+                msg.setAttribute('class', 'chattext send xyz-in');
+                msg.setAttribute('xyz', "fade right");
+                msg.textContent = msgInfo.text;
+                this.enablePathQuestion(msgInfo.question);
+                this.autoScroll();
+            }else{
+                msg.setAttribute('id', msgInfo.id);
+                msg.setAttribute('class', 'chattext receive xyz-in');
+                msg.setAttribute('xyz', "fade left");
+                msg.textContent = msgInfo.text;
+                this.enablePathQuestion(msgInfo.question);
+                this.autoScroll();
+            }
+            
+            if(document.getElementById('scrollChat') != null){
+                document.getElementById('scrollChat').appendChild(msg);
+                console.log(msg)
+            }
+
+        },
+        setSeenMsg: function(id){
+            this.$store.commit('setSeenMsg', id )
+        },
+        notRepetDiv: function(){
+            console.log('Hola ' + document.getElementById('aux2'))
+            if(document.getElementById('aux2') == null){
+                return true;
+            }else{
+                return false;
+            }
+        },
+
+        addUnseenMsg: function(){
+            console.log(document.getElementById("unseenMsg"))
+            if(document.getElementById("unseenMsg") == null && document.getElementById("unseenBox") != null){
+                var unseenMsg = document.createElement('div');
+                unseenMsg.setAttribute("id", "unseenMsg");
+                unseenMsg.setAttribute('class', "chattext receive xyz-in");
+                unseenMsg.setAttribute('xyz', "fade right");
+                unseenMsg.textContent = 'Mensajes sin leer';
+                document.getElementById("aux2").appendChild(unseenMsg);
+            }else if(document.getElementById("unseenMsg") != null && document.getElementById("unseenBox") != null){
+                 document.getElementById("unseenMsg").remove();
+                 unseenMsg = document.createElement('div');
+                unseenMsg.setAttribute("id", "unseenMsg");
+                unseenMsg.setAttribute('class', "chattext receive xyz-in");
+                unseenMsg.setAttribute('xyz', "chattext receive xyz-in");
+                unseenMsg.textContent = 'Mensajes sin leer';
+                document.getElementById("aux2").appendChild(unseenMsg);
+            }
+        },
+
+        removeUnseenMsg: function(){
+            var element = document.getElementById("unseenMsg");
+            while(element != null){
+                document.getElementById("unseenMsg").remove();
+                element = document.getElementById("unseenMsg");
+            }
+            
+        },
+
+        setUserChat: function(userId){
+            this.$store.commit('setUserChat', userId);
+        },
+
         autoScroll: function(){
             var element = document.getElementById("scrollChat");
             if(element != null){

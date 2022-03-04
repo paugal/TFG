@@ -26,7 +26,9 @@
                             <div class="previeAndName">
                                 <div class="username">{{this.$store.getters.getUserInfo(index).name}}</div>
                                 <p class="previewMsg">{{this.$store.getters.getLastMsgChat(index).text}}</p>
+                               
                             </div>
+                             <div class='numNewMsg' v-if="this.$store.getters.getNumUnseenMsgFromUser(index) != 0">{{this.$store.getters.getNumUnseenMsgFromUser(index)}}</div>
                         </div>
                         <i class="fas fasArrow fa-chevron-right fa-lg"></i>
                     </div>
@@ -39,13 +41,12 @@
             <router-link  :to="{name:'info'}"> <vue-feather type="info" stroke="white" size="36px"></vue-feather> </router-link>
         </div>
 
-
-        
-
     </Phone>
 </template>
 
 <script>
+
+
 export default({
     name: 'chatslist',
     data() {
@@ -58,7 +59,9 @@ export default({
         changeUser: function (id){
             this.$store.commit('setUserChat', id)
         },
-    }
+    },
+    onMounted(){
+    },
 })
 </script>
 
@@ -118,6 +121,17 @@ export default({
     overflow: hidden;
     width: 150px;
     text-overflow: ellipsis;
+}
+.numNewMsg{
+    background: var(--main-color);
+    color: white;
+    font-weight: bolder;
+    width: 25px; 
+    height: 25px;
+    border-radius: 50%;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
 }
 .groupPhotoName{
     display: flex; 
