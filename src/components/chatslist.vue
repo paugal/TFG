@@ -1,6 +1,6 @@
 <template>
     <Phone>
-            
+        
         <IntroDay v-if="this.$store.getters.getShownDayInfo"></IntroDay>
         
         <Notificacion v-if="this.$store.getters.getNotificacion.new" />

@@ -1,7 +1,7 @@
 <template>
     <Phone>
         <div class="screen xyz-in" xyz="fade in" style='background-image: url("https://i.ibb.co/zRNQYd5/wp4410724.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
-                <Notificacion v-if="this.$store.getters.getNotificacion.new"/>
+                <!-- <Notificacion v-if="this.$store.getters.getNotificacion.new"/> -->
                 <div class="topbarchat xyz-in" xyz="up">
                     <div>
                         <div class="clock">22:12</div>

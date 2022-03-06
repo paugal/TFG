@@ -1,5 +1,5 @@
 <template>
-  <div id="app">    
+  <div id="app">
     <router-view/>
     <!--
     <div id="nav" class="nav">
@@ -37,4 +37,4 @@ export default {
 <style scoped lang="css">
   @import "./assets/styles/global-style.css";
   @import "./assets/styles/devicesMod.css";
-</style>
+</style>;

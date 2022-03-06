@@ -13,6 +13,7 @@ import IntroDay from './components/IntroDay.vue'
 import Phone from './components/Phone.vue'
 import Notificacion from './components/Notificacion.vue'
 import IntroMobile from './components/mobile/IntroMobile.vue'
+import Clock from './components/Clock.vue'
 
 //Animaciones
 import VueAnimXyz from '@animxyz/vue3'
@@ -50,6 +51,7 @@ const app = createApp(App)
 .component('IntroDay', IntroDay)
 .component('IntroMobile', IntroMobile)
 .component('Notificacion', Notificacion)
+.component('Clock', Clock)
 .component(VueFeather.name, VueFeather)
 .use(VueSmoothScroll)
 .use(naive)
