@@ -7,7 +7,7 @@
             
             <div class="topbar" >
                 <div>
-                    <div class="clock">22:12</div>
+                    <div class="clock">12:12</div>
                     
                     <div class="notIcons">
                         <vue-feather type="wifi" stroke="white" size="15px"></vue-feather>
@@ -19,7 +19,7 @@
             </div>
             <div class='userlist'>
                 <div  class="xyz-in" xyz="fade down" v-for="index in this.$store.getters.getChatOrder" :key="index">
-                    <router-link class="nav-link" :to="{name:this.isPhone}" @click= "changeUser(this.$store.getters.getUserInfo(index).id)"> 
+                    <router-link class="nav-link" :to="{name:'chat'}" @click= "changeUser(this.$store.getters.getUserInfo(index).id)"> 
                         <div class="user">
                             <div class="groupPhotoName">
                                 <img :src="this.$store.getters.getUserInfo(index).image">
@@ -55,7 +55,6 @@ export default({
         return{
             infoDay: true,
             newNotification: 'Notificacion',
-            isPhone: 'chat',
         }
     },
     methods: {
@@ -63,18 +62,16 @@ export default({
             this.$store.commit('setUserChat', id)
         },
     },
-    mounted(){
-        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-            // true for mobile device
-            this.isPhone = 'chatM';
-        }else{
-            // false for not mobile device
-            this.isPhone = 'chat';
-        }
+    onMounted(){
+        
     },
 })
 </script>
-
+<style>
+    html, body{
+        background-color: #FF0000;
+    }
+</style>
 <style scoped>
 body{
     background-color: black;

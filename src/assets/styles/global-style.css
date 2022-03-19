@@ -100,7 +100,7 @@ body{
   background: var(--main-color);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
   transition: 0.3s;
-  border-radius: 30px;
+  border-radius: 0px 0px 30px 30px;
   border: 1px solid var(--main-color);
   color: white;
 }

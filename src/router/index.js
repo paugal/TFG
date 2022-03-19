@@ -12,9 +12,19 @@ const routes = [
     component: () => import('../components/Chat.vue'),
   },
   {
+    path: '/chatM',
+    name: 'chatM',
+    component: () => import('../components/mobile/ChatM.vue'),
+  },
+  {
     path: '/chatslist',
     name: 'chatslist',
     component: () => import( '../components/ChatsList.vue')
+  },
+  {
+    path: '/chatslistM',
+    name: 'chatslistM',
+    component: () => import( '../components/mobile/ChatsListM.vue')
   },
   {
     path: '/daytitle',

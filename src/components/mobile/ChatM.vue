@@ -214,12 +214,14 @@ export default {
 
 <style scoped>
 .screen{
+    height: 100vh;
+    margin: 0%;
 }
 
 .scrollChat{
     overflow: scroll;
     overflow-x: hidden;
-    height: 100%;
+    height: auto;
     width: 100%;
     
 }
@@ -237,12 +239,21 @@ export default {
 .msgSelector:hover{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
 }
+.topbarchat{
+  background: var(--chat-color);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+  transition: 0.3s;
+  border-radius: 0px 0px 30px 30px;
+  border: 1px solid var(--chat-color);
+  color: white;
+  height:15%;
+}
 .bottombarchat{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     background-color: var(--chat-color);
     transition: 0.3s;
     padding: 5px;
-    height: 160px;
+    height: 20%;
     border-radius: 30px 30px 0px 0px;
     backdrop-filter: blur(2px);
     bottom: 0%;
@@ -267,7 +278,7 @@ export default {
     background-size: cover;
     background-position: center;
     position: relative;
-    height: 405px;
+    height: 65%;
     padding: 10px;
     
 }

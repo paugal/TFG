@@ -20,6 +20,8 @@
                             opciones. ¡Pero cuidado cada acción tiene sus consecuencias!
                         </p>
                     </div>
+                    
+                
                 <router-link  class="nav-link" :to="{name:'chatslist'}"> 
                 <button  type="button" class="btn btn-primary" style="margin: 20px 60px 0px 60px" 
                 @click="isChatList = true">EMPEZAR</button>  </router-link>
@@ -38,8 +40,10 @@ export default({
         return{
             isLoading: true,
             isChatList: false,
-            isChat: false
+            isChat: false,
         }
+    },
+    methods: {
     },
     mounted() {
         setTimeout(() => {
@@ -52,6 +56,10 @@ export default({
 </script>
 
 <style scoped>
+.screen{
+    height: 100vh;
+    margin: 0%;
+}
 .textbox{
     background: white;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);

@@ -1,5 +1,5 @@
 <template>
-    <div class="marvel-device iphone-x">
+    <div class="marvel-device iphone-x" v-if="!ifPhone()">
         <div class="notch">
             <div class="camera"></div>
             <div class="speaker"></div>
@@ -19,10 +19,25 @@
             <slot></slot>
         </div>
     </div>
+    <div v-if="ifPhone()">
+        <slot></slot>
+    </div>
 </template>
 
 <script>
 export default {
     name:'Phone',
+
+    methods: {
+    ifPhone: function(){
+      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        // true for mobile device
+        return true;
+      }else{
+        // false for not mobile device
+        return false;
+      }
+    }
+  }
 }
 </script>

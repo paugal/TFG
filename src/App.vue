@@ -1,9 +1,8 @@
 <template>
   <div id="app">
     
-    
     <div id="nav" class="nav">
-      <router-link class="nav-link" :to="{name:'Home'}" > EMPEZAR </router-link>
+      <router-link id='startButton' class="nav-link" v-on:click='disableButton' :to="{name:'Home'}" > EMPEZAR </router-link>
       
     </div>
     <router-view/>
@@ -12,6 +11,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'App',
   data() {
@@ -30,10 +30,26 @@ export default {
       this.isLoading = false;
     }, 3500);
   },
+  methods: {
+    disableButton: function(){
+      document.getElementById('nav').hidden  = true;
+    },
+
+    ifPhone: function(){
+      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        // true for mobile device
+        return true;
+      }else{
+        // false for not mobile device
+        return false;
+      }
+    }
+  }
 }
 </script>
 
 <style scoped lang="css">
+
   @import "./assets/styles/global-style.css";
   @import "./assets/styles/devicesMod.css";
 </style>
