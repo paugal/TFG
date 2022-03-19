@@ -55,7 +55,7 @@ export default({
         return{
             infoDay: true,
             newNotification: 'Notificacion',
-            isPhone: 'chat',
+            isPhone: 'chatM',
         }
     },
     methods: {

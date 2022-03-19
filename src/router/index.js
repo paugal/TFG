@@ -2,37 +2,37 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/',
+    path: '/TFG/',
     name: 'Home',
     component: () => import('../components/Intro.vue'),
   },
   {
-    path: '/chat',
+    path: '/TFG/chat',
     name: 'chat',
     component: () => import('../components/Chat.vue'),
   },
   {
-    path: '/chatM',
+    path: '/TFG/chatM',
     name: 'chatM',
     component: () => import('../components/mobile/ChatM.vue'),
   },
   {
-    path: '/chatslist',
+    path: '/TFG/chatslist',
     name: 'chatslist',
     component: () => import( '../components/ChatsList.vue')
   },
   {
-    path: '/chatslistM',
+    path: '/TFG/chatslistM',
     name: 'chatslistM',
     component: () => import( '../components/mobile/ChatsListM.vue')
   },
   {
-    path: '/daytitle',
+    path: '/TFG/daytitle',
     name: 'daytitle',
     component: () => import( '../components/IntroDay.vue')
   },
   {
-    path: '/info',
+    path: '/TFG/info',
     name: 'info',
     component: () => import('../components/Info.vue')
   }
