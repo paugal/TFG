@@ -1,4 +1,4 @@
-# test2v3
+# TFG - Raising awareness of bullying through video games
 
 ## Project setup
 ```
