@@ -1,4 +1,4 @@
-# TFG - Concienciacion del acoso escolar mediante el videojuego
+# TFG - Raising awareness of bullying through video games
 
 ## Project setup
 ```
