@@ -10,11 +10,6 @@
   "dependencies": {
     "@animxyz/core": "^0.6.4",
     "@animxyz/vue3": "^0.6.5",
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-regular-svg-icons": "^6.0.0-beta3",
-    "@fortawesome/free-solid-svg-icons": "^6.0.0-beta3",
-    "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
     "emailjs-com": "^3.2.0",
@@ -22,14 +17,9 @@
     "glob-parent": "^6.0.2",
     "naive-ui": "^2.24.1",
     "nodemailer": "^6.7.2",
-    "perfect-scrollbar": "^1.5.3",
     "vue": "^3.2.26",
     "vue-feather": "^2.0.0-rc.1",
     "vue-router": "^4.0.12",
-    "vue3-perfect-scrollbar": "^1.5.5",
-    "vue3-smooth-scroll": "^0.8.1",
-    "vue3-smooth-scrollbar": "^1.0.2",
-    "vuejs-dialog": "^1.4.2",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

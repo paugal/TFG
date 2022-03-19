@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <router-view/>
-    <!--
+    
+    
     <div id="nav" class="nav">
-      <router-link class="nav-link" :to="{name:'Home'}" > HOME </router-link>
-      <router-link class="nav-link" :to="{name:'chatslist'}" > ChatsList </router-link>
-      <router-link class="nav-link" :to="{name:'HomeMobile'}" > Mobile </router-link>
+      <router-link class="nav-link" :to="{name:'Home'}" > EMPEZAR </router-link>
+      
     </div>
-    -->
+    <router-view/>
   </div>
   
 </template>
@@ -37,4 +36,4 @@ export default {
 <style scoped lang="css">
   @import "./assets/styles/global-style.css";
   @import "./assets/styles/devicesMod.css";
-</style>;
+</style>

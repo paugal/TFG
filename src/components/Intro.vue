@@ -33,7 +33,7 @@
 
 
 export default({
-    name: 'test',
+    name: 'Intro',
     data() {
         return{
             isLoading: true,

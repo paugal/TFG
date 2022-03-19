@@ -1,16 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Intro from '../components/Intro.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Intro
-  },
-  {
-    path: '/',
-    name: 'HomeMobile',
-    component: () => import( '../components/mobile/IntroMobile.vue'),
+    component: () => import('../components/Intro.vue'),
   },
   {
     path: '/chat',
