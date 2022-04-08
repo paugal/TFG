@@ -1,6 +1,6 @@
 <template>
     <Phone>
-        <div class="screen xyz-in" xyz="fade in" style='background-image: url("https://i.ibb.co/zRNQYd5/wp4410724.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
+        <div class="screen xyz-in" id='screen' xyz="fade in" style='background-image: url("https://i.ibb.co/zRNQYd5/wp4410724.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
                 <!-- <Notificacion v-if="this.$store.getters.getNotificacion.new"/> -->
                 <div class="topbarchat xyz-in" xyz="up">
                     <div>
@@ -35,10 +35,9 @@
                     <div class='scrollChat' id='scrollChat' v-if="this.$store.getters.getMsgLenght > 0 ">
                         <div v-for="index in this.$store.getters.getMsgLenght" :key="index">
                             
-                            <div v-if="this.$store.getters.getMsg[index-1].sender === 1" class ="chattext send xyz-in" xyz="fade right"> 
+                            <div v-if="this.$store.getters.getMsg[index-1].sender === 1" class ="chattext send xyz-in" xyz="fade right delay-5"> 
                                 {{this.$store.getters.getMsg[index-1].text}}
                                 {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
-                                {{this.autoScroll()}}
                             </div>
                             <!--
                             <div id='unseenBox' v-if='this.$store.getters.getMsg[index-1].visto === false && notRepetDiv()'>
@@ -47,13 +46,12 @@
                                 </div>
                             </div>
                             -->
-                            <div v-if="this.$store.getters.getMsg[index-1].sender !== 1" class="chattext receive xyz-in" xyz="fade left">
+                            <div v-if="this.$store.getters.getMsg[index-1].sender !== 1" class="chattext receive xyz-in" xyz="fade left delay-5">
                                 {{this.$store.getters.getMsg[index-1].text}}
                                 {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
-                                {{this.autoScroll()}}
                             </div>
-
-                        </div>    
+                            
+                        </div>
                     </div>
                     
                 </div>
@@ -66,12 +64,13 @@
                         enablePathQuestion(this.$store.getters.getOptions[index-1].question);
                         setLastPath(this.$store.getters.getOptions[index-1].id); 
                         activePathMsg(this.$store.getters.getActivedMsgforOption.activator);
-                        disablePathOptions(this.$store.getters.getOptions[index-1].question)"> 
+                        disablePathOptions(this.$store.getters.getOptions[index-1].question); testCalculKarma()"> 
                             <div>{{this.$store.getters.getOptions[index-1].text}}</div>
                         </div>
                     </div>
                     <div v-if="this.$store.getters.getOptionsLenght == 0">
-                        <div class="tipmsg"> De momento no puedes decir nada mas, prueva a hablar con otra persona</div>
+                        <div class="tipmsg"> De momento no puedes decir nada mas, prueva a hablar con otra persona
+                        </div>
                     </div>
                 </div>
             
@@ -91,13 +90,62 @@ export default {
         }
     },
     //components: { Scrollbar },
-    mounted () {
-        this.autoScroll();  
-        
-        console.log("WebMontada")  
+    mounted () { 
+        this.autoScroll();
+
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        document.getElementById('screen').style.height = '100vh';
+        }
+        var auxScrollHeight = 0;
+
+        setInterval(() => {
+            var element = document.getElementById("scrollChat");
+            if (element != null) {
+                
+                if(element.scrollHeight > auxScrollHeight){
+                    this.autoScroll();
+                    auxScrollHeight = element.scrollHeight;
+                }
+                
+            }
+        }, 100);
+
     },
 
     methods: {
+
+        testCalculKarma: function(){
+            var playerPathAux = this.$store.getters.getPlayerPath;
+            var auxKarma = 0;
+            var playerPathList = [];
+            for (let index = 0; index < playerPathAux.length; index++) {
+                const element = playerPathAux[index];
+                playerPathList.push(this.$store.getters.getAllPaths.find(path => path.id === element))
+                auxKarma += this.$store.getters.getAllPaths.find(path => path.id === element).karma
+                console.log(element);
+                if(element in [12, 13, 14]){
+                    console.log('calling lieDetector')
+                    this.lieDetector(playerPathAux);
+                }
+            }
+            auxKarma = auxKarma / playerPathList.filter(path => path.karma !== 0).length;
+            console.log('Karma: ' + auxKarma)
+            this.$store.commit('setKarma')
+        },
+
+        lieDetector: function(playerPathAux){
+            //3 - 12 //4 - 13 //5 - 14
+            var list = playerPathAux.filter(id => id === ((3 && 12) || (4 && 13) || (5 && 14)));
+            if(list != null){
+                console.log('No miente');
+                console.log(list);
+            }else{
+                console.log('Esta mintiendo!');
+                console.log(list);
+            }
+
+        },
+
         //No funciona
         addMsg: function(msgInfo){
             console.log()
@@ -108,14 +156,12 @@ export default {
                 msg.setAttribute('xyz', "fade right");
                 msg.textContent = msgInfo.text;
                 this.enablePathQuestion(msgInfo.question);
-                this.autoScroll();
             }else{
                 msg.setAttribute('id', msgInfo.id);
                 msg.setAttribute('class', 'chattext receive xyz-in');
                 msg.setAttribute('xyz', "fade left");
                 msg.textContent = msgInfo.text;
                 this.enablePathQuestion(msgInfo.question);
-                this.autoScroll();
             }
             
             if(document.getElementById('scrollChat') != null){
@@ -181,7 +227,6 @@ export default {
             if(!this.$store.getters.getSelectedOptionsList.includes(question) && question != null){
                 this.$store.commit('setSelectedOptionsList', question);
                 this.$store.commit('enablePathQuestion', question);
-                this.autoScroll(); 
             }
         },
 
@@ -195,14 +240,14 @@ export default {
 
         activePathMsg: function (msgsId){
             this.$store.commit('activePathMsg', msgsId)
-            this.autoScroll(); 
         },
 
         disablePathOptions: function (questionId){
             this.$store.commit('disablePathOptions', questionId)
         }, 
-        enablePathOptions: function (questionId){
-            this.$store.commit('enablePathOptions', questionId)
+        enablePathOptions: function (OptionId){
+            this.$store.commit('enablePathOptions', OptionId);
+            this.$store.commit('setPlayerPath', OptionId)
         }, 
 
         reload(){
@@ -214,6 +259,8 @@ export default {
 
 <style scoped>
 .screen{
+    background: white;
+    margin: 0%;
 }
 
 .scrollChat{

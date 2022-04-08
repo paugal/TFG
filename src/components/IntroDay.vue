@@ -46,9 +46,9 @@ export default {
   border: 1px solid rgba(7, 194, 134, 0.3);
 }
 .dayInfo {
-  font-weight: bold;
-  background: var(--main-color);
   font-size: 50px;
+  background: var(--main-color);
+  font-weight: bold;
   padding: 30px;
   border-radius: 20px;
 }

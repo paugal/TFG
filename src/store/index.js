@@ -9,6 +9,10 @@ export default createStore({
     chatUser: 3,
     lastPath: 1,
     lastQuestion: 0,
+    playerPath: [],
+    karma: 0,
+
+    //No es una lista del id de las opciones, tengo que modificar la estructura
     selectedOptionsList: [],
     colorScheme: 'var(--main-color)',
     backgroundImage: "https://i.ibb.co/zRNQYd5/wp4410724.jpg",
@@ -289,6 +293,14 @@ export default createStore({
       return state.selectedOptionsList;
     },
 
+    getPlayerPath: (state) => {
+      return state.playerPath;
+    },
+
+    getKarma: (state) => {
+      return state.karma;
+    },
+
     getAllPaths: (state) => {
       return state.path
     },
@@ -391,10 +403,31 @@ export default createStore({
       state.lastPath = optionId
     },
 
-    setSelectedOptionsList(state, optionId){
-      state.selectedOptionsList.push(optionId);
+    setSelectedOptionsList(state, questionId){
+      state.selectedOptionsList.push(questionId);
     },
 
+    setPlayerPath(state, optionId){
+      state.playerPath.push(optionId);
+    },
+
+    setKarma(state){
+      var auxKarma = 0;
+      var playerPathList = [];
+      if(state.playerPath != null){
+        for (let index = 0; index < state.playerPath.length; index++) {
+          const element = state.playerPath[index];
+          var pathElement = state.path.find(path => path.id === element);
+          playerPathList.push(pathElement)
+          auxKarma += pathElement.karma
+        }
+        state.karma = auxKarma / playerPathList.find(path => path.karma !== 0).length;
+        state.karma = 10 ;
+
+      }
+      
+       
+    },
     setLastQuestion(state, questionId){
       state.lastQuestion = questionId
     },

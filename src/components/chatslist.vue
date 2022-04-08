@@ -1,6 +1,7 @@
 <template>
     <Phone>
-        <div class="screen">
+        <div class="screen" id="screen">
+            
             <IntroDay v-if="this.$store.getters.getShownDayInfo"></IntroDay>
             
             <Notificacion v-if="this.$store.getters.getNotificacion.new" />
@@ -55,7 +56,7 @@ export default({
         return{
             infoDay: true,
             newNotification: 'Notificacion',
-            isPhone: 'chatM',
+            isPhone: 'chat',
         }
     },
     methods: {
@@ -65,8 +66,8 @@ export default({
     },
     mounted(){
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-            // true for mobile device
             this.isPhone = 'chatM';
+            document.getElementById('screen').style.height = '100vh';
         }else{
             // false for not mobile device
             this.isPhone = 'chat';
@@ -81,7 +82,6 @@ body{
 }
 .screen{
     background: white;
-    height: 100vh;
     margin: 0%;
 }
 .userlist{
