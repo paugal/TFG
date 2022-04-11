@@ -120,7 +120,7 @@ export default {
     methods: {
 
         nextDay: function(msgId){
-            if((msgId == 32 || msgId == 521) && this.$store.getters.getDay != 2){
+            if((msgId == 32 || msgId == 521 || msgId == 1322) && this.$store.getters.getDay != 2){
                 this.$store.commit('setDay', 2);
                 this.$store.commit('setShownDayInfo', true);
             }else if(msgId == 86  && this.$store.getters.getDay != 3){
@@ -156,26 +156,58 @@ export default {
         },
 
         lieDetector: function(pPA){ //playerPath
-            //3 - 12 //4 - 13 //5 - 14
-
-            if((pPA.includes(3) && pPA.includes(12)) || (pPA.includes(4) && pPA.includes(13)) || (pPA.includes(5) && pPA.includes(14))){
-                console.log('No miente');
-                this.lieActivatorMsg(2)
+            //Falta añadir un karma especifico para cada opcion
+            if(pPA.includes(3) && pPA.includes(12)){
+                this.lieActivatorMsg(1)//Defiende a Marcos y dice la verdad
+            }else if(pPA.includes(3) && pPA.includes(13)){
+                this.lieActivatorMsg(2)//Defiende a Marcos y dice que no ha contestado
+            }else if(pPA.includes(3) && pPA.includes(14)){
+                this.lieActivatorMsg(3)//Defiende a Marcos y dice que lo ha insultado
+            }else if(pPA.includes(4) && pPA.includes(13)){
+                this.lieActivatorMsg(4)//No contesta y dice la verdad
+            }else if(pPA.includes(4) && pPA.includes(12)){
+                this.lieActivatorMsg(5)//No contesta y dice que lo ha defendido
+            }else if(pPA.includes(4) && pPA.includes(14)){
+                this.lieActivatorMsg(6)//No contesta y dice que lo ha insultado
+            }else if(pPA.includes(5) && pPA.includes(14)){
+                this.lieActivatorMsg(7)//Insulta a Marcos y dice la verdad
             }else if(pPA.includes(5) && pPA.includes(12)){
-                this.lieActivatorMsg(1)
-            }else{
-                console.log('Esta mintiendo!');
-                this.lieActivatorMsg(pPA);
-
+                this.lieActivatorMsg(8)//Insulta a Marcos y dice que lo ha defendido
+            }else if(pPA.includes(5) && pPA.includes(13)){
+                this.lieActivatorMsg(9)//Insulta a Marcos y dice que no ha contestado
             }
 
         },
 
         lieActivatorMsg: function(lieType){
-            if(lieType == 1){//Insulta a Marcos pero dice que lo ha defendido
-                this.$store.commit('activePathMsg', [30, 40, 41, 42, 35, 51, 52, 45])
-            }else if(lieType == 2){//Defiende a Marcos y dice la verdad
-                this.$store.commit('activePathMsg', [30, 31, 32])
+            switch(lieType){
+                case 1://Defiende a Marcos y dice la verdad
+                    this.$store.commit('activePathMsg', [30, 31, 32])
+                    break;
+                case 2://Defiende a Marcos y dice que no ha contestado
+                    this.$store.commit('activePathMsg', [28, 29])
+                    break;
+                case 3://Defiende a Marcos y dice que lo ha insultado
+                    this.$store.commit('activePathMsg', [33, 34, 35, 36, 37])
+                    break;
+                case 4://No contesta y dice la verdad
+                    this.$store.commit('activePathMsg', [28, 29])
+                    break;
+                case 5://No contesta y dice que lo ha defendido
+                    this.$store.commit('activePathMsg', [28, 40, 41, 42, 51, 52])
+                    break;
+                case 6://No contesta y dice que lo ha insultado
+                    this.$store.commit('activePathMsg', [33, 34, 35, 36, 37])
+                    break;
+                case 7://Insulta a Marcos y dice la verdad
+                    this.$store.commit('activePathMsg', [33, 34, 35, 36, 37])
+                    break;
+                case 8://Insulta a Marcos y dice que lo ha defendido
+                    this.$store.commit('activePathMsg', [30, 40, 41, 42, 35, 51, 52])
+                    break;
+                case 9://Insulta a Marcos y dice que no ha contestado
+                    this.$store.commit('activePathMsg', [28, 40, 41, 42, 36, 37])
+                    break;
             }
         },
 
