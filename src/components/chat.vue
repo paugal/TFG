@@ -1,8 +1,11 @@
 <template>
     <Phone>
+        
         <div class="screen xyz-in" id='screen' xyz="fade in" style='background-image: url("https://i.ibb.co/zRNQYd5/wp4410724.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
-                <!-- <Notificacion v-if="this.$store.getters.getNotificacion.new"/> -->
+                
+                
                 <div class="topbarchat xyz-in" xyz="up">
+                    <!-- <Notificacion v-if="this.$store.getters.getNotificacion.new" /> -->
                     <div>
                         <div class="clock">22:12</div>
                         
@@ -38,6 +41,7 @@
                             <div v-if="this.$store.getters.getMsg[index-1].sender === 1" class ="chattext send xyz-in" xyz="fade right delay-5"> 
                                 {{this.$store.getters.getMsg[index-1].text}}
                                 {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
+                                {{nextDay(this.$store.getters.getMsg[index-1].id)}}
                             </div>
                             <!--
                             <div id='unseenBox' v-if='this.$store.getters.getMsg[index-1].visto === false && notRepetDiv()'>
@@ -49,6 +53,7 @@
                             <div v-if="this.$store.getters.getMsg[index-1].sender !== 1" class="chattext receive xyz-in" xyz="fade left delay-5">
                                 {{this.$store.getters.getMsg[index-1].text}}
                                 {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
+                                {{nextDay(this.$store.getters.getMsg[index-1].id)}}
                             </div>
                             
                         </div>
@@ -114,18 +119,35 @@ export default {
 
     methods: {
 
+        nextDay: function(msgId){
+            if((msgId == 32 || msgId == 521) && this.$store.getters.getDay != 2){
+                this.$store.commit('setDay', 2);
+                this.$store.commit('setShownDayInfo', true);
+            }else if(msgId == 86  && this.$store.getters.getDay != 3){
+                this.$store.commit('setDay', 3);
+                this.$store.commit('setShownDayInfo', true);
+            }else if(msgId == 105  && this.$store.getters.getDay != 4){
+                this.$store.commit('setDay', 4);
+                this.$store.commit('setShownDayInfo', true);
+            }else if(msgId == 93  && this.$store.getters.getDay != 5){
+                this.$store.commit('setDay', 5);
+                this.$store.commit('setShownDayInfo', true);
+            }
+
+        },
+
         testCalculKarma: function(){
             var playerPathAux = this.$store.getters.getPlayerPath;
             var auxKarma = 0;
             var playerPathList = [];
+            var onlyOneTime = 0;
             for (let index = 0; index < playerPathAux.length; index++) {
                 const element = playerPathAux[index];
                 playerPathList.push(this.$store.getters.getAllPaths.find(path => path.id === element))
                 auxKarma += this.$store.getters.getAllPaths.find(path => path.id === element).karma
-                console.log(element);
-                if(element in [12, 13, 14]){
-                    console.log('calling lieDetector')
+                if([12, 13, 14].includes(element) && onlyOneTime == 0){
                     this.lieDetector(playerPathAux);
+                    onlyOneTime++;
                 }
             }
             auxKarma = auxKarma / playerPathList.filter(path => path.karma !== 0).length;
@@ -133,17 +155,28 @@ export default {
             this.$store.commit('setKarma')
         },
 
-        lieDetector: function(playerPathAux){
+        lieDetector: function(pPA){ //playerPath
             //3 - 12 //4 - 13 //5 - 14
-            var list = playerPathAux.filter(id => id === ((3 && 12) || (4 && 13) || (5 && 14)));
-            if(list != null){
+
+            if((pPA.includes(3) && pPA.includes(12)) || (pPA.includes(4) && pPA.includes(13)) || (pPA.includes(5) && pPA.includes(14))){
                 console.log('No miente');
-                console.log(list);
+                this.lieActivatorMsg(2)
+            }else if(pPA.includes(5) && pPA.includes(12)){
+                this.lieActivatorMsg(1)
             }else{
                 console.log('Esta mintiendo!');
-                console.log(list);
+                this.lieActivatorMsg(pPA);
+
             }
 
+        },
+
+        lieActivatorMsg: function(lieType){
+            if(lieType == 1){//Insulta a Marcos pero dice que lo ha defendido
+                this.$store.commit('activePathMsg', [30, 40, 41, 42, 35, 51, 52, 45])
+            }else if(lieType == 2){//Defiende a Marcos y dice la verdad
+                this.$store.commit('activePathMsg', [30, 31, 32])
+            }
         },
 
         //No funciona

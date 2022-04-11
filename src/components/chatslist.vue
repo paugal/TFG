@@ -4,7 +4,8 @@
             
             <IntroDay v-if="this.$store.getters.getShownDayInfo"></IntroDay>
             
-            <Notificacion v-if="this.$store.getters.getNotificacion.new" />
+            <!-- <Notificacion v-if="this.$store.getters.getNotificacion.new" /> -->
+            
             
             <div class="topbar" >
                 <div>
@@ -37,6 +38,7 @@
                     </router-link>
                 </div>
             </div>
+            
             <!--
             <div class='bottombar' >
                 <router-link  :to="{name:'info'}"> <vue-feather type="info" stroke="white" size="36px"></vue-feather> </router-link>
@@ -86,7 +88,12 @@ body{
 }
 .userlist{
     padding-top: 20px;
-    min-height: 480px;
+    padding-bottom: 20px;
+    margin-top: 9px;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 .user {
   height: 70px;

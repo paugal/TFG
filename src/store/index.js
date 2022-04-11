@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     day: 1,
-    chatOrder: [3, 2, 4, 5, 6],
+    chatOrder: [3, 2, 4, 5, 6, 7, 8],
     shownDayInfo: true,
     newMsg: {new: true, username: 'Oscar'},
     chatUser: 3,
@@ -21,9 +21,11 @@ export default createStore({
       {id: 1, name: 'player', image:  'NULL'},
       {id: 2, name: 'Marcoos', image:  'https://i.ibb.co/S7vP88k/user-image-marcos.jpg'},
       {id: 3, name: 'Oscar', image:  'https://i.ibb.co/yh14wQs/user-image-bully.jpg'},
-      {id: 4, name: 'Marta', image:  'https://i.ibb.co/qMntbqt/marta.jpg'},
+      {id: 4, name: 'Marta', image:  'https://i.ibb.co/12z1DFF/perro.jpg'},
       {id: 5, name: 'A la playa', image:  'https://i.ibb.co/BgJRxN5/playa.jpg'},
-      {id: 6, name: 'Hugo', image:  'https://i.ibb.co/4FdtMNW/hugo.jpg'},
+      {id: 6, name: 'Hugo', image:  'https://i.ibb.co/drKVBBz/gato.jpg'},
+      {id: 7, name: 'Hermano Marcos', image:  'https://i.ibb.co/NCw5YDY/hermano.jpg'},
+      {id: 8, name: 'Mama', image:  'https://i.ibb.co/g7nQJFw/mama.jpg'},
     ],
     
     msg:[
@@ -85,7 +87,8 @@ export default createStore({
       {id: 49, text: 'No lo defendiste pero al menos no lo insultaste', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 50, text: '(mentir) defendí a Marcos (verdad) neutro', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 51, text: 'Si no tuviste el valor de defender a tu amigos', sender: 4, to: 4, question: null, shown: false, visto: false},
-      {id: 52, text: 'Como mínimo no mientas y digas que lo hiciste', sender: 4, to: 4, question: null, shown: false, visto: false},
+      {id: 52, text: 'Como mínimo no mientas y digas que lo hiciste', sender: 4, to: 4, question: 162, shown: false, visto: false},
+      {id: 521, text: 'Lo siento...', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 53, text: '(mentir) No conteste (vedad) negativo', sender: 1, to: 4, question: null, shown: false, visto: true},
       {id: 54, text: 'Pensaba que Marcos era tu amigo', sender: 4, to: 4, question: null, shown: false, visto: false},
       {id: 55, text: 'Insultar no te hace mejor que Oscar', sender: 4, to: 4, question: null, shown: false, visto: false},
@@ -191,14 +194,14 @@ export default createStore({
         {id: 2, question: 1, to: 3, text: 'Me da igual', activator: [5, 6, 8, 9, 10], enableOption: [3, 4, 5, 6], karma: -1, shown: false},
         {id: 3, question: 8, to: 3, text: 'Defender a Marcos', activator: [1001, 1002, 1003, 1004], enableOption: [0], karma: 1, shown: false},
         {id: 4, question: 8, to: 3, text: 'No contestar', activator: [0], enableOption: [0], karma: 0, shown: false},
-        {id: 5, question: 8, to: 3, text: 'Insultar a Marcos', activator: [0], enableOption: [0], karma: -1, shown: false},
+        {id: 5, question: 8, to: 3, text: 'Insultar a Marcos', activator: [1005, 1006, 1007], enableOption: [0], karma: -1, shown: false},
         {id: 6, question: 2, to: 2, text: 'Hola Marcos!', activator: [1], enableOption: [7], karma: 0, shown: false},
         {id: 7, question: 3, to: 2, text: 'Estas bien?', activator: [2,13,14,15], enableOption: [8, 9, 10], karma: 0, shown: false},
         {id: 8, question: 4, to: 2, text: 'No insistir', activator: [13,14,15], enableOption: [0], karma: 0, shown: false},
         {id: 9, question: 4, to: 2, text: 'Preguntar por lo que te ha dicho Oscar', activator: [3, 11, 12], enableOption: [0], karma: 0, shown: false},
         {id: 10, question: 5, to: 4, text: 'Hola!', activator: [16, 17, 18], enableOption: [0], karma: 0, shown: false},
         {id: 11, question: 9, to: 4, text: 'Contar lo de Oscar', activator: [19, 20, 21, 22, 23, 24, 25, 26, 27], enableOption: [0], karma: 0, shown: false},
-        {id: 12, question: 6, to: 4, text: 'He defendido a Marcos', activator: [30,31, 57], enableOption: [22,23], karma: 1, shown: false},
+        {id: 12, question: 6, to: 4, text: 'He defendido a Marcos', activator: [0], enableOption: [22,23, 57], karma: 1, shown: false},
         {id: 13, question: 6, to: 4, text: 'No he contestado', activator: [29], enableOption: [22,23], karma: 1, shown: false},
         {id: 14, question: 6, to: 4, text: 'He insultado a Marcos', activator: [34,35,36,37], enableOption: [21], karma: 0, shown: false},
         {id: 15, question: 62, to: 4, text: '(mentir) No le he contestado (verdad) defender', activator: [40, 41, 42, 43, 44, 45], enableOption: [21], karma: -1, shown: false},
@@ -207,7 +210,7 @@ export default createStore({
         {id: 18, question: 62, to: 4, text: '(mentir) defendí a Marcos (verdad) neutro', activator: [40, 41, 42, 43, 51, 52], enableOption: [21], karma: -1, shown: false},
         {id: 19, question: 62, to: 4, text: '(mentir) No conteste (vedad) negativo', activator: [40, 41, 42, 43, 54, 55], enableOption: [21], karma: -1, shown: false},
         {id: 20, question: 62, to: 4, text: '(mentir) Lo defendí (verdad) negativo', activator: [40, 41, 42, 43, 54, 55], enableOption: [21], karma: -1, shown: false},
-        {id: 21, question: 62, to: 4, text: 'Lo siento', activator: [38, 57], enableOption: [22, 23], karma: 0, shown: false},
+        {id: 21, question: 162, to: 4, text: 'Lo siento', activator: [57, 521], enableOption: [22, 23], karma: 0, shown: false},
         {id: 22, question: 7, to: 2, text: 'Que paso ayer?', activator: [58, 59, 60, 61], enableOption: [0], karma: 0, shown: false},
         {id: 23, question: 7, to: 2, text: 'Ya no me importa', activator: [260, 261, 60, 61], enableOption: [0], karma: -1, shown: false},
         {id: 24, question: 11, to: 4, text: 'Quitar importancia', activator: [66, 67, 68, 69, 70], enableOption: [0], karma: -1, shown: false},
@@ -383,7 +386,15 @@ export default createStore({
     },
 
     setNotificacion(state, visibility, username){
-      state.newMsg = { new: visibility, user: username}
+      var user = ['aux','player', 'Marcos', 'Oscar', 'Marta', 'A la playa', 'Hugo', 'Hermano Marcos', 'Mama'];
+      if(state.newMsg.username === username){
+        state.newMsg = { new: false, user: username}
+      }else if(state.newMsg.username === user[this.chatUser]){
+        state.newMsg = { new: false, user: username}
+      }else{
+        state.newMsg = { new: visibility, user: username}
+      }
+      
     },
 
     setShownDayInfo(state, visibility){
