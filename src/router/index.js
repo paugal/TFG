@@ -12,6 +12,11 @@ const routes = [
     component: () => import('../components/Chat.vue'),
   },
   {
+    path: '/TFG/formulario',
+    name: 'formulario',
+    component: () => import('../components/Formulario.vue'),
+  },
+  {
     path: '/TFG/chatM',
     name: 'chatM',
     component: () => import('../components/mobile/ChatM.vue'),

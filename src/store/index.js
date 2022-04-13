@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    PreFormulary: [],
     day: 1,
     chatOrder: [3, 2, 4, 5, 6, 7, 8],
     shownDayInfo: true,
@@ -245,6 +246,10 @@ export default createStore({
       return state.day
     },
 
+    getPreFormulary: state =>{
+      return state.PreFormulary
+    },
+
     //Nombre del personaje que envia el mensaje
     getNotificacion: state =>{
       return state.newMsg;
@@ -385,6 +390,10 @@ export default createStore({
 
     setDay(state, dayId){
       state.day = dayId;
+    },
+
+    setPreFormulary(state, formulary){
+      state.PreFormulary = formulary;
     },
 
     setNotificacion(state, visibility, username){

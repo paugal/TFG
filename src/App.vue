@@ -2,7 +2,7 @@
   <div id="app">
     
     <div id="nav" class="nav">
-      <router-link id='startButton' class="nav-link" v-on:click='disableButton' :to="{name:'Home'}" > EMPEZAR </router-link>
+      <router-link id='startButton' class="nav-link" v-on:click='disableButton' :to="{name:'formulario'}" > EMPEZAR </router-link>
       
     </div>
     <router-view/>
