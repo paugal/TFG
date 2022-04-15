@@ -54,6 +54,7 @@
                                 {{this.$store.getters.getMsg[index-1].text}}
                                 {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
                                 {{nextDay(this.$store.getters.getMsg[index-1].id)}}
+                                <img class='captura' v-if='this.$store.getters.getMsg[index-1].id == 42' src="https://i.ibb.co/mBZ5bqr/Optimized-captura-chat.jpg" alt="captura">
                             </div>
                             
                         </div>
@@ -69,7 +70,7 @@
                         enablePathQuestion(this.$store.getters.getOptions[index-1].question);
                         setLastPath(this.$store.getters.getOptions[index-1].id); 
                         activePathMsg(this.$store.getters.getActivedMsgforOption.activator);
-                        disablePathOptions(this.$store.getters.getOptions[index-1].question); testCalculKarma()"> 
+                        disablePathOptions(this.$store.getters.getOptions[index-1].question); testCalculKarma();"> 
                             <div>{{this.$store.getters.getOptions[index-1].text}}</div>
                         </div>
                     </div>
@@ -120,16 +121,16 @@ export default {
     methods: {
 
         nextDay: function(msgId){
-            if((msgId == 32 || msgId == 521 || msgId == 1322) && this.$store.getters.getDay != 2){
+            if((msgId == 32 || msgId == 521 || msgId == 1322) && this.$store.getters.getDay == 1){
                 this.$store.commit('setDay', 2);
                 this.$store.commit('setShownDayInfo', true);
-            }else if(msgId == 86  && this.$store.getters.getDay != 3){
+            }else if(msgId == 86  && this.$store.getters.getDay == 2){
                 this.$store.commit('setDay', 3);
                 this.$store.commit('setShownDayInfo', true);
-            }else if(msgId == 105  && this.$store.getters.getDay != 4){
+            }else if(msgId == 105  && this.$store.getters.getDay == 3){
                 this.$store.commit('setDay', 4);
                 this.$store.commit('setShownDayInfo', true);
-            }else if(msgId == 93  && this.$store.getters.getDay != 5){
+            }else if(msgId == 93  && this.$store.getters.getDay == 4){
                 this.$store.commit('setDay', 5);
                 this.$store.commit('setShownDayInfo', true);
             }
@@ -140,73 +141,115 @@ export default {
             var playerPathAux = this.$store.getters.getPlayerPath;
             var auxKarma = 0;
             var playerPathList = [];
-            var onlyOneTime = 0;
+            let ending = false;
+
             for (let index = 0; index < playerPathAux.length; index++) {
                 const element = playerPathAux[index];
                 playerPathList.push(this.$store.getters.getAllPaths.find(path => path.id === element))
                 auxKarma += this.$store.getters.getAllPaths.find(path => path.id === element).karma
-                if([12, 13, 14].includes(element) && onlyOneTime == 0){
+
+                if([12, 13, 14].includes(element) && element == playerPathAux[playerPathAux.length-1]){
+                    console.log('Include 12, 13, 14');
                     this.lieDetector(playerPathAux);
-                    onlyOneTime++;
+                }
+                if([39, 40, 41].includes(element) && element == playerPathAux[playerPathAux.length-1]){
+                    ending = true;
+                    
                 }
             }
-            auxKarma = auxKarma / playerPathList.filter(path => path.karma !== 0).length;
+            //auxKarma = auxKarma / playerPathList.filter(path => path.karma !== 0).length;
             console.log('Karma: ' + auxKarma)
-            this.$store.commit('setKarma')
+            this.$store.commit('setKarma', auxKarma)
+            if(ending){
+                this.endSelector();
+                ending = false;
+            }
         },
 
         lieDetector: function(pPA){ //playerPath
             //Falta añadir un karma especifico para cada opcion
             if(pPA.includes(3) && pPA.includes(12)){
                 this.lieActivatorMsg(1)//Defiende a Marcos y dice la verdad
+                this.$store.commit('setSpecialKarma', 1);
             }else if(pPA.includes(3) && pPA.includes(13)){
                 this.lieActivatorMsg(2)//Defiende a Marcos y dice que no ha contestado
+                this.$store.commit('setSpecialKarma', 1);
             }else if(pPA.includes(3) && pPA.includes(14)){
                 this.lieActivatorMsg(3)//Defiende a Marcos y dice que lo ha insultado
+                this.$store.commit('setSpecialKarma', -1);
             }else if(pPA.includes(4) && pPA.includes(13)){
                 this.lieActivatorMsg(4)//No contesta y dice la verdad
+                this.$store.commit('setSpecialKarma', 1);
             }else if(pPA.includes(4) && pPA.includes(12)){
                 this.lieActivatorMsg(5)//No contesta y dice que lo ha defendido
+                this.$store.commit('setSpecialKarma', -1);
             }else if(pPA.includes(4) && pPA.includes(14)){
                 this.lieActivatorMsg(6)//No contesta y dice que lo ha insultado
+                this.$store.commit('setSpecialKarma', -1);
             }else if(pPA.includes(5) && pPA.includes(14)){
                 this.lieActivatorMsg(7)//Insulta a Marcos y dice la verdad
+                this.$store.commit('setSpecialKarma', -1);
             }else if(pPA.includes(5) && pPA.includes(12)){
                 this.lieActivatorMsg(8)//Insulta a Marcos y dice que lo ha defendido
+                this.$store.commit('setSpecialKarma', -2);
             }else if(pPA.includes(5) && pPA.includes(13)){
                 this.lieActivatorMsg(9)//Insulta a Marcos y dice que no ha contestado
+                this.$store.commit('setSpecialKarma', -2);
             }
+        },
 
+        endSelector: function(){
+            let totalKarma = this.$store.getters.getKarma + this.$store.getters.getSpecialKarma;
+            console.log('Karma total: ', totalKarma)
+            if(totalKarma >= 2){
+                console.log('FINAL BUENO');
+                this.lieActivatorMsg(10) //FINAL BUENO 
+            }else if(totalKarma >= 0){
+                console.log('FINAL NEUTRO');
+                this.lieActivatorMsg(11) //FINAL BUENO 
+            }else if(totalKarma < 0){
+                console.log('FINAL MALO');
+                this.lieActivatorMsg(12) //FINAL BUENO 
+            }
         },
 
         lieActivatorMsg: function(lieType){
             switch(lieType){
                 case 1://Defiende a Marcos y dice la verdad
-                    this.$store.commit('activePathMsg', [30, 31, 32])
+                    this.$store.commit('activePathMsg', [30, 31, 32]);
                     break;
                 case 2://Defiende a Marcos y dice que no ha contestado
-                    this.$store.commit('activePathMsg', [28, 29])
+                    this.$store.commit('activePathMsg', [28, 29]);
                     break;
                 case 3://Defiende a Marcos y dice que lo ha insultado
-                    this.$store.commit('activePathMsg', [33, 34, 35, 36, 37])
+                    this.$store.commit('activePathMsg', [33, 34, 35, 36, 37]);
                     break;
                 case 4://No contesta y dice la verdad
-                    this.$store.commit('activePathMsg', [28, 29])
+                    this.$store.commit('activePathMsg', [28, 29]);
                     break;
                 case 5://No contesta y dice que lo ha defendido
-                    this.$store.commit('activePathMsg', [28, 40, 41, 42, 51, 52])
+                    this.$store.commit('activePathMsg', [28, 40, 41, 42, 51, 52]);
                     break;
                 case 6://No contesta y dice que lo ha insultado
-                    this.$store.commit('activePathMsg', [33, 34, 35, 36, 37])
+                    this.$store.commit('activePathMsg', [33, 34, 35, 36, 37]);
                     break;
                 case 7://Insulta a Marcos y dice la verdad
-                    this.$store.commit('activePathMsg', [33, 34, 35, 36, 37])
+                    this.$store.commit('activePathMsg', [33, 34, 35, 36, 37]);
                     break;
                 case 8://Insulta a Marcos y dice que lo ha defendido
-                    this.$store.commit('activePathMsg', [30, 40, 41, 42, 35, 51, 52])
+                    this.$store.commit('activePathMsg', [30, 40, 41, 42, 35, 51, 52]);
                     break;
                 case 9://Insulta a Marcos y dice que no ha contestado
-                    this.$store.commit('activePathMsg', [28, 40, 41, 42, 36, 37])
+                    this.$store.commit('activePathMsg', [28, 40, 41, 42, 36, 37]);
+                    break;
+                case 10://FINAL BUENO 
+                    this.$store.commit('activePathMsg', [146, 147, 148, 149]);
+                    break;
+                case 11://FINAL NEUTRO 
+                    this.$store.commit('activePathMsg', [125, 133, 134, 135, 137]);
+                    break;
+                case 12://FINAL MALO
+                    this.$store.commit('activePathMsg', [146, 151, 152, 153, 154]);
                     break;
             }
         },
@@ -334,6 +377,12 @@ export default {
     height: 100%;
     width: 100%;
     
+}
+.captura{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 15px;
+    margin: none;
 }
 
 .msgSelector{
