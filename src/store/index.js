@@ -13,6 +13,7 @@ export default createStore({
     playerPath: [],
     karma: 0,
     specialKarma: 0,
+    ID: 0,
 
     //No es una lista del id de las opciones, tengo que modificar la estructura
     selectedOptionsList: [],
@@ -270,6 +271,10 @@ export default createStore({
       return state.day
     },
 
+    getID: state =>{
+      return state.ID
+    },
+
     getPreFormulary: state =>{
       return state.PreFormulary
     },
@@ -407,6 +412,10 @@ export default createStore({
     },
   },
   mutations: {
+
+    setID(state, ID){
+      state.ID = ID;
+    },
 
     setSeenMsg(state, id){
       var seenMsg = state.msg.filter(msg => msg.shown === true).filter(msg => msg.sender === id).filter(msg => msg.visto === false);

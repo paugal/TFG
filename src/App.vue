@@ -2,7 +2,7 @@
   <div id="app">
     
     <div id="nav" class="nav">
-      <router-link id='startButton' class="nav-link" v-on:click='disableButton' :to="{name:'chatslist'}" > EMPEZAR </router-link>
+      <router-link id='startButton' class="nav-link" v-on:click='disableButton' :to="{name:'formulario'}" > EMPEZAR </router-link>
       
     </div>
     <router-view/>
@@ -29,7 +29,10 @@ export default {
     setTimeout(() => {
       this.isLoading = false;
     }, 3500);
+    
+    this.$store.commit('setID', Math.floor(1000000 + Math.random() * 9000000))
   },
+
   methods: {
     disableButton: function(){
       document.getElementById('nav').hidden  = true;

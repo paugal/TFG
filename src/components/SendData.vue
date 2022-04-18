@@ -28,13 +28,31 @@ export default {
   name: 'ContactUs',
   data() {
     return {
-      name: 'f',
-      message: 'ff'
+      name: 'Titulo del email',
+      message: 'cuerpo del mensaje'
     }
   },
   methods: {
+
     sendEmail() {
-    emailjs.sendForm('service_3mckqye','template_g8kvx5s', this.$refs.form,'user_19PVjLKPzVGUG5VUn6jOU')
+      var templateParams = {
+        name: this.$store.getters.getID,
+        message: JSON.stringify(this.$store.getters.getPreFormulary)
+      };  
+      try {
+        emailjs.send('service_3mckqye','template_g8kvx5s', templateParams, 'user_19PVjLKPzVGUG5VUn6jOU')
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+          console.log('FAILED...', error);
+        });
+
+      } catch(error) {
+          console.log({error})
+      }
+      // Reset form field
+      this.name = ''
+      this.message = ''
     },
   }
 }

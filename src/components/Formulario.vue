@@ -34,7 +34,7 @@
                         Bueno eso es todo, empecemos con el test!</p>
 
                         <div class="startForm" @click="startForm()" v-if="start != true">EMPEZAR!</div>
-                        <form v-if="start == true" class="xyz-in" xyz="fade up">
+                        <form v-if="start == true" class="xyz-in" xyz="fade up" ref="from">
                             <p class='text'>Con que genero de identificas?</p>
                             <div class="formRadio">
                                 <input type="radio" id="mujer" name="genero" value="mujer" required>
@@ -185,7 +185,7 @@
                             <div  class="aviso" id="aviso" style="display: none">Ups! Parece que quedan preguntas por responder</div>
 
                             <div v-if="showlink == false" class="startForm" @click="saveForm()">Siguiente!</div>
-                            <router-link v-if="showlink == true" id='startButton' class="startForm" v-on:click='saveForm' :to="{name:'Home'}" > Siguiente! </router-link>
+                            <router-link v-if="showlink == true" id='startButton' class="startForm" v-on:click='saveForm(); sendEmail()' :to="{name:'Home'}" > Siguiente! </router-link>
 
                         </form>
 
@@ -200,6 +200,7 @@
 <script>
 //import func from 'vue-editor-bridge';
 //import Scrollbar from "vue3-smooth-scrollbar";
+import emailjs from 'emailjs-com';
 
 export default {
     data() {
@@ -222,6 +223,24 @@ export default {
     },
 
     methods: {
+
+        sendEmail() {
+            var templateParams = {
+                name: this.$store.getters.getID,
+                message: JSON.stringify(this.$store.getters.getPreFormulary)
+            };  
+            try {
+                emailjs.send('service_3mckqye','template_g8kvx5s', templateParams, 'user_19PVjLKPzVGUG5VUn6jOU')
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+            } catch(error) {
+                console.log({error})
+            }
+        },
+
         startForm: function(){
             this.start = true;
         },
@@ -255,12 +274,14 @@ export default {
                 console.log(preFormulary);
                 this.$store.commit('setPreFormulary', preFormulary);
                 this.showlink = true;
-                this.myStopFunction();
 
             }else{
-                
+                try {
                 document.getElementById('aviso').style.display = 'block'
                 this.showlink = false;
+                }catch(error){
+                    return 0;
+                }
             }
 
         }
