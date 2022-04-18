@@ -300,7 +300,7 @@ export default {
     margin: 5px 15% 5px 5px;
 }
 .chattext.send{
-    background: var(--chat-color);
+    background: var(--lila2);
     color: black;
     float: right;
     text-align: right;

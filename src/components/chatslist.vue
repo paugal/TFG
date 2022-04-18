@@ -7,7 +7,7 @@
             <!-- <Notificacion v-if="this.$store.getters.getNotificacion.new" /> -->
             
             
-            <div class="topbar" >
+            <div class="topbar" id="topbar" >
                 <div>
                     <div class="clock">22:12</div>
                     
@@ -19,7 +19,7 @@
                 </div>
                 <h1 class='titlechats'>Mensajes</h1> 
             </div>
-            <div class='userlist'>
+            <div class='userlist' id="userlist">
                 <div  class="xyz-in" xyz="fade down" v-for="index in this.$store.getters.getChatOrder" :key="index">
                     <router-link class="nav-link" :to="{name:this.isPhone}" @click= "changeUser(this.$store.getters.getUserInfo(index).id)"> 
                         <div class="user">
@@ -69,7 +69,10 @@ export default({
     mounted(){
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             this.isPhone = 'chatM';
-            document.getElementById('screen').style.height = '100vh';
+            document.getElementById('screen').style.height = '100%';
+            document.getElementById('screen').style.overflow = 'hidden';
+            document.getElementById('userlist').style.height = '82vh';
+            document.getElementById('topbar').style.height = '17vh';
         }else{
             // false for not mobile device
             this.isPhone = 'chat';
@@ -79,9 +82,6 @@ export default({
 </script>
 
 <style scoped>
-body{
-    background-color: black;
-}
 .screen{
     background: white;
     margin: 0%;
@@ -170,7 +170,7 @@ body{
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 .titlechats{
-    margin: 45px 0px 15px 40px;
+    margin: 30px 0px 15px 40px;
     text-align: left;
 }
 .shadowIcon{

@@ -25,16 +25,6 @@
                 </div>
                 
                 <div class='chatbox' id='chatbox'>
-                    <!--
-                    <scrollbar v-if="this.$store.getters.getMsgLenght > 0 ">
-                        <div v-for="index in this.$store.getters.getMsgLenght" :key="index">
-                            <div v-if="this.$store.getters.getMsg[index-1].sender === 1" class ="chattext send xyz-in" xyz="fade right"> {{this.$store.getters.getMsg[index-1].text}}</div>
-                            <div v-else class="chattext receive xyz-in" xyz="fade left"> {{this.$store.getters.getMsg[index-1].text}}
-                                {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
-                            </div>
-                        </div>                      
-                    </scrollbar>
-                    -->
                     <div class='scrollChat' id='scrollChat' v-if="this.$store.getters.getMsgLenght > 0 ">
                         <div v-for="index in this.$store.getters.getMsgLenght" :key="index">
                             
@@ -43,20 +33,12 @@
                                 {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
                                 {{nextDay(this.$store.getters.getMsg[index-1].id)}}
                             </div>
-                            <!--
-                            <div id='unseenBox' v-if='this.$store.getters.getMsg[index-1].visto === false && notRepetDiv()'>
-                                <div id='aux2' class="chattext newMsg xyz-in" xyz="fade left">
-                                    {{'Mensajes sin leer'}}
-                                </div>
-                            </div>
-                            -->
                             <div v-if="this.$store.getters.getMsg[index-1].sender !== 1" class="chattext receive xyz-in" xyz="fade left delay-5">
                                 {{this.$store.getters.getMsg[index-1].text}}
                                 {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
                                 {{nextDay(this.$store.getters.getMsg[index-1].id)}}
                                 <img class='captura' v-if='this.$store.getters.getMsg[index-1].id == 42' src="https://i.ibb.co/mBZ5bqr/Optimized-captura-chat.jpg" alt="captura">
                             </div>
-                            
                         </div>
                     </div>
                     
@@ -450,7 +432,7 @@ export default {
     margin: 5px 15% 5px 5px;
 }
 .chattext.send{
-    background: var(--chat-color);
+    background: var(--lila2);
     color: black;
     float: right;
     text-align: right;

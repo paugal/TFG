@@ -1,6 +1,6 @@
 <template>
     <Phone>
-      <div class="screen" style="background: var(--main-color)">
+      <div class="screen">
         <div v-if="isLoading || (!isChatList)">
               <!--Pantalla de carga -->
               <div v-if="isLoading" class="centredelement">
@@ -23,8 +23,14 @@
                     
                 
                 <router-link  class="nav-link" :to="{name:'chatslist'}"> 
-                <button  type="button" class="btn btn-primary" style="margin: 20px 60px 0px 60px" 
-                @click="isChatList = true">EMPEZAR</button>  </router-link>
+                <button  type="button" class="cssbuttons-io-button" style="margin: auto" 
+                @click="isChatList = true">EMPEZAR
+                
+                <div class="icon">
+                  <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                </div>
+
+                </button>  </router-link>
               </div>
         </div>
       </div>
@@ -59,6 +65,7 @@ export default({
 .screen{
     height: 100vh;
     margin: 0%;
+    background: var(--lila);
 }
 .textbox{
     background: white;
@@ -81,9 +88,9 @@ export default({
     color: white;
 }
 .btn{
-  color:black;
-  background: whitesmoke;
-  border-color:whitesmoke;
+  color:white;
+  background: var(--main-color);
+  border: 2px solid var(--main-color);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
   transition: 0.3s;
   border-radius: 15px;
@@ -91,9 +98,8 @@ export default({
 }
 .btn:hover{
   color:white;
-  background: #11684c;
-  border-color:#11684c;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+  border: 4px solid var(--main-color);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
 }
 
 .loadscreen{
