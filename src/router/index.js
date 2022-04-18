@@ -2,7 +2,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/TFG',
+    path: '/',
+    redirect: { name: 'Home' }
+  },
+  {
+    path: '/TFG/',
     name: 'Home',
     component: () => import('../components/Intro.vue'),
   },

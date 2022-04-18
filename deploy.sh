@@ -4,11 +4,11 @@ set -e
 
 npm run build
 
-cd docs
+cd dist
 
 git init
 git add -A
 git commit -m 'New Deployment'
-git push -f https://github.com/paugal/test2v3.git master:gh-pages
+git push -f git@github.com:paugal/TFG.git main:gh-pages
 
 cd -
