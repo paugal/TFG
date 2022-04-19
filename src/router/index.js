@@ -36,19 +36,9 @@ const routes = [
     component: () => import( '../components/ChatsList.vue')
   },
   {
-    path: '/TFG/chatslistM',
-    name: 'chatslistM',
-    component: () => import( '../components/mobile/ChatsListM.vue')
-  },
-  {
     path: '/TFG/daytitle',
     name: 'daytitle',
     component: () => import( '../components/IntroDay.vue')
-  },
-  {
-    path: '/TFG/info',
-    name: 'info',
-    component: () => import('../components/Info.vue')
   }
 ]
 

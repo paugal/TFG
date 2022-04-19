@@ -198,8 +198,6 @@
 </template>
 
 <script>
-//import func from 'vue-editor-bridge';
-//import Scrollbar from "vue3-smooth-scrollbar";
 import emailjs from 'emailjs-com';
 
 export default {

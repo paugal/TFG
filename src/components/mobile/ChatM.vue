@@ -80,8 +80,6 @@
 </template>
 
 <script>
-//import func from 'vue-editor-bridge';
-//import Scrollbar from "vue3-smooth-scrollbar";
 
 export default {
     data() {
