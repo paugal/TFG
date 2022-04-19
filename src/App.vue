@@ -57,7 +57,7 @@ export default {
 }
 </script>
 
-<style scoped lang="css">
-  @import "./assets/styles/global-style.css";
-  @import "./assets/styles/devicesMod.css";
+<style lang="css">
+  @import "./styles/global-style.css";
+  @import "./styles/devicesMod.css";
 </style>

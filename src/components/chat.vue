@@ -1,75 +1,60 @@
 <template>
     <Phone>
-        
         <div class="screen xyz-in" id='screen' xyz="fade in" style='background-image: url("https://i.ibb.co/zRNQYd5/wp4410724.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
-                
-                
-                <div class="topbarchat xyz-in" xyz="up">
-                    <!-- <Notificacion v-if="this.$store.getters.getNotificacion.new" /> -->
-                    <div>
-                        <div class="clock">22:12</div>
-                        
-                        <div class="notIcons">
-                            <vue-feather type="wifi" stroke="white" size="15px"></vue-feather>
-                            <vue-feather type="battery" stroke="white" size="15px"></vue-feather>
-                            <vue-feather type="bar-chart" stroke="white" size="15px"></vue-feather>
-                        </div>
+            <div class="topbarchat xyz-in" xyz="up" id="topbarchat">
+                <div>
+                    <div class="clock">10:12</div>
+                    <div class="notIcons">
+                        <vue-feather type="wifi" stroke="white" size="15px"></vue-feather>
+                        <vue-feather type="battery" stroke="white" size="15px"></vue-feather>
+                        <vue-feather type="bar-chart" stroke="white" size="15px"></vue-feather>
                     </div>
-                    
-                    <div style="margin: 20px 0px 10px 35px; display: flex; gap: 25px; align-items: center;">
-                        <router-link :to="{name:'chatslist'}" @click="setSeenMsg(this.$store.getters.getChatUser); setUserChat(0)"> <i class="fas fa-chevron-left"></i> </router-link>
-                        <img v-if='this.$store.getters.getChatUser != 0' class="userImage" :src="this.$store.getters.getChatUserInfo.image" alt="user_image_bully" border="0">                 
-                        <div v-if='this.$store.getters.getChatUser != 0' class="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
-                    </div>
-                    
                 </div>
-                
-                <div class='chatbox' id='chatbox'>
-                    <div class='scrollChat' id='scrollChat' v-if="this.$store.getters.getMsgLenght > 0 ">
-                        <div v-for="index in this.$store.getters.getMsgLenght" :key="index">
-                            
-                            <div v-if="this.$store.getters.getMsg[index-1].sender === 1" class ="chattext send xyz-in" xyz="fade right delay-5"> 
-                                {{this.$store.getters.getMsg[index-1].text}}
-                                {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
-                                {{nextDay(this.$store.getters.getMsg[index-1].id)}}
-                            </div>
-                            <div v-if="this.$store.getters.getMsg[index-1].sender !== 1" class="chattext receive xyz-in" xyz="fade left delay-5">
-                                {{this.$store.getters.getMsg[index-1].text}}
-                                {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
-                                {{nextDay(this.$store.getters.getMsg[index-1].id)}}
-                                <img class='captura' v-if='this.$store.getters.getMsg[index-1].id == 42' src="https://i.ibb.co/mBZ5bqr/Optimized-captura-chat.jpg" alt="captura">
-                            </div>
-                        </div>
-                    </div>
-                    
+                <div style="margin: 20px 0px 10px 35px; display: flex; gap: 25px; align-items: center;">
+                    <router-link :to="{name:'chatslist'}" @click="setSeenMsg(this.$store.getters.getChatUser); setUserChat(0)"> <i class="fas fasChat fa-chevron-left"></i> </router-link>
+                    <img v-if='this.$store.getters.getChatUser != 0' class="userImage" :src="this.$store.getters.getChatUserInfo.image" alt="user_image_bully" border="0">                 
+                    <div v-if='this.$store.getters.getChatUser != 0' class="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
                 </div>
-
-                <div class='bottombarchat xyz-in' xyz="down" >
-                    <div v-for="index in this.$store.getters.getOptionsLenght" :key="index">
-                        <div class='msgSelector xyz-in'  xyz="fade down" v-if="this.$store.getters.getOptionsLenght > 0"  
-                        @click= " show = !show; enablePathOptions(this.$store.getters.getOptions[index-1].id);
-                        setSeenMsg(this.$store.getters.getChatUser);
-                        enablePathQuestion(this.$store.getters.getOptions[index-1].question);
-                        setLastPath(this.$store.getters.getOptions[index-1].id); 
-                        activePathMsg(this.$store.getters.getActivedMsgforOption.activator);
-                        disablePathOptions(this.$store.getters.getOptions[index-1].question); testCalculKarma();"> 
-                            <div>{{this.$store.getters.getOptions[index-1].text}}</div>
+            </div>
+            <div class='chatboxChat' id='chatbox'>
+                <div class='scrollChat' id='scrollChat' v-if="this.$store.getters.getMsgLenght > 0 ">
+                    <div v-for="index in this.$store.getters.getMsgLenght" :key="index">
+                        <div v-if="this.$store.getters.getMsg[index-1].sender === 1" class ="chattext send xyz-in" xyz="fade right delay-5"> 
+                            {{this.$store.getters.getMsg[index-1].text}}
+                            {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
+                            {{nextDay(this.$store.getters.getMsg[index-1].id)}}
                         </div>
-                    </div>
-                    <div v-if="this.$store.getters.getOptionsLenght == 0">
-                        <div class="tipmsg"> De momento no puedes decir nada mas, prueva a hablar con otra persona
+                        <div v-if="this.$store.getters.getMsg[index-1].sender !== 1" class="chattext receive xyz-in" xyz="fade left delay-5">
+                            {{this.$store.getters.getMsg[index-1].text}}
+                            {{enablePathQuestion(this.$store.getters.getMsg[index-1].question)}}
+                            {{nextDay(this.$store.getters.getMsg[index-1].id)}}
+                            <img class='captura' v-if='this.$store.getters.getMsg[index-1].id == 42' src="https://i.ibb.co/mBZ5bqr/Optimized-captura-chat.jpg" alt="captura">
                         </div>
                     </div>
                 </div>
-            
+            </div>
+            <div class='bottombarchat xyz-in' xyz="down" id="bottombarchat">
+                <div v-for="index in this.$store.getters.getOptionsLenght" :key="index">
+                    <div class='msgSelector xyz-in'  xyz="fade down" v-if="this.$store.getters.getOptionsLenght > 0"  
+                    @click= " show = !show; enablePathOptions(this.$store.getters.getOptions[index-1].id);
+                    setSeenMsg(this.$store.getters.getChatUser);
+                    enablePathQuestion(this.$store.getters.getOptions[index-1].question);
+                    setLastPath(this.$store.getters.getOptions[index-1].id); 
+                    activePathMsg(this.$store.getters.getActivedMsgforOption.activator);
+                    disablePathOptions(this.$store.getters.getOptions[index-1].question); testCalculKarma();"> 
+                        <div>{{this.$store.getters.getOptions[index-1].text}}</div>
+                    </div>
+                </div>
+                <div v-if="this.$store.getters.getOptionsLenght == 0">
+                    <div class="tipmsg"> De momento no puedes decir nada mas, prueva a hablar con otra persona
+                    </div>
+                </div>
+            </div>
         </div>
     </Phone>
 </template>
 
 <script>
-//import func from 'vue-editor-bridge';
-//import Scrollbar from "vue3-smooth-scrollbar";
-
 export default {
     data() {
         return{
@@ -77,15 +62,16 @@ export default {
             questinsList: [],
         }
     },
-    //components: { Scrollbar },
     mounted () { 
         this.autoScroll();
-
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-        document.getElementById('screen').style.height = '100vh';
+            document.getElementById('screen').style.height = '100vh';
+            document.getElementById('bottombarchat').style.height = '20%';
+            document.getElementById('scrollChat').style.height = 'auto';
+            document.getElementById('chatbox').style.height = '65%';
+            document.getElementById('topbarchat').style.height = '15%';
         }
         var auxScrollHeight = 0;
-
         setInterval(() => {
             var element = document.getElementById("scrollChat");
             if (element != null) {
@@ -94,14 +80,10 @@ export default {
                     this.autoScroll();
                     auxScrollHeight = element.scrollHeight;
                 }
-                
             }
         }, 100);
-
     },
-
     methods: {
-
         nextDay: function(msgId){
             if((msgId == 32 || msgId == 521 || msgId == 1322) && this.$store.getters.getDay == 1){
                 this.$store.commit('setDay', 2);
@@ -118,7 +100,6 @@ export default {
             }
 
         },
-
         testCalculKarma: function(){
             var playerPathAux = this.$store.getters.getPlayerPath;
             var auxKarma = 0;
@@ -147,7 +128,6 @@ export default {
                 ending = false;
             }
         },
-
         lieDetector: function(pPA){ //playerPath
             //Falta añadir un karma especifico para cada opcion
             if(pPA.includes(3) && pPA.includes(12)){
@@ -179,7 +159,6 @@ export default {
                 this.$store.commit('setSpecialKarma', -2);
             }
         },
-
         endSelector: function(){
             let totalKarma = this.$store.getters.getKarma + this.$store.getters.getSpecialKarma;
             console.log('Karma total: ', totalKarma)
@@ -194,7 +173,6 @@ export default {
                 this.lieActivatorMsg(12) //FINAL BUENO 
             }
         },
-
         lieActivatorMsg: function(lieType){
             switch(lieType){
                 case 1://Defiende a Marcos y dice la verdad
@@ -346,120 +324,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-.screen{
-    background: white;
-    margin: 0%;
-}
-
-.scrollChat{
-    overflow: scroll;
-    overflow-x: hidden;
-    height: 100%;
-    width: 100%;
-    
-}
-.captura{
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 15px;
-    margin: none;
-}
-
-.msgSelector{
-    background: white ;
-    border: 2px solid var(--chat-color);
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
-    transition: 0.3s;
-    border-radius: 35px;
-    margin: 10px;
-    padding: 5px 15px 5px 15px;
-    position: relative;
-}
-.msgSelector:hover{
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
-}
-.bottombarchat{
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    background-color: var(--chat-color);
-    transition: 0.3s;
-    padding: 5px;
-    height: 160px;
-    border-radius: 30px 30px 0px 0px;
-    backdrop-filter: blur(2px);
-    bottom: 0%;
-    
-}
-@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-  .backdrop-blur {
-    background-color: rgba(255, 255, 255, .5);
-    -webkit-backdrop-filter: blur(2em);
-    backdrop-filter: blur(2em);
-  }
-}
-
-.tipmsg{
-    border-radius: 35px;
-    width: fit-content;
-    padding: 5px 20px 5px 20px;
-    background: rgba(255, 255, 255, 0.9);
-}
-.chatbox{
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    height: 405px;
-    padding: 10px;
-    
-}
-.chattext{
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    border-radius: 35px;
-    width: fit-content;
-    max-width: 80%;
-    position: relative;
-    padding: 5px 20px 5px 20px;
-    overflow-x: hidden;
-}
-.chattext.receive{
-    background: rgba(253, 253, 253, 0.9);
-    color: black;
-    float: left;
-    text-align: left;
-    margin: 5px 15% 5px 5px;
-}
-.chattext.send{
-    background: var(--lila2);
-    color: black;
-    float: right;
-    text-align: right;
-    margin: 5px 5px 5px 15%;
-}
-.chattext.newMsg{
-    background: rgb(214, 193, 121);
-    font-size: 12px;
-    padding: 1px 5px 1px 5px;
-    margin: auto;
-}
-.fas{
-    color: white;
-    font-size: 25px;
-}
-.userImage{
-    width: 70px;
-    height: 70px;
-    border-radius: 40px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
-}
-.userName{
-    text-align: center;
-    margin-bottom: 5px;
-    text-shadow: 0 0 0.5px black;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-</style>

@@ -19,7 +19,7 @@ import '@animxyz/core'
 import VueFeather from 'vue-feather';
 
 //css
-import './assets/styles/global-style.css'
+import './styles/global-style.css'
 
 const app = createApp(App)
             .component('Chat',Chat)
