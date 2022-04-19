@@ -16,11 +16,6 @@ const routes = [
     component: () => import('../components/Chat.vue'),
   },
   {
-    path: '/TFG/send',
-    name: 'send',
-    component: () => import('../components/SendData.vue'),
-  },
-  {
     path: '/TFG/formulario',
     name: 'formulario',
     component: () => import('../components/Formulario.vue'),

@@ -7,7 +7,6 @@ import router from './router'
 import App from './App.vue'
 import Chat from './components/Chat.vue'
 import ChatsList from './components/ChatsList.vue'
-import SendData from './components/SendData.vue'
 import Intro from './components/Intro.vue'
 import IntroDay from './components/IntroDay.vue'
 import Phone from './components/Phone.vue'
@@ -26,7 +25,6 @@ const app = createApp(App)
             .component('Chat',Chat)
             .component('ChatsList',ChatsList)
             .component('Phone', Phone)
-            .component('SendData',SendData)
             .component('Intro', Intro)
             .component('IntroDay', IntroDay)
             .component(VueFeather.name, VueFeather)
