@@ -6,8 +6,8 @@ const routes = [
     redirect: { name: 'Home' }
   },
   {
-    path: '/TFG/',
-    name: 'Home',
+    path: '/TFG/Intro',
+    name: 'Intro',
     component: () => import('../components/Intro.vue'),
   },
   {
@@ -16,8 +16,8 @@ const routes = [
     component: () => import('../components/Chat.vue'),
   },
   {
-    path: '/TFG/formulario',
-    name: 'formulario',
+    path: '/TFG/',
+    name: 'Home',
     component: () => import('../components/Formulario.vue'),
   },
   {

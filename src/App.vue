@@ -1,10 +1,5 @@
 <template>
   <div id="app">
-    <!--
-    <div id="nav" class="nav">
-      <router-link id='startButton' class="nav-link" v-on:click='disableButton' :to="{name:'formulario'}" > EMPEZAR </router-link>
-    </div>
-    -->
     <router-view/>
   </div>
   
@@ -36,6 +31,10 @@ export default {
         // true for mobile device
         document.getElementsByTagName("body")[0].style.background = ' var(--main-color)';
         document.getElementsByTagName("body")[0].style.overflow = 'hidden';
+      }else{
+        document.getElementsByTagName("body")[0].style.height = '100vh';
+        document.getElementsByTagName("body")[0].style.overflow = 'hidden';
+        document.getElementsByTagName("body")[0].style.marginTop= '5vh';
       }
   },
 
