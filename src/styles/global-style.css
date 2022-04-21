@@ -86,7 +86,8 @@ body{
 }
 .nav-link{
   font-family: 'Raleway', sans-serif;
-  color:black 
+  color:black;
+  padding: 0.5rem 0.1rem;
 }
 .nav-link:hover{
   color: var(--main-color);
@@ -484,7 +485,6 @@ body{
 .chattext{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  border-radius: 35px;
   width: fit-content;
   max-width: 80%;
   position: relative;
@@ -497,6 +497,7 @@ body{
   float: left;
   text-align: left;
   margin: 5px 15% 5px 5px;
+  border-radius: 30px 30px 30px 5px;
 }
 .chattext.send{
   background: var(--lila2);
@@ -504,6 +505,7 @@ body{
   float: right;
   text-align: right;
   margin: 5px 5px 5px 15%;
+  border-radius: 30px 30px 5px 30px;
 }
 .chattext.newMsg{
   background: rgb(214, 193, 121);
@@ -580,17 +582,6 @@ body{
   overflow: hidden;
   width: 150px;
   text-overflow: ellipsis;
-}
-.numNewMsg{
-  background: var(--main-color);
-  color: white;
-  font-weight: bolder;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .groupPhotoName{
   display: flex;

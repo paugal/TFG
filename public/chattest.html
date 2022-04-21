@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="frame">
+        <h1 class="chatListTile">Mensajes</h1>
+        <div class="userList">
+            <div class="usuario">
+                <div class="photoPerfil">
+                    <img class="photoPerfil" src="https://i.ibb.co/yh14wQs/user-image-bully.jpg">
+                </div>
+                
+                <div class=" userText userName"><p style="margin: 0%">Oscar</p></div>
+                <div class=" userText previewMsg"><p style="margin: 0%">Tio te has enterado...</p></div>
+            </div>
+
+            <button  type="button" class="cssbuttons-io-button" style="margin: auto" @click="isChatList = true">
+                
+                <div class="usuario">
+                    <div class="photoPerfil">
+                        <img class="photoPerfil" src="https://i.ibb.co/yh14wQs/user-image-bully.jpg">
+                    </div>
+                    
+                    <div class=" userText userName"><p style="margin: 0%">Oscar</p></div>
+                    <div class=" userText previewMsg"><p style="margin: 0%">Tio te has enterado...</p></div>
+                    <div class="icon">
+                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                      </div>
+                </div>
+                
+              </button>
+            
+        </div>
+    </div>
+</body>
+</html>
+<style scoped>
+.cssbuttons-io-button {
+  background: white;
+  color: #A370F0;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  overflow: hidden;
+  position: relative;
+  height: auto;
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.cssbuttons-io-button .icon {
+  background: #A370F0;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75px;
+  width: 1.5em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b95a;
+  right: 0.3em;
+  transition: all 0.3s;
+  /* From https://css.glass */
+    background: rgba(144, 81, 240, 0.669);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.1px);
+    -webkit-backdrop-filter: blur(14.1px);
+  
+}
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: white;
+}
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+body{
+    color: beige;
+    font-family: 'Raleway', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.frame{
+    width: 400px;
+    height: 700px;
+    background: #7b24ff;
+    margin: auto;
+    padding: 10px;
+    border-radius: 35px;
+    display: grid;
+    grid-template: "a a a" 15%
+                   "b b b" auto;
+}
+.chatListTile{
+    grid-area: a;
+    font-size: 50px;
+    margin-left: 15px;
+    
+}
+.userList{
+    grid-area: b;
+    background: whitesmoke;
+    border-radius: 35px;
+    padding: 20px 10px 20px 10px;
+}
+.usuario{
+    display: grid;
+    height: 75px;
+    grid-template-columns: 20% 70% 10%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "a b c" 
+                         "a d c";
+    column-gap: 10px;
+    border-radius: 35px;
+    padding: 0px 5px 0px 5px;
+}
+.photoPerfil{
+    display: flex;
+    justify-content: center;
+    grid-area: a;
+    margin: 3px;
+}
+.photoPerfil img{
+    width: 60px;
+    height: 60px;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border: 2px solid #7b24ff;
+    -webkit-border: 2px solid #7b24ff;
+    -moz-border: 2px solid #7b24ff;
+}
+
+.userText{
+    color: #7b24ff;
+}
+.userName{
+    grid-area: b;
+    font-size: 25px;
+    font-weight: 700;
+    display:flex;
+    align-items:flex-end;
+}
+.previewMsg{
+    grid-area: d;
+    font-size: 10px;
+    margin: 0%;
+    display: flex;
+    align-items: flex-start;
+    
+}
+
+.fasArrowList{
+    grid-area: c;
+    color: #7b24ff;
+    margin: auto;
+    font-size: 25px;
+}
+
+</style>
