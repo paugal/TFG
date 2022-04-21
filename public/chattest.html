@@ -10,166 +10,150 @@
 </head>
 <body>
     <div class="frame">
-        <h1 class="chatListTile">Mensajes</h1>
-        <div class="userList">
-            <div class="usuario">
-                <div class="photoPerfil">
-                    <img class="photoPerfil" src="https://i.ibb.co/yh14wQs/user-image-bully.jpg">
-                </div>
-                
-                <div class=" userText userName"><p style="margin: 0%">Oscar</p></div>
-                <div class=" userText previewMsg"><p style="margin: 0%">Tio te has enterado...</p></div>
+        
+        <div class=" userChat usuario">
+            <div class="icon">
+                <svg  height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
             </div>
-
-            <button  type="button" class="cssbuttons-io-button" style="margin: auto" @click="isChatList = true">
-                
-                <div class="usuario">
-                    <div class="photoPerfil">
-                        <img class="photoPerfil" src="https://i.ibb.co/yh14wQs/user-image-bully.jpg">
-                    </div>
-                    
-                    <div class=" userText userName"><p style="margin: 0%">Oscar</p></div>
-                    <div class=" userText previewMsg"><p style="margin: 0%">Tio te has enterado...</p></div>
-                    <div class="icon">
-                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
-                      </div>
-                </div>
-                
-              </button>
             
+            <div class="photoPerfil">
+                <img class="photoPerfil" src="https://i.ibb.co/yh14wQs/user-image-bully.jpg">
+            </div>
+            <div class=" userText userName">
+                <p style="margin: 0%">Pau</p>
+            </div>
+        </div>
+
+        <div class="chatBox">
+
+        </div>
+
+        <div class="optionsBox">
+
         </div>
     </div>
 </body>
 </html>
 <style scoped>
-.cssbuttons-io-button {
-  background: white;
-  color: #A370F0;
-  font-family: inherit;
-  padding: 0.35em;
-  padding-left: 1em;
-  font-size: 17px;
-  font-weight: 500;
-  border-radius: 0.9em;
-  border: none;
-  letter-spacing: 0.05em;
-  box-shadow: inset 0 0 1.6em -0.6em #714da6;
-  overflow: hidden;
-  position: relative;
-  height: auto;
-  width: 100%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-.cssbuttons-io-button .icon {
-  background: #A370F0;
-  margin-left: 1em;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 75px;
-  width: 1.5em;
-  border-radius: 0.7em;
-  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b95a;
-  right: 0.3em;
-  transition: all 0.3s;
-  /* From https://css.glass */
-    background: rgba(144, 81, 240, 0.669);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(14.1px);
-    -webkit-backdrop-filter: blur(14.1px);
-  
-}
-.cssbuttons-io-button:hover .icon {
-  width: calc(100% - 0.6em);
-}
-.cssbuttons-io-button .icon svg {
-  width: 1.1em;
-  transition: transform 0.3s;
-  color: white;
-}
-.cssbuttons-io-button:hover .icon svg {
-  transform: translateX(0.1em);
-}
-.cssbuttons-io-button:active .icon {
-  transform: scale(0.95);
-}
 body{
-    color: beige;
-    font-family: 'Raleway', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    background: black;
 }
 .frame{
     width: 400px;
     height: 700px;
-    background: #7b24ff;
+    background: white;
     margin: auto;
-    padding: 10px;
+    padding: 0px;
     border-radius: 35px;
     display: grid;
     grid-template: "a a a" 15%
-                   "b b b" auto;
+                   "b b b" auto
+                   "c c c" 25%;
 }
-.chatListTile{
+.userChat{
     grid-area: a;
-    font-size: 50px;
-    margin-left: 15px;
-    
-}
-.userList{
-    grid-area: b;
-    background: whitesmoke;
+    background: #7b24ff;
     border-radius: 35px;
-    padding: 20px 10px 20px 10px;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 0;
+    color: #A370F0;
 }
+
+.chatBox{
+    margin-top: 10px;
+    grid-area: b;
+    background: white;
+    border-radius: 35px;
+    width: 100%;
+}
+.optionsBox{
+    grid-area: c;
+    background: #7b24ff;
+    border-radius: 35px;
+    width: 100%;
+    box-shadow: 10px 5px 15px 10px rgba(0,0,0,0.3);
+}
+
 .usuario{
     display: grid;
-    height: 75px;
-    grid-template-columns: 20% 70% 10%;
-    grid-template-rows: 50% 50%;
-    grid-template-areas: "a b c" 
-                         "a d c";
+    grid-template-columns: 15% 20% 80% ;
+    grid-template-rows: 100%;
+    grid-template-areas: "c a b";
     column-gap: 10px;
-    border-radius: 35px;
-    padding: 0px 5px 0px 5px;
+    letter-spacing: 0.05em;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
+
+.usuario svg{
+    transform: rotate(180deg);
+}
+
+.usuario:hover .icon {
+  width: calc(15% - 0.6em);
+}
+.usuario .icon svg {
+    width: 40px;
+    transition: transform 0.3s;
+    color: white;
+}
+.usuario:hover .icon svg {
+  transform: translateX(0.1em) rotate(180deg);
+}
+.usuario:active .icon {
+  transform: scale(0.95);
+}
+
+.usuario .icon {
+    
+  background: #7b24ff;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 2.9em;
+  border-radius: 0.7em;
+  transition: all 0.3s;
+  
+}
+
 .photoPerfil{
     display: flex;
     justify-content: center;
     grid-area: a;
     margin: 3px;
+    display: flex;
+    align-items: center;
 }
 .photoPerfil img{
-    width: 60px;
-    height: 60px;
-    border-radius: 35px;
-    -webkit-border-radius: 35px;
-    -moz-border-radius: 35px;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100%;
     border: 2px solid #7b24ff;
     -webkit-border: 2px solid #7b24ff;
     -moz-border: 2px solid #7b24ff;
+    
 }
 
-.userText{
-    color: #7b24ff;
-}
 .userName{
+    color: white;
+    text-shadow: 0.1em 0.1em 0.6em 0.2em #0000005a;
     grid-area: b;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 700;
     display:flex;
     align-items:flex-end;
-}
-.previewMsg{
-    grid-area: d;
-    font-size: 10px;
-    margin: 0%;
+    margin:0%;
+    margin-left: 5px;
     display: flex;
-    align-items: flex-start;
-    
+    align-items: center;
 }
+
 
 .fasArrowList{
     grid-area: c;
@@ -177,5 +161,4 @@ body{
     margin: auto;
     font-size: 25px;
 }
-
 </style>

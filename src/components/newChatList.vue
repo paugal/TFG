@@ -6,19 +6,26 @@
             <div class="userList xyz-in" xyz="fade down" id="userlist">   
                 <div  class="xyz-in" xyz="fade down"  v-for="index in this.$store.getters.getChatOrder" :key="index">
                     <router-link class="nav-link" :to="{name:'chat'}" @click= "changeUser(this.$store.getters.getUserInfo(index).id)">
-                        <button  type="button" class="cssbuttons-io-button">
                             <div class="usuario">
                                 <div class="photoPerfil">
                                     <img class="photoPerfil" :src="this.$store.getters.getUserInfo(index).image">
                                 </div>
-                                <div class=" userText userName"><p style="margin: 0%">{{this.$store.getters.getUserInfo(index).name}}</p></div>
-                                <div class=" userText previewMsg"><p style="margin: 0%">{{this.$store.getters.getLastMsgChat(index).text}}</p></div>
+                                <div class=" userText userName">
+                                    <p style="margin: 0%">{{this.$store.getters.getUserInfo(index).name}}</p>
+                                </div>
+                                <div class="msgAndNum">
+                                    <div class=" userText previewMsg">
+                                        {{this.$store.getters.getLastMsgChat(index).text}}
+                                    </div>
+                                    <div class='numNewMsg' v-if="this.$store.getters.getNumUnseenMsgFromUser(index) != 0">
+                                        {{this.$store.getters.getNumUnseenMsgFromUser(index)}}
+                                    </div>
+                                </div>
                                 <div class="icon">
-                                    <div class='numNewMsg' v-if="this.$store.getters.getNumUnseenMsgFromUser(index) != 0">{{this.$store.getters.getNumUnseenMsgFromUser(index)}}</div>
-                                    <svg v-if="this.$store.getters.getNumUnseenMsgFromUser(index) == 0" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                                    <svg  height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
                                 </div>
                             </div>
-                        </button>
+                        
                     </router-link>
                 </div>
                 
@@ -52,53 +59,6 @@ export default {
 </script>
 
 <style scoped>
-.cssbuttons-io-button {
-  background: white;
-  color: #A370F0;
-  font-family: inherit;
-  padding: 0.35em;
-  padding-left: 1em;
-  font-size: 17px;
-  font-weight: 500;
-  border-radius: 0.9em;
-  border: none;
-  letter-spacing: 0.05em;
-  box-shadow: inset 0 0 1.6em -0.6em #714da6;
-  overflow: hidden;
-  position: relative;
-  height: auto;
-  width: 100%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-.cssbuttons-io-button .icon {
-  background: #A370F0;
-  margin-left: 1em;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 75px;
-  width: 1.5em;
-  border-radius: 0.7em;
-  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b95a;
-  right: 0.3em;
-  transition: all 0.3s;
-  
-}
-.cssbuttons-io-button:hover .icon {
-  width: calc(100% - 0.6em);
-}
-.cssbuttons-io-button .icon svg {
-  width: 1.1em;
-  transition: transform 0.3s;
-  color: white;
-}
-.cssbuttons-io-button:hover .icon svg {
-  transform: translateX(0.1em);
-}
-.cssbuttons-io-button:active .icon {
-  transform: scale(0.95);
-}
 body{
     color: beige;
     font-family: 'Raleway', sans-serif;
@@ -110,7 +70,7 @@ body{
     height: 100%;
     background: #7b24ff;
     margin: auto;
-    padding: 10px;
+    padding: 0px;
     border-radius: 35px;
     display: grid;
     grid-template: "a a a" 15%
@@ -144,14 +104,59 @@ body{
 .usuario{
     display: grid;
     height: 75px;
-    grid-template-columns: 20% 70% 10%;
+    width: 100%;
+    grid-template-columns: 20% 80% ;
     grid-template-rows: 60% 40%;
-    grid-template-areas: "a b c" 
-                         "a d c";
+    grid-template-areas: "a b " 
+                         "a d ";
     column-gap: 10px;
     border-radius: 35px;
     padding: 0px 5px 0px 5px;
+
+    background: white;
+    color: #A370F0;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    overflow: hidden;
+    position: relative;
+    height: auto;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
+
+.usuario:hover .icon {
+  width: calc(15% - 0.6em);
+}
+.usuario .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: white;
+}
+.usuario:hover .icon svg {
+  transform: translateX(0.1em);
+}
+.usuario:active .icon {
+  transform: scale(0.95);
+}
+
+.usuario .icon {
+  background: #A370F0;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75px;
+  width: 1.5em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b95a;
+  right: 0.3em;
+  transition: all 0.3s;
+  
+}
+
 .photoPerfil{
     display: flex;
     justify-content: center;
@@ -174,30 +179,39 @@ body{
 }
 .userName{
     grid-area: b;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 700;
     display:flex;
     align-items:flex-end;
     margin:0%;
     margin-left: 5px;
 }
-.previewMsg{
+.msgAndNum{
     grid-area: d;
+    display: flex;
+    align-items: center;
+}
+.previewMsg{
+    
     font-size: 10px;
     margin: 0%;
-    display: flex;
-    align-items: flex-start;
     margin-left: 5px;
+    text-overflow: ellipsis;
+    width: 160px;
+    margin-right: 5px;
 }
 .numNewMsg{
   color: white;
+  background: #714da6;
   font-weight: bolder;
-  width: 25px;
-  height: 25px;
+  font-size: 15px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 3px;
 }
 .fasArrowList{
     grid-area: c;
