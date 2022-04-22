@@ -3,7 +3,7 @@
   --chat-color:#8541eb;
   --green:#07C286;
   --lila: #7b24ff;
-  --lila2: #a672f4;
+  --lila2: #8541eb;
 }
 body{
   background-color: #EEEEEF;
@@ -501,7 +501,8 @@ body{
 }
 .chattext.send{
   background: var(--lila2);
-  color: black;
+  color: white;
+  font-weight: 500;
   float: right;
   text-align: right;
   margin: 5px 5px 5px 15%;

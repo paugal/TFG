@@ -13,13 +13,12 @@ const routes = [
   {
     path: '/TFG/chat',
     name: 'chat',
-    component: () => import('../components/Chat.vue'),
+    component: () => import('../components/newChat.vue'),
   },
   {
     path: '/TFG/',
     name: 'Home',
-    //component: () => import('../components/Formulario.vue'),
-    component: () => import('../components/newChatList.vue'),
+    component: () => import('../components/Formulario.vue'),
   },
   {
     path: '/TFG/chatslist',

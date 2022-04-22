@@ -1,6 +1,6 @@
 <template>
  <Phone>
-    <div class="frame"  id="screen">
+    <div class="frame"  id="screen" >
         <IntroDay v-if="this.$store.getters.getShownDayInfo"></IntroDay>
             <h1 class="chatListTile">Mensajes</h1>
             <div class="userList xyz-in" xyz="fade down" id="userlist">   
@@ -16,7 +16,9 @@
                                 <div class="msgAndNum">
                                     <div class=" userText previewMsg">
                                         {{this.$store.getters.getLastMsgChat(index).text}}
+                                        <p v-if="this.$store.getters.getLastMsgChat(index).text == null">Sin mensajes</p>
                                     </div>
+                                    
                                     <div class='numNewMsg' v-if="this.$store.getters.getNumUnseenMsgFromUser(index) != 0">
                                         {{this.$store.getters.getNumUnseenMsgFromUser(index)}}
                                     </div>
@@ -148,7 +150,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 75px;
+  height: 100%;
   width: 1.5em;
   border-radius: 0.7em;
   box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b95a;
@@ -169,9 +171,7 @@ body{
     border-radius: 35px;
     -webkit-border-radius: 35px;
     -moz-border-radius: 35px;
-    border: 2px solid #7b24ff;
-    -webkit-border: 2px solid #7b24ff;
-    -moz-border: 2px solid #7b24ff;
+    box-shadow: 0.1em 0.1em 0.6em 0.05em #7b52b95a;
 }
 
 .userText{

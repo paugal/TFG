@@ -8,18 +8,21 @@
             <div class='chatbox chatboxForm' id='chatbox'>
                 <router-link id='startButton' class="nav-link text"  :to="{name:'Intro'}" > SKIP FORM </router-link>
                 <div class='scrollChat' id='scrollChat'>
-                    <p class='text' v-if="start != true">Hola👋🏼, mi nombre es Pau y soy el autor de este pequeño minijuego. 
-                    Esto forma parte de mi trabajo de final de carrera y os agradezco el tiempo y el esfuerzo.
-                    Este ejercicio consta de tres partes, en primer lugar un pequeño test.
-                    Seguido de un pequeño minijuego, el cual acabara con otro test muy cortito</p>
-                    <p class='text' v-if="start != true">Por favor os pido que respondais con sinceridad. Y tranquilos, las respuestas son ANONIMAS.
-                    Bueno eso es todo, empecemos con el test!</p>
-                    <button  v-if="start != true" type="button" class="cssbuttons-io-button" style="margin: auto" @click="startForm(); nextQuestion(null, 'genero'); ">EMPEZAR!
-                        <div class="icon">
-                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
-                        </div>
-                    </button>
-                    <form class="xyz-in" xyz="fade up" ref="from" >
+                    <div id="introText">
+                        <p class='text' >Hola👋🏼, mi nombre es Pau y soy el autor de este pequeño minijuego. 
+                        Esto forma parte de mi trabajo de final de carrera y os agradezco el tiempo y el esfuerzo.
+                        Este ejercicio consta de tres partes, en primer lugar un pequeño test.
+                        Seguido de un pequeño minijuego, el cual acabara con otro test muy cortito</p>
+                        <p class='text' >Por favor os pido que respondais con sinceridad. Y tranquilos, las respuestas son ANONIMAS.
+                        Bueno eso es todo, empecemos con el test!</p>
+                        <button  type="button" class="cssbuttons-io-button" style="margin: auto" @click="startForm(); nextQuestion(null, 'genero'); ">EMPEZAR!
+                            <div class="icon">
+                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <form ref="from" >
                         <XyzTransition xyz="fade left-100% out-right-25%" >
                             <div class="formRadio radioText" id="genero" >
                                 <p class='text'>Con que genero de identificas?</p>
@@ -279,7 +282,15 @@ export default {
                 this.saveForm();
             }else if(id == null){
                 if(document.getElementById(idNext)){
-                     document.getElementById(idNext).style.display = 'block';
+                    document.getElementById('introText').classList.add("xyz-out");
+                    setTimeout(() => {
+                        document.getElementById('introText').style.display = 'none';
+                    }, 500);
+                    setTimeout(() => {
+                        document.getElementById(idNext).classList.add("xyz-in");
+                        document.getElementById(idNext).style.display = 'block';
+                    }, 510);
+                    
                 }
                 if(document.getElementById(id)){
                     document.getElementById(id).classList.add("xyz-out");

@@ -22,8 +22,11 @@
                                 <div class="previeAndName">
                                     <div class="usernameList">{{this.$store.getters.getUserInfo(index).name}}</div>
                                     <p class="previewMsg">{{this.$store.getters.getLastMsgChat(index).text}}</p>
+                                    <p class="previewMsg" v-if="this.$store.getters.getLastMsgChat(index).text == null">Sin mensajes</p>
+
                                 </div>
                                 <div class='numNewMsg' v-if="this.$store.getters.getNumUnseenMsgFromUser(index) != 0">{{this.$store.getters.getNumUnseenMsgFromUser(index)}}</div>
+                                
                             </div>
                             <i class="fas fasArrowList fa-chevron-right fa-lg"></i>
                         </div>
