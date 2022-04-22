@@ -2,7 +2,7 @@
     <Phone>
         <div class="frame xyz-in" id='screen' xyz="fade in" style='background-image: url("https://i.ibb.co/zRNQYd5/wp4410724.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
             
-            <div class=" userChat usuario">
+            <div class=" userChat usuario" id="topBar">
                 <router-link class="icon" :to="{name:'chatslist'}" @click="setSeenMsg(this.$store.getters.getChatUser);">  
                     <div >
                         <svg  height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
@@ -77,10 +77,9 @@ export default {
         this.autoScroll();
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             document.getElementById('screen').style.height = '100vh';
-            document.getElementById('bottombarchat').style.height = '20%';
-            document.getElementById('scrollChat').style.height = 'auto';
-            document.getElementById('chatbox').style.height = '65%';
-            document.getElementById('topbarchat').style.height = '15%';
+            document.getElementById('topBar').style.paddingTop = '10px';
+            document.getElementById('screen').style.gridTemplate = '"a a a" 15% "b b b" auto "c c c" 25%';
+            
         }
         var auxScrollHeight = 0;
         setInterval(() => {
@@ -411,7 +410,7 @@ button:active {
 .userChat{
     grid-area: a;
     background: #7b24ff;
-    border-radius: 35px;
+    border-radius: 0px 0px 35px 35px ;
     width: 100%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     padding: 0;
@@ -427,7 +426,7 @@ button:active {
 .optionsBox{
     grid-area: c;
     background: #7b24ff;
-    border-radius: 35px;
+    border-radius: 35px 35px 0px 0px; 
     width: 100%;
     box-shadow: 10px 5px 15px 10px rgba(0,0,0,0.3);
     padding: 1.1em;

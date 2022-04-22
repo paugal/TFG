@@ -51,10 +51,8 @@ export default {
     },
     mounted(){
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-            document.getElementById('screen').style.height = '100%';
+            document.getElementById('screen').style.height = '100vh';
             document.getElementById('screen').style.overflow = 'hidden';
-            document.getElementById('userlist').style.height = '82vh';
-            document.getElementById('topbar').style.height = '17vh';
         }
     },
 }
