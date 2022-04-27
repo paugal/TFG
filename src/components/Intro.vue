@@ -13,7 +13,7 @@
             <div class="textbox">
                 <p>¡Hola! En este juego se simularán conversaciones de WhatsApp.
                     Tu amigo Marcos tiene problemas, durante el juego podrás escoger diferentes
-                    opciones. ¡Pero cuidado cada acción tiene sus consecuencias!
+                    opciones. ¡Pero cuidado, las acciones tiene sus consecuencias!
                 </p>
             </div>
             <router-link  class="nav-link" :to="{name:'chatslist'}"> 

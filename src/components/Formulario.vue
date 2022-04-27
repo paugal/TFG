@@ -13,7 +13,7 @@
                         Esto forma parte de mi trabajo de final de carrera y os agradezco el tiempo y el esfuerzo.
                         Este ejercicio consta de tres partes, en primer lugar un pequeño test.
                         Seguido de un pequeño minijuego, el cual acabara con otro test muy cortito</p>
-                        <p class='text' >Por favor os pido que respondais con sinceridad. Y tranquilos, las respuestas son ANONIMAS.
+                        <p class='text' >Podéis responder con total sinceridad porque todo es <b>anónimo</b>.
                         Bueno eso es todo, empecemos con el test!</p>
                         <button  type="button" class="cssbuttons-io-button" style="margin: auto" @click="startForm(); nextQuestion(null, 'p1'); ">EMPEZAR!
                             <div class="icon">
@@ -25,7 +25,7 @@
                     <form ref="from" >
                         <XyzTransition xyz="fade left-100% out-right-25%" >
                             <div class="formRadio radioText" id="genero" >
-                                <p class='text'>Con que genero de identificas?</p>
+                                <p class='text'>¿Con que genero te identificas?</p>
                                 <input type="radio" id="mujer" name="genero" value="mujer" required>
                                 <label for="mujer">Mujer</label>
                                 <input type="radio" id="hombre" name="genero" value="hombre">
@@ -44,7 +44,7 @@
                         
                         <XyzTransition xyz="fade left-100% out-right-25%">
                             <div class="formRadio radioText xyz-in"  xyz="fade left" id="edad">
-                                <p class='text'>Que edad tienes?</p>
+                                <p class='text'>¿Qué edad tienes?</p>
                                 <input type="radio" id="10" name="edad" value="10" required>
                                 <label for="10">De 10 a 12</label>
                                 <input type="radio" id="13" name="edad" value="13">
@@ -111,7 +111,7 @@
 
                         <XyzTransition xyz="fade left-100% out-right-25%">
                             <div class="formRadio xyz-in"  xyz="fade left" id="p3">
-                            <p class='text'>A veces <b>no</b> me dan mucha lástima otras personas cuando tienen problemas(R).</p>
+                            <p class='text'>A veces <b>no</b> me dan mucha lástima otras personas cuando tienen problemas.</p>
                                 <div class="testForm">
                                     <p class="infoForm "> Me da mucha lástima</p>
                                     <input type="radio" id="p31" name="p3" value="1">
@@ -161,7 +161,7 @@
 
                         <XyzTransition xyz="fade left-100% out-right-25%">
                             <div class="formRadio xyz-in"  xyz="fade left" id="p5">
-                                <p class='text'>Cuando veo que alguien se hace daño, tiendo a permanecer tranquilo(R).</p>
+                                <p class='text'>Cuando veo que alguien se hace daño, tiendo a permanecer tranquilo.</p>
                                 <div class="testForm">
                                     <p class="infoForm "> Nunca</p>
                                     <input type="radio" id="p51" name="p5" value="1">
@@ -186,7 +186,7 @@
 
                         <XyzTransition xyz="fade left-100% out-right-25%">
                             <div class="formRadio xyz-in"  xyz="fade left" id="p6">
-                                <p class='text'>Las desgracias de otros no suelen angustiarme mucho (R).</p>
+                                <p class='text'>Las desgracias de otros no suelen angustiarme mucho.</p>
                                 <div class="testForm">
                                     <p class="infoForm "> Me anguntian</p>
                                     <input type="radio" id="p61" name="p6" value="1">
@@ -211,7 +211,7 @@
 
                         <XyzTransition xyz="fade left-100% out-right-25%">
                             <div class="formRadio xyz-in"  xyz="fade left" id="p7">
-                                <p class='text'>Cuando veo que alguien está siendo tratado injustamente, no suelo sentir mucha pena por él (R).</p>
+                                <p class='text'>Cuando veo que alguien está siendo tratado injustamente, no suelo sentir mucha pena por él.</p>
                                 <div class="testForm">
                                     <p class="infoForm "> Siento pena</p>
                                     <input type="radio" id="p71" name="p7" value="1">

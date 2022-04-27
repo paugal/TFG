@@ -407,7 +407,7 @@ button:active {
     border-radius: 35px 35px 0px 0px; 
     width: 100%;
     box-shadow: 10px 5px 15px 10px rgba(0,0,0,0.3);
-    padding: 1.1em;
+    padding: 5px;
     overflow: scroll;
     overflow-x: hidden;
     -o-transition: all 0.5s;
