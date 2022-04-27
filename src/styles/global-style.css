@@ -341,20 +341,19 @@ body{
   justify-content: space-evenly;
 }
 .formRadio input[type="radio"] + label {
-  background-color:white;
-  margin: 8px 6px 6px 8px;
+  border-radius: 15px;
+  margin: auto;
   text-align: center;
-  border: 2px solid var(--main-color);
-  border-radius: 100%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  height: 45px;
-  width: 45px;
+  height: 100%;
+  width: 100%;
   transition: 0.3s;
-  font-size: 25px;
+  font-size: 22px;
 }
+
 .radioText input[type="radio"] + label {
   padding: 5px 5px 5px 5px;
   border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
   height: auto;
   width: auto;
   font-size: 17px;
@@ -373,6 +372,25 @@ body{
   border-color: #A370F0;
   color: white;
 
+}
+.testForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:rgba(253, 253, 253, 0.9);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 15px;
+  padding: 5px;
+  margin: auto;
+  text-align: justify;
+}
+
+.infoForm{
+  width: fit-content;
+  height: fit-content;
+  margin: 0%;
+  font-size: 15px;
 }
 .scrollChat{
   overflow: auto;

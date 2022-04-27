@@ -36,7 +36,8 @@
             <div class='bottombarchat xyz-in' xyz="down" id="bottombarchat">
                 <div v-for="index in this.$store.getters.getOptionsLenght" :key="index">
                     <div class='msgSelector xyz-in'  xyz="fade down" v-if="this.$store.getters.getOptionsLenght > 0"  
-                    @click= " show = !show; enablePathOptions(this.$store.getters.getOptions[index-1].id);
+                    @click= " show = !show; 
+                    enablePathOptions(this.$store.getters.getOptions[index-1].id);
                     setSeenMsg(this.$store.getters.getChatUser);
                     enablePathQuestion(this.$store.getters.getOptions[index-1].question);
                     setLastPath(this.$store.getters.getOptions[index-1].id); 

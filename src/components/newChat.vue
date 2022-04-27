@@ -1,19 +1,17 @@
 <template>
     <Phone>
-        <div class="frame xyz-in" id='screen' xyz="fade in" style='background-image: url("https://i.ibb.co/zRNQYd5/wp4410724.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
+        <div class="frame xyz-in" id='screen' xyz="fade in" style='background-image: url("https://i.ibb.co/Xbw5gBL/bg-chat-tile-dark-a4be512e7195b6b733d9110b408f075d-1.png"); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;'>
             
             <div class=" userChat usuario" id="topBar">
                 <router-link class="icon" :to="{name:'chatslist'}" @click="setSeenMsg(this.$store.getters.getChatUser);">  
-                    <div >
-                        <svg  height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
-                    </div>
+                    <i class="fas fasArrowList  fa-chevron-right fa-lg"></i>
                 </router-link>
             
                 <div class="photoPerfil">
                     <img v-if='this.$store.getters.getChatUser != 0' class="userImage" :src="this.$store.getters.getChatUserInfo.image" alt="user_image_bully" border="0">
                 </div>
                 <div class=" userText userName">
-                    <div v-if='this.$store.getters.getChatUser != 0' class="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
+                    <div v-if='this.$store.getters.getChatUser != 0' class="userName" id="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
                 </div>
             </div>
             
@@ -36,13 +34,8 @@
             </div>
             <div class='optionsBox xyz-in' xyz="down" id="bottombarchat">
                 <div v-for="index in this.$store.getters.getOptionsLenght" :key="index">
-                    <div class='xyz-in'  xyz="fade down" v-if="this.$store.getters.getOptionsLenght > 0"  
-                    @click= " show = !show; enablePathOptions(this.$store.getters.getOptions[index-1].id);
-                    setSeenMsg(this.$store.getters.getChatUser);
-                    enablePathQuestion(this.$store.getters.getOptions[index-1].question);
-                    setLastPath(this.$store.getters.getOptions[index-1].id); 
-                    activePathMsg(this.$store.getters.getActivedMsgforOption.activator);
-                    disablePathOptions(this.$store.getters.getOptions[index-1].question); testCalculKarma();"> 
+                    <div class='buttonPhone xyz-in' xyz="fade down" id="option" v-if="this.$store.getters.getOptionsLenght > 0"  
+                    @click= " show = !show; optionsManager(this.$store.getters.getOptions[index-1]);"> 
                         <button>
                             <div class="svg-wrapper-1">
                                 <div class="svg-wrapper">
@@ -75,10 +68,12 @@ export default {
     },
     mounted () { 
         this.autoScroll();
-        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        if(/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             document.getElementById('screen').style.height = '100vh';
             document.getElementById('topBar').style.paddingTop = '10px';
-            document.getElementById('screen').style.gridTemplate = '"a a a" 15% "b b b" auto "c c c" 25%';
+            document.getElementById('screen').classList.add('framePhone');
+            document.getElementById('chatbox').style.height = '97%';
+            document.getElementById('userName').style.fontSize = '4vh';
             
         }
         var auxScrollHeight = 0;
@@ -120,7 +115,6 @@ export default {
                 const element = playerPathAux[index];
                 playerPathList.push(this.$store.getters.getAllPaths.find(path => path.id === element))
                 auxKarma += this.$store.getters.getAllPaths.find(path => path.id === element).karma
-
                 if([12, 13, 14].includes(element) && element == playerPathAux[playerPathAux.length-1]){
                     console.log('Include 12, 13, 14');
                     this.lieDetector(playerPathAux);
@@ -128,6 +122,8 @@ export default {
                 if([39, 40, 41].includes(element) && element == playerPathAux[playerPathAux.length-1]){
                     ending = true;
                     
+                }if([42, 44].includes(element) && element == playerPathAux[playerPathAux.length-1]){
+                    this.$store.commit('setEnding', true);
                 }
             }
             //auxKarma = auxKarma / playerPathList.filter(path => path.karma !== 0).length;
@@ -223,43 +219,6 @@ export default {
                     break;
             }
         },
-
-        //No funciona
-        addMsg: function(msgInfo){
-            console.log()
-            var msg = document.createElement('div');
-            if(msgInfo.sender == 1){
-                msg.setAttribute('id', msgInfo.id);
-                msg.setAttribute('class', 'chattext send xyz-in');
-                msg.setAttribute('xyz', "fade right");
-                msg.textContent = msgInfo.text;
-                this.enablePathQuestion(msgInfo.question);
-            }else{
-                msg.setAttribute('id', msgInfo.id);
-                msg.setAttribute('class', 'chattext receive xyz-in');
-                msg.setAttribute('xyz', "fade left");
-                msg.textContent = msgInfo.text;
-                this.enablePathQuestion(msgInfo.question);
-            }
-            
-            if(document.getElementById('scrollChat') != null){
-                document.getElementById('scrollChat').appendChild(msg);
-                console.log(msg)
-            }
-
-        },
-        setSeenMsg: function(id){
-            this.$store.commit('setSeenMsg', id )
-        },
-        notRepetDiv: function(){
-            console.log('Hola ' + document.getElementById('aux2'))
-            if(document.getElementById('aux2') == null){
-                return true;
-            }else{
-                return false;
-            }
-        },
-
         addUnseenMsg: function(){
             console.log(document.getElementById("unseenMsg"))
             if(document.getElementById("unseenMsg") == null && document.getElementById("unseenBox") != null){
@@ -279,7 +238,6 @@ export default {
                 document.getElementById("aux2").appendChild(unseenMsg);
             }
         },
-
         removeUnseenMsg: function(){
             var element = document.getElementById("unseenMsg");
             while(element != null){
@@ -288,11 +246,17 @@ export default {
             }
             
         },
-
         setUserChat: function(userId){
             this.$store.commit('setUserChat', userId);
         },
-
+        notRepetDiv: function(){
+            console.log('Hola ' + document.getElementById('aux2'))
+            if(document.getElementById('aux2') == null){
+                return true;
+            }else{
+                return false;
+            }
+        },
         autoScroll: function(){
             var element = document.getElementById("scrollChat");
             if(element != null){
@@ -300,37 +264,48 @@ export default {
                 this.reload
             }
         },
-        
+        moveUserTopList: function (msgId){
+            this.$store.commit('moveUserTopList', msgId )
+        },
+        reload(){
+            this.$forceUpdate();
+        },
         enablePathQuestion: function(question){
             if(!this.$store.getters.getSelectedOptionsList.includes(question) && question != null){
                 this.$store.commit('setSelectedOptionsList', question);
                 this.$store.commit('enablePathQuestion', question);
             }
         },
-
-        moveUserTopList: function (msgId){
-            this.$store.commit('moveUserTopList', msgId )
+        setSeenMsg: function(id){
+            this.$store.commit('setSeenMsg', id )
+            
         },
-
-        setLastPath: function (optionId){
-            this.$store.commit('setLastPath', optionId)
-        },
-
-        activePathMsg: function (msgsId){
-            this.$store.commit('activePathMsg', msgsId)
-        },
-
-        disablePathOptions: function (questionId){
-            this.$store.commit('disablePathOptions', questionId)
-        }, 
-        enablePathOptions: function (OptionId){
-            this.$store.commit('enablePathOptions', OptionId);
-            this.$store.commit('setPlayerPath', OptionId)
-        }, 
-
-        reload(){
-            this.$forceUpdate();
-        },
+        
+        //Funciones llamadas al hacer click en una opcion
+        optionsManager: function (option){
+            const options = document.querySelectorAll('#option');
+            for (const opt of options) {
+                opt.classList.add('xyz-out')
+            }
+            setTimeout(() => {
+                this.$store.commit('disablePathOptions', option.question)
+                this.$store.commit('setSeenMsg', this.$store.getters.getChatUser )
+                this.$store.commit('setLastPath', option.id)
+                let msgsId = this.$store.getters.getActivedMsgforOption.activator;
+                this.$store.commit('activePathMsg', msgsId)
+                
+                if(!this.$store.getters.getSelectedOptionsList.includes(option.question) && option.question != null){
+                    this.$store.commit('setSelectedOptionsList', option.question);
+                    this.$store.commit('enablePathQuestion', option.question);
+                    this.$store.commit('disablePathOptions', option.question)
+                }
+            }, 100);
+             setTimeout(() => {
+                this.$store.commit('enablePathOptions',  option.id);
+                this.$store.commit('setPlayerPath',  option.id)
+                this.testCalculKarma();
+            }, 300);
+        },       
     }
 }
 </script>
@@ -340,8 +315,7 @@ export default {
 /* From uiverse.io by @adamgiebl */
 button {
  font-family: inherit;
- font-size: 16px;
- background: whinte;
+ font-size: 17px;
  color: #7b24ff;
  padding: 0.3em 1em;
  margin: 0.5em;
@@ -354,6 +328,7 @@ button {
  transition: all 0.2s;
  box-shadow: 10px 5px 15px 10px rgba(0,0,0,0.1);
 }
+
 
 button span {
  display: block;
@@ -403,9 +378,12 @@ button:active {
     padding: 0px;
     border-radius: 35px;
     display: grid;
-    grid-template: "a a a" 17%
-                   "b b b" auto
-                   "c c c" 25%;
+    grid-template: "a" 17% "b" auto "c" 25%;
+    
+}
+
+.framePhone{
+    grid-template: "a" 15% "b" 65% "c" 20%;
 }
 .userChat{
     grid-area: a;
@@ -430,6 +408,12 @@ button:active {
     width: 100%;
     box-shadow: 10px 5px 15px 10px rgba(0,0,0,0.3);
     padding: 1.1em;
+    overflow: scroll;
+    overflow-x: hidden;
+    -o-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
 }
 
 .usuario{
@@ -449,36 +433,27 @@ button:active {
     transform: rotate(180deg);
 }
 
-.usuario:hover .icon {
-  width: calc(15% - 0.6em);
-  padding-top: 20px;
-}
 .usuario .icon {
-  padding-top: 20px;
-}
-.usuario .icon svg {
     width: 40px;
     transition: transform 0.3s;
     color: white;
+    grid-area: c;
     
 }
-.usuario:hover .icon svg {
-  transform: translateX(0.1em) rotate(180deg);
+.usuario:hover .icon {
+  transform: translateX(0.1em);
 }
 .usuario:active .icon {
   transform: scale(0.95);
 }
 
 .usuario .icon {
-    
-  background: #7b24ff;
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 2.9em;
-  border-radius: 0.7em;
   transition: all 0.3s;
   
 }
@@ -492,17 +467,20 @@ button:active {
     align-items: center;
 }
 .photoPerfil img{
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 100%;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100%;
     
 }
+::-webkit-scrollbar {
+  width: 0px;
+}
 
 .userName{
     color: white;
-    text-shadow: 0.1em 0.1em 0.6em 0.2em #0000005a;
+    text-shadow: 0.1em 0.1em 0.2em 0.2em #0000005a;
     grid-area: b;
     font-size: 30px;
     font-weight: 700;
@@ -517,8 +495,13 @@ button:active {
 
 .fasArrowList{
     grid-area: c;
-    color: #7b24ff;
+    color: white;
     margin: auto;
     font-size: 25px;
+    transform: rotate(180deg);
+    
+}
+a{
+    text-decoration: none;
 }
 </style>

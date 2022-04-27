@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     PreFormulary: [],
+    PosFormulary: [],
     day: 1,
     chatOrder: [3, 2, 4, 5, 6, 7, 8],
     shownDayInfo: true,
@@ -14,6 +15,7 @@ export default createStore({
     karma: 0,
     specialKarma: 0,
     ID: 0,
+    isTheEnd: false,
 
     //No es una lista del id de las opciones, tengo que modificar la estructura
     selectedOptionsList: [],
@@ -278,6 +280,10 @@ export default createStore({
     getPreFormulary: state =>{
       return state.PreFormulary
     },
+    getPosFormulary: state =>{
+      return state.PosFormulary
+    },
+
 
     //Nombre del personaje que envia el mensaje
     getNotificacion: state =>{
@@ -410,6 +416,9 @@ export default createStore({
         return numNewMsg
       }
     },
+    getEnding: (state) => {
+      return state.isTheEnd;
+    },
   },
   mutations: {
 
@@ -430,6 +439,10 @@ export default createStore({
 
     setPreFormulary(state, formulary){
       state.PreFormulary = formulary;
+    },
+
+    setPosFormulary(state, formulary){
+      state.PostFormulary = formulary;
     },
 
     setNotificacion(state, visibility, username){
@@ -479,6 +492,9 @@ export default createStore({
 
     setLastQuestion(state, questionId){
       state.lastQuestion = questionId
+    },
+    setEnding(state, end){
+      state.isTheEnd = end
     },
 
     moveUserTopList(state, userId){

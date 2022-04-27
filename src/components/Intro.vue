@@ -1,6 +1,6 @@
 <template>
     <Phone>
-      <div class="screenIntro">
+      <div class="screenIntro xyz-in" xyz="fade">
         <div v-if="isLoading || (!isChatList)">
           <div v-if="isLoading" class="centredelement">
             <div class="half-circle-spinner">
