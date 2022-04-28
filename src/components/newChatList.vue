@@ -44,6 +44,10 @@
                         
                     </router-link>
                 </div>
+
+                <div style="height: 10%">
+
+                </div>
             </div>
             <div class="endGame xyz-in" xyz='fade' v-if='endGame == true'>
                 <img class='avatar' src="https://i.ibb.co/M2pV632/intro.png" alt="not-icons" border="0">
@@ -113,9 +117,16 @@ export default {
     mounted(){
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             document.getElementById('screen').style.height = '100vh';
-            document.getElementById('screen').style.overflow = 'hidden';
         }
 
+        if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
+        /* iOS hides Safari address bar */
+        window.addEventListener("load",function() {
+            setTimeout(function() {
+                window.scrollTo(0, 1);
+            }, 1000);
+        });
+        }
         this.endGame = this.$store.getters.getEnding;
     },
 }

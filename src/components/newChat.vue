@@ -379,7 +379,6 @@ button:active {
     border-radius: 35px;
     display: grid;
     grid-template: "a" 17% "b" auto "c" 25%;
-    
 }
 
 .framePhone{
