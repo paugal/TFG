@@ -6,7 +6,7 @@
                 <div class="tituloForm">INTRODUCCIÓN</div>
             </div>
             <div class='chatbox chatboxForm' id='chatbox'>
-                <router-link id='startButton' class="nav-link text"  :to="{name:'endGame'}" > SKIP FORM </router-link>
+                <router-link v-if="this.$store.getters.getTestMode == true" id='startButton' class="nav-link text"  :to="{name:'endGame'}" > SKIP FORM </router-link>
                 <div class='scrollChat' id='scrollChat'>
                     
                     <form ref="from" >

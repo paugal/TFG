@@ -16,6 +16,7 @@ export default createStore({
     specialKarma: 0,
     ID: 0,
     isTheEnd: false,
+    testMode: true,
 
     //No es una lista del id de las opciones, tengo que modificar la estructura
     selectedOptionsList: [],
@@ -268,7 +269,9 @@ export default createStore({
   },
 
   getters: {
-
+    getTestMode: state =>{
+      return state.testMode;
+    },
     getDay: state =>{
       return state.day
     },

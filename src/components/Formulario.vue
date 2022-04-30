@@ -6,7 +6,7 @@
                 <div class="tituloForm">INTRODUCCIÓN</div>
             </div>
             <div class='chatbox chatboxForm' id='chatbox'>
-                <router-link id='startButton' class="nav-link text"  :to="{name:'Intro'}" > SKIP FORM </router-link>
+                <router-link v-if="this.$store.getters.getTestMode == true" id='startButton' class="nav-link text"  :to="{name:'Intro'}" > SKIP FORM </router-link>
                 <div class='scrollChat' id='scrollChat'>
                     <div id="introText">
                         <p class='text' >Hola👋🏼, mi nombre es Pau y soy el autor de este pequeño minijuego. 
@@ -254,7 +254,7 @@
                             </div>
                         </XyzTransition>
 
-                        <router-link id='startButton' class='nav-link' v-if="showlink == true" @click="nextQuestion('p8','send')" :to="{name:'Intro'}" >
+                        <router-link id='startButton' class='nav-link' v-if="showlink == true" @click="nextQuestion('p8','send')" :to="{name:this.ifIphone}" >
                             <button  type="button" class="cssbuttons-io-button" style="margin: auto" @click="isChatList = true">FINALIZAR!
                                 <div class="icon">
                                 <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
@@ -276,11 +276,17 @@ export default {
         return{
             start: false,
             showlink: false,
+            ifIphone: "Intro",
         }
     },
     mounted () { 
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
         document.getElementById('screenForm').style.height = '100vh';
+        }
+
+        if(/iPhone/i.test(navigator.userAgent)){
+            console.log('Soy un Iphone!')
+            this.ifIphone = "aviso";
         }
     },
 

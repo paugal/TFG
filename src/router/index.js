@@ -21,6 +21,11 @@ const routes = [
     component: () => import('../components/Formulario.vue'),
   },
   {
+    path: '/TFG/aviso',
+    name: 'aviso',
+    component: () => import('../components/AvisoIphone.vue'),
+  },
+  {
     path: '/TFG/f2',
     name: 'formulario2',
     component: () => import('../components/Formulario2.vue'),

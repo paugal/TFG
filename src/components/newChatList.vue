@@ -4,15 +4,18 @@
         <IntroDay v-if="this.$store.getters.getShownDayInfo"></IntroDay>
             <h1 v-if='endGame != true' class="chatListTile">Mensajes</h1>
             <div class="userList xyz-in" xyz="fade down" id="userlist" v-if='endGame != true'>
-                <button type="button" class="skiptoEnding" @click="endSelector(3)">
-                    SKIP GOOD ENDING
-                </button>
-                <button type="button" class=" skiptoEnding" @click="endSelector(1)">
-                    SKIP NEUTRAL ENDING
-                </button>  
-                <button type="button" class=" skiptoEnding" @click="endSelector(-2)">
-                    SKIP BAD ENDING
-                </button>  
+                <div v-if="this.$store.getters.getTestMode == true">
+                    <button type="button" class="skiptoEnding" @click="endSelector(3)">
+                        SKIP GOOD ENDING
+                    </button>
+                    <button type="button" class=" skiptoEnding" @click="endSelector(1)">
+                        SKIP NEUTRAL ENDING
+                    </button>  
+                    <button type="button" class=" skiptoEnding" @click="endSelector(-2)">
+                        SKIP BAD ENDING
+                    </button>  
+                </div>
+                
                 <div  class="xyz-in" xyz="fade down"   v-for="index in this.$store.getters.getChatOrder" :key="index">
                     <router-link class="nav-link" :to="{name:'chat'}" @click= "changeUser(this.$store.getters.getUserInfo(index).id)">
                             <div class="usuario">
