@@ -15,9 +15,13 @@
                             <div class="formRadio xyz-in"  xyz="fade left" id="p1">
                                 <p class='text'>¿Has visto situaciones parecidas a las de la historia anterior en tu colegio?</p>
                                 <input type="radio" id="p11" name="p1" value="1">
-                                <label for="p11"> Sí  </label>
+                                <label for="p11"> Mucho  </label>
                                 <input type="radio" id="p12" name="p1" value="2">
-                                <label for="p12"> No </label>
+                                <label for="p12"> Algo </label>
+                                <input type="radio" id="p13" name="p1" value="3">
+                                <label for="p13"> Poco </label>
+                                <input type="radio" id="p14" name="p1" value="4">
+                                <label for="p14"> Nada </label>
                                 <button type="button" class="cssbuttons-io-button" style="margin: auto; margin-top: 20px" @click="nextQuestion('p1','p2'); ">Siguiente
                                     <div class="icon">
                                     <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
@@ -30,9 +34,13 @@
                             <div class="formRadio xyz-in"  xyz="fade left" id="p2">
                                 <p class='text'>Has actuado en el juego diferente a como actuarias en la vida real?</p>
                                 <input type="radio" id="p21" name="p2" value="1">
-                                <label for="p21"> Sí  </label>
+                                <label for="p21"> Mucho  </label>
                                 <input type="radio" id="p22" name="p2" value="2">
-                                <label for="p22"> No </label>
+                                <label for="p22"> Algo </label>
+                                <input type="radio" id="p23" name="p2" value="3">
+                                <label for="p23"> Poco  </label>
+                                <input type="radio" id="p24" name="p2" value="4">
+                                <label for="p24"> Nada </label>
                                 <button type="button" class="cssbuttons-io-button" style="margin: auto; margin-top: 20px" @click="nextQuestion('p2','p3'); ">Siguiente
                                     <div class="icon">
                                     <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
@@ -45,9 +53,13 @@
                             <div class="formRadio xyz-in"  xyz="fade left" id="p3">
                             <p class='text'>Al principio de la historia, Óscar te ha enviado un mensaje insultando a tu amigo Marcos. ¿Te has encontrado en alguna situación similar en la vida real?</p>
                                 <input type="radio" id="p31" name="p3" value="1">
-                                <label for="p31"> Sí </label>
+                                <label for="p31"> Mucho </label>
                                 <input type="radio" id="p32" name="p3" value="2">
-                                <label for="p32"> No </label>
+                                <label for="p32"> Algo </label>
+                                <input type="radio" id="p33" name="p3" value="3">
+                                <label for="p33"> Poco </label>
+                                <input type="radio" id="p34" name="p3" value="4">
+                                <label for="p34"> Nada </label>
                                 <button type="button" class="cssbuttons-io-button" style="margin: auto; margin-top: 20px" @click="nextQuestion('p3','p4'); ">Siguiente
                                     <div class="icon">
                                     <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
@@ -58,14 +70,33 @@
 
                         <XyzTransition xyz="fade left-100% out-right-25%">
                             <div class="formRadio xyz-in"  xyz="fade left" id="p4">
-                                <p class='text'>¿Si alguna vez visto acoso, defendiste a la persona o avisaste algún adulto de lo que habías visto?</p>
+                                <p class='text'>¿Si alguna vez has visto acoso, defendiste a la persona o avisaste algún adulto de lo que habías visto?</p>
                                 <input type="radio" id="p41" name="p4" value="1">
                                 <label for="p41"> Sí </label>
                                 <input type="radio" id="p42" name="p4" value="2">
                                 <label for="p42"> No </label>
                                 <input type="radio" id="p43" name="p4" value="3">
                                 <label for="p43"> Nunca he visto acoso </label>
-                                <button type="button" class="cssbuttons-io-button" style="margin: auto; margin-top: 20px" @click="nextQuestion('p4','p6'); ">Siguiente
+                                <button type="button" class="cssbuttons-io-button" style="margin: auto; margin-top: 20px" @click="nextQuestion('p4','p5'); ">Siguiente
+                                    <div class="icon">
+                                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                                    </div>
+                                </button>   
+                            </div>
+                        </XyzTransition>
+
+                        <XyzTransition xyz="fade left-100% out-right-25%">
+                            <div class="formRadio xyz-in"  xyz="fade left" id="p5">
+                                <p class='text'>Recuerda que estas respuestas son anónimas y no se asocian a ninguna persona. ¿Has sufrido acoso por parte de tus compañeros?</p>
+                                <input type="radio" id="p51" name="p5" value="1">
+                                <label for="p51"> Mucho  </label>
+                                <input type="radio" id="p52" name="p5" value="2">
+                                <label for="p52"> Algo </label>
+                                <input type="radio" id="p53" name="p5" value="3">
+                                <label for="p53"> Poco </label>
+                                <input type="radio" id="p54" name="p5" value="4">
+                                <label for="p54"> Nada </label>
+                                <button type="button" class="cssbuttons-io-button" style="margin: auto; margin-top: 20px" @click="nextQuestion('p5','p6'); ">Siguiente
                                     <div class="icon">
                                     <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
                                     </div>
@@ -77,9 +108,13 @@
                             <div class="formRadio xyz-in"  xyz="fade left" id="p6">
                                 <p class='text'>Recuerda que estas respuestas son anónimas y no se asocian a ninguna persona. ¿Has insultado a algunos de tus compañeros?</p>
                                 <input type="radio" id="p61" name="p6" value="1">
-                                <label for="p61"> Sí  </label>
+                                <label for="p61"> Mucho  </label>
                                 <input type="radio" id="p62" name="p6" value="2">
-                                <label for="p62"> No </label>
+                                <label for="p62"> Algo </label>
+                                <input type="radio" id="p63" name="p6" value="3">
+                                <label for="p63"> Poco </label>
+                                <input type="radio" id="p64" name="p6" value="4">
+                                <label for="p64"> Nada </label>
                                 <button type="button" class="cssbuttons-io-button" style="margin: auto; margin-top: 20px" @click="nextQuestion('p6','p7'); ">Siguiente
                                     <div class="icon">
                                     <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
@@ -91,12 +126,20 @@
                         <XyzTransition xyz="fade left-100% out-right-25%">
                             <div class="formRadio xyz-in"  xyz="fade left" id="p7">
                                 <p class='text'>¿Crees que la historia que cuenta este minijuego es realista?</p>
-                                <input type="radio" id="p71" name="p7" value="1">
-                                <label for="p71"> Sí </label>
-                                <input type="radio" id="p72" name="p7" value="2">
-                                <label for="p72"> No </label>
-                                <input type="radio" id="p73" name="p7" value="3">
-                                <label for="p73"> Más o menos </label>
+                                <div class="testForm">
+                                    <p class="infoForm "> Poco</p>
+                                    <input  type="radio" id="p71" name="p7" value="1">
+                                    <label  for="p71"> 1 </label>
+                                    <input type="radio" id="p72" name="p7" value="2">
+                                    <label for="p72"> 2 </label>
+                                    <input type="radio" id="p73" name="p7" value="3">
+                                    <label for="p73"> 3 </label>
+                                    <input type="radio" id="p74" name="p7" value="4">
+                                    <label for="p74"> 4 </label>
+                                    <input type="radio" id="p75" name="p7" value="5">
+                                    <label for="p75"> 5 </label>
+                                    <p class="infoForm"> Mucho</p>
+                                </div>
                                 <button type="button" class="cssbuttons-io-button" style="margin: auto; margin-top: 20px" @click="nextQuestion('p7','p8'); ">Siguiente
                                     <div class="icon">
                                     <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
@@ -107,32 +150,49 @@
 
                         <XyzTransition xyz="fade left-100% out-right-25%">
                             <div class="formRadio xyz-in"  xyz="fade left" id="p8">
-                                <p class='text'>Crees que has aprendido algo con este juego?</p>
-                                <input type="radio" id="p81" name="p8" value="1">
-                                <label for="p81"> Sí </label>
-                                <input type="radio" id="p82" name="p8" value="2">
-                                <label for="p82"> No </label>
-                                <input type="radio" id="p83" name="p8" value="3">
-                                <label for="p83"> Un poco </label>
+                                <p class='text'>¿Crees que la historia que cuenta este minijuego es realista?</p>
+                                <div class="testForm">
+                                    <p class="infoForm "> Poco</p>
+                                    <input  type="radio" id="p81" name="p8" value="1">
+                                    <label  for="p81"> 1 </label>
+                                    <input type="radio" id="p82" name="p8" value="2">
+                                    <label for="p82"> 2 </label>
+                                    <input type="radio" id="p83" name="p8" value="3">
+                                    <label for="p83"> 3 </label>
+                                    <input type="radio" id="p84" name="p8" value="4">
+                                    <label for="p84"> 4 </label>
+                                    <input type="radio" id="p85" name="p8" value="5">
+                                    <label for="p85"> 5 </label>
+                                    <p class="infoForm"> Mucho</p>
+                                </div>
                                 <button type="button" class="cssbuttons-io-button" style="margin: auto; margin-top: 20px" @click="nextQuestion('p8','p9'); ">Siguiente
                                     <div class="icon">
                                     <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
                                     </div>
-                                </button> 
+                                </button>   
                             </div>
                         </XyzTransition>
 
                         <XyzTransition xyz="fade left-100% out-right-25%">
                             <div class="formRadio xyz-in"  xyz="fade left" id="p9" @click="finalQuestion()">
-                                <p class='text'>¿Crees que actúas diferente cuando te encuentres en situaciones similares gracias a este juego?</p>
-                                <input type="radio" id="p91" name="p9" value="1">
-                                <label for="p91"> Sí </label>
-                                <input type="radio" id="p92" name="p9" value="2">
-                                <label for="p92"> No </label>
-                                <input type="radio" id="p93" name="p9" value="3">
-                                <label for="p93"> Tal vez </label>
+                                <p class='text'>Crees que has aprendido algo con este juego?</p>
+                                <div class="testForm">
+                                    <p class="infoForm "> Poco</p>
+                                    <input  type="radio" id="p91" name="p9" value="1">
+                                    <label  for="p91"> 1 </label>
+                                    <input type="radio" id="p92" name="p9" value="2">
+                                    <label for="p92"> 2 </label>
+                                    <input type="radio" id="p93" name="p9" value="3">
+                                    <label for="p93"> 3 </label>
+                                    <input type="radio" id="p94" name="p9" value="4">
+                                    <label for="p94"> 4 </label>
+                                    <input type="radio" id="p95" name="p9" value="5">
+                                    <label for="p95"> 5 </label>
+                                    <p class="infoForm"> Mucho</p>
+                                </div>
                             </div>
                         </XyzTransition>
+
 
                         <router-link id='startButton' class='nav-link' v-if="showlink == true" @click="nextQuestion('p9','send')" :to="{name:'endGame'}" >
                             <button  type="button" class="cssbuttons-io-button" style="margin: auto" @click="isChatList = true">FINALIZAR!
@@ -180,7 +240,7 @@ export default {
         sendEmail() {
             var templateParams = {
                 name: this.$store.getters.getID,
-                message: JSON.stringify(this.$store.getters.getPreFormulary)
+                message: JSON.stringify(this.$store.getters.getPosFormulary)
             };  
             try {
                 emailjs.send('service_3mckqye','template_g8kvx5s', templateParams, 'user_19PVjLKPzVGUG5VUn6jOU')
@@ -237,16 +297,45 @@ export default {
             var p2 = document.querySelector('input[type=radio][name=p2]:checked').value;
             var p3 = document.querySelector('input[type=radio][name=p3]:checked').value;
             var p4 = document.querySelector('input[type=radio][name=p4]:checked').value;
+            var p5 = document.querySelector('input[type=radio][name=p5]:checked').value;
             var p6 = document.querySelector('input[type=radio][name=p6]:checked').value;
             var p7 = document.querySelector('input[type=radio][name=p7]:checked').value;
             var p8 = document.querySelector('input[type=radio][name=p8]:checked').value;
             var p9 = document.querySelector('input[type=radio][name=p9]:checked').value;
 
-            var posFormulary = [2, p1, p2, p3, p4, p6, p7, p8, p9];
+
+            var posFormulary = [2, p1, p2, p3, p4, p5, p6, p7, p8, p9];
             console.log(posFormulary);
             this.$store.commit('setPosFormulary', posFormulary);
-            this.sendEmail()
+            //this.sendEmail();
+            this.sendFullData();
         },
+        sendFullData: function(){
+            let id = this.$store.getters.getID;
+            let preForm = this.$store.getters.getPreFormulary;
+            let path = this.$store.getters.getPlayerPath;
+            let postForm = this.$store.getters.getPosFormulary;
+            let fullData = [];
+            fullData.push(id)
+            fullData.concat(preForm).concat(path).concat(postForm)
+            
+            var templateParams = {
+                name: this.$store.getters.getID + ' FINAL ENCUESTA',
+                message: JSON.stringify(fullData)
+            };  
+            try {
+                emailjs.send('service_3mckqye','template_g8kvx5s', templateParams, 'user_19PVjLKPzVGUG5VUn6jOU')
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+            } catch(error) {
+                console.log({error})
+            }
+
+        }
     }
 }
 </script>

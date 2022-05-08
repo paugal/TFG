@@ -11,7 +11,7 @@
                     <img v-if='this.$store.getters.getChatUser != 0' class="userImage" :src="this.$store.getters.getChatUserInfo.image" alt="user_image_bully" border="0">
                 </div>
                 <div class=" userText userName">
-                    <div v-if='this.$store.getters.getChatUser != 0' class="userName" id="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
+                    <div v-if='this.$store.getters.getChatUser != 0 && this.$store.getters.getChatUser != 0' class="userName" id="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
                 </div>
             </div>
             
@@ -122,7 +122,7 @@ export default {
                 if([39, 40, 41].includes(element) && element == playerPathAux[playerPathAux.length-1]){
                     ending = true;
                     
-                }if([42, 44].includes(element) && element == playerPathAux[playerPathAux.length-1]){
+                }if([42, 43, 44].includes(element) && element == playerPathAux[playerPathAux.length-1]){
                     this.$store.commit('setEnding', true);
                 }
             }

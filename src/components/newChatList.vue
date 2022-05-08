@@ -55,8 +55,21 @@
             <div class="endGame xyz-in" xyz='fade' v-if='endGame == true'>
                 <img class='avatar' src="https://i.ibb.co/M2pV632/intro.png" alt="not-icons" border="0">
                 <div class="textbox">
-                    <p>¡Hola de nuevo! El minijuego ya ha acabado pero queda un pequeño paso mas.
+                    <!--Mensaje final bueno -->
+                    <p v-if="this.finalMsg() == 1"> Y aqui acaba este minijuego. Felicidades! Has ayudado mucho a Marcos y has actuado 
+                        muy bien.  Por favor responder lo mas sinceramente posible a unas ultimas preguntas y ya habremos acabado esta actividad.
+                        Muchas gracias de antemano!
+                    </p>
+                    <!--Mensaje final neutro -->
+                    <p v-if="this.finalMsg() == 0"> Y aqui acaba este minijuego. En algunos momentos has ayudado a Marcos pero en otros no has actuado todo lo mejor posible.
+                        Espero que te haya ayudado esta actividad para en el futur poder escoger mejores elecciones
                         Por favor responder lo mas sinceramente posible a unas ultimas preguntas y ya habremos acabado esta actividad.
+                        Muchas gracias de antemano!
+                    </p>
+                    <!--Mensaje final malo -->
+                    <p v-if="this.finalMsg() == -1"> Y aqui acaba este minijuego. Durante la actividad has elegido muchas acciones que han perjudicado a Marcos.
+                        Si crees que has actuado bien, recomiendo que vuelvas a jugar con diferentes elecciones y veas como cambian las respuestas de 
+                        los personajes. Por favor responder lo mas sinceramente posible a unas ultimas preguntas y ya habremos acabado esta actividad.
                         Muchas gracias de antemano!
                     </p>
                 </div>
@@ -84,6 +97,23 @@ export default {
         }
     },
     methods: {
+
+        finalMsg: function(){
+            document.getElementById('screen').style.overflow = 'scroll';
+            document.getElementById('screen').style.overflowX = 'hidden';
+            let totalKarma = this.$store.getters.getKarma + this.$store.getters.getSpecialKarma;
+            if(totalKarma >= 2){
+                return 1;
+            }else if(totalKarma >= 0){
+                return 0;
+            }else if(totalKarma < 0){
+                return -1;
+            }
+
+            
+
+        },
+
         changeUser: function (id){
             this.$store.commit('setUserChat', id)
         },
@@ -120,6 +150,7 @@ export default {
     mounted(){
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             document.getElementById('screen').style.height = '100vh';
+            
         }
 
         if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {

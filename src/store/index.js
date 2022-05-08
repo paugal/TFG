@@ -445,7 +445,7 @@ export default createStore({
     },
 
     setPosFormulary(state, formulary){
-      state.PostFormulary = formulary;
+      state.PosFormulary = formulary;
     },
 
     setNotificacion(state, visibility, username){

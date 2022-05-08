@@ -15,7 +15,7 @@
                         Seguido de un pequeño minijuego, el cual acabara con otro test muy cortito</p>
                         <p class='text' >Podéis responder con total sinceridad porque todo es <b>anónimo</b>.
                         Bueno eso es todo, empecemos con el test!</p>
-                        <button  type="button" class="cssbuttons-io-button" style="margin: auto" @click="startForm(); nextQuestion(null, 'p1'); ">EMPEZAR!
+                        <button  type="button" class="cssbuttons-io-button" style="margin: auto" @click="startForm(); nextQuestion(null, 'genero'); ">EMPEZAR!
                             <div class="icon">
                             <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
                             </div>
