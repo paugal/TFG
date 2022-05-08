@@ -3,7 +3,8 @@
     
     <div class="dayInfo">
       <div class="clock-loader"></div>
-      DIA {{ this.$store.getters.getDay }}
+      <p v-if="this.$store.getters.getDay != 10">DIA {{ this.$store.getters.getDay }} </p>
+      <p v-if="this.$store.getters.getDay == 10">POR LA NOCHE</p>
     </div>
   </div>
 </template>

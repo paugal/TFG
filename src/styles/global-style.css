@@ -221,6 +221,8 @@ body{
   height: 100vh;
   margin: 0%;
   background: var(--lila);
+  overflow: auto;
+  overflow-x: hidden;
 }
 .textbox{
   background: white;

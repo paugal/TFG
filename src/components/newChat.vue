@@ -94,13 +94,13 @@ export default {
                 this.$store.commit('setDay', 2);
                 this.$store.commit('setShownDayInfo', true);
             }else if(msgId == 86  && this.$store.getters.getDay == 2){
+                this.$store.commit('setDay', 10);
+                this.$store.commit('setShownDayInfo', true);
+            }else if(msgId == 105  && this.$store.getters.getDay == 10){
                 this.$store.commit('setDay', 3);
                 this.$store.commit('setShownDayInfo', true);
-            }else if(msgId == 105  && this.$store.getters.getDay == 3){
+            }else if(msgId == 93  && this.$store.getters.getDay == 3){
                 this.$store.commit('setDay', 4);
-                this.$store.commit('setShownDayInfo', true);
-            }else if(msgId == 93  && this.$store.getters.getDay == 4){
-                this.$store.commit('setDay', 5);
                 this.$store.commit('setShownDayInfo', true);
             }
 
@@ -203,7 +203,7 @@ export default {
                     this.$store.commit('activePathMsg', [33, 34, 35, 36, 37]);
                     break;
                 case 8://Insulta a Marcos y dice que lo ha defendido
-                    this.$store.commit('activePathMsg', [30, 40, 41, 42, 35, 51, 52]);
+                    this.$store.commit('activePathMsg', [30, 40, 41, 42, 51, 52]);
                     break;
                 case 9://Insulta a Marcos y dice que no ha contestado
                     this.$store.commit('activePathMsg', [28, 40, 41, 42, 36, 37]);
@@ -280,7 +280,6 @@ export default {
             this.$store.commit('setSeenMsg', id )
             
         },
-        
         //Funciones llamadas al hacer click en una opcion
         optionsManager: function (option){
             const options = document.querySelectorAll('#option');
