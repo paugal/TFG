@@ -369,7 +369,7 @@ export default {
             var p6 = document.querySelector('input[type=radio][name=p6]:checked').value;
             var p7 = document.querySelector('input[type=radio][name=p7]:checked').value;
             var p8 = document.querySelector('input[type=radio][name=p8]:checked').value;
-            var preFormulary = [0, genero, edad, p1, p2, p3, p4, p5, p6, p7, p8];
+            var preFormulary = [genero, edad, p1, p2, p3, p4, p5, p6, p7, p8];
             console.log(preFormulary);
             this.$store.commit('setPreFormulary', preFormulary);
             this.sendEmail()

@@ -304,7 +304,7 @@ export default {
             var p9 = document.querySelector('input[type=radio][name=p9]:checked').value;
 
 
-            var posFormulary = [2, p1, p2, p3, p4, p5, p6, p7, p8, p9];
+            var posFormulary = [p1, p2, p3, p4, p5, p6, p7, p8, p9];
             console.log(posFormulary);
             this.$store.commit('setPosFormulary', posFormulary);
             //this.sendEmail();

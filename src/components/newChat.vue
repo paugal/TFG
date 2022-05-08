@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div v-if="this.$store.getters.getOptionsLenght == 0">
-                    <div class="tipmsg"> De momento no puedes decir nada mas, prueva a hablar con otra persona
+                    <div class="tipmsg"> De momento no puedes decir nada más, prueba a hablar con otra persona
                     </div>
                 </div>
             </div>
