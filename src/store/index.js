@@ -537,7 +537,7 @@ export default createStore({
             }
             
           }catch(error){return 0}
-      }, 1);
+      }, i*1000);
         
       }
     },
