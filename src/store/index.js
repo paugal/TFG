@@ -16,7 +16,7 @@ export default createStore({
     specialKarma: 0,
     ID: 0,
     isTheEnd: false,
-    testMode: true,
+    testMode: false,
 
     //No es una lista del id de las opciones, tengo que modificar la estructura
     selectedOptionsList: [],
