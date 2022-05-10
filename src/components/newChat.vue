@@ -11,7 +11,8 @@
                     <img v-if='this.$store.getters.getChatUser != 0' class="userImage" :src="this.$store.getters.getChatUserInfo.image" alt="user_image_bully" border="0">
                 </div>
                 <div class=" userText userName">
-                    <div v-if='this.$store.getters.getChatUser != 0 && this.$store.getters.getChatUser != 0' class="userName" id="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
+                    <div v-if='this.$store.getters.getChatUser != 0 && this.$store.getters.getChatUser != 7' class="userName" id="userName">{{this.$store.getters.getChatUserInfo.name}}</div>
+                    <div v-if='this.$store.getters.getChatUser == 7' class="userName" id="userName" style="font-size: 20px;">{{this.$store.getters.getChatUserInfo.name}}</div>
                 </div>
             </div>
             
@@ -29,6 +30,7 @@
                             {{nextDay(this.$store.getters.getMsg[index-1].id)}}
                             <img class='captura' v-if='this.$store.getters.getMsg[index-1].id == 42' src="https://i.ibb.co/mBZ5bqr/Optimized-captura-chat.jpg" alt="captura">
                         </div>
+                        <div class="spacemsg"></div>
                     </div>
                 </div>
             </div>
@@ -310,7 +312,12 @@ export default {
 </script>
 
 <style scoped>
-
+.spacemsg{
+    background: none;
+    width: 100%;
+    height: 1px;
+    float: right;
+}
 /* From uiverse.io by @adamgiebl */
 button {
  font-family: inherit;
@@ -325,6 +332,7 @@ button {
  border-radius: 16px;
  overflow: hidden;
  transition: all 0.2s;
+ -webkit-transition: all 0.2s;
  box-shadow: 10px 5px 15px 10px rgba(0,0,0,0.1);
 }
 
@@ -333,38 +341,47 @@ button span {
  display: block;
  margin-left: 0.3em;
  transition: all 0.3s ease-in-out;
+ -webkit-transition: all 0.3s ease-in-out;
 }
 
 button svg {
  display: block;
  transform-origin: center center;
+ -webkit-transform-origin: center center;
  transition: transform 0.3s ease-in-out;
+ -webkit-transition: transform 0.3s ease-in-out;
 }
 
 button:hover .svg-wrapper {
  animation: fly-1 0.6s ease-in-out infinite alternate;
+ -webkit-animation: fly-1 0.6s ease-in-out infinite alternate;
 }
 
 button:hover svg {
- transform: translateX(1.2em) rotate(45deg) scale(1.1);
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+    -webkit-transform: translateX(1.2em) rotate(45deg) scale(1.1);
 }
 
 button:hover span {
- transform: translateX(1.2em);
- font-weight: 600;
+    transform: translateX(1.2em);
+    -webkit-transform: translateX(1.2em);
+    font-weight: 600;
 }
 
 button:active {
- transform: scale(0.95);
+    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
 }
 
 @keyframes fly-1 {
  from {
-  transform: translateY(0.1em);
+    transform: translateY(0.1em);
+    -webkit-transform: translateY(0.1em);
  }
 
  to {
-  transform: translateY(-0.1em);
+    transform: translateY(-0.1em);
+    -webkit-transform: translateY(-0.1em);
  }
 }
 
@@ -429,20 +446,24 @@ button:active {
 
 .usuario svg{
     transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
 }
 
 .usuario .icon {
     width: 40px;
     transition: transform 0.3s;
+    -webkit-transition: transform 0.3s;
     color: white;
     grid-area: c;
     
 }
 .usuario:hover .icon {
-  transform: translateX(0.1em);
+    transform: translateX(0.1em);
+    -webkit-transform: translateX(0.1em);
 }
 .usuario:active .icon {
-  transform: scale(0.95);
+    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
 }
 
 .usuario .icon {
@@ -453,6 +474,7 @@ button:active {
   height: 100%;
   width: 2.9em;
   transition: all 0.3s;
+  -webkit-transition: all 0.3s;
   
 }
 
@@ -497,6 +519,7 @@ button:active {
     margin: auto;
     font-size: 25px;
     transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
     
 }
 a{

@@ -124,7 +124,7 @@
                         </XyzTransition>
 
                         <XyzTransition xyz="fade left-100% out-right-25%">
-                            <div class="formRadio xyz-in"  xyz="fade left" id="p7">
+                            <div class="formRadio numRadio xyz-in"  xyz="fade left" id="p7">
                                 <p class='text'>¿Crees que la historia que cuenta este minijuego es realista?</p>
                                 <div class="testForm">
                                     <p class="infoForm "> Poco</p>
@@ -149,7 +149,7 @@
                         </XyzTransition>
 
                         <XyzTransition xyz="fade left-100% out-right-25%">
-                            <div class="formRadio xyz-in"  xyz="fade left" id="p8">
+                            <div class="formRadio numRadio xyz-in"  xyz="fade left" id="p8">
                                 <p class='text'>¿Crees que la historia que cuenta este minijuego es realista?</p>
                                 <div class="testForm">
                                     <p class="infoForm "> Poco</p>
@@ -174,7 +174,7 @@
                         </XyzTransition>
 
                         <XyzTransition xyz="fade left-100% out-right-25%">
-                            <div class="formRadio xyz-in"  xyz="fade left" id="p9" @click="finalQuestion()">
+                            <div class="formRadio numRadio xyz-in"  xyz="fade left" id="p9" @click="finalQuestion()">
                                 <p class='text'>Crees que has aprendido algo con este juego?</p>
                                 <div class="testForm">
                                     <p class="infoForm "> Poco</p>
@@ -317,11 +317,11 @@ export default {
             let postForm = this.$store.getters.getPosFormulary;
             let fullData = [];
             fullData.push(id)
-            fullData.concat(preForm).concat(path).concat(postForm)
+            let send = fullData.concat(preForm).concat(path).concat(postForm)
             
             var templateParams = {
                 name: this.$store.getters.getID + ' FINAL ENCUESTA',
-                message: JSON.stringify(fullData)
+                message: JSON.stringify(send)
             };  
             try {
                 emailjs.send('service_3mckqye','template_g8kvx5s', templateParams, 'user_19PVjLKPzVGUG5VUn6jOU')
@@ -346,6 +346,7 @@ export default {
   display: none;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
+  -webkit-transition: 0.3s;
   border-radius: 15px;
   width: fit-content;
   height: fit-content;
@@ -389,6 +390,27 @@ export default {
 }
 .formRadio label{
   justify-content: space-evenly;
+}
+
+.numRadio input[type="radio"] + label {
+    border: none;
+    font-size: 22px;
+}
+
+.numRadio input[type="radio"]:checked + label {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+  background-color:var(--main-color);
+  border-color: var(--main-color);
+  font-weight: bold;
+  color: white;
+  justify-content: center;
+}
+
+.numRadio input[type="radio"]:hover + label {
+  background: #A370F0;
+  border-color: #A370F0;
+  color: white;
+
 }
 
 </style>

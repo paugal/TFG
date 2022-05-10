@@ -58,6 +58,7 @@ export default {
   background: var(--clock-color);
   border-radius: 10px;
   transform-origin: center calc(100% - calc(var(--clock-thickness) / 2));
+  -webkit-transform-origin: center calc(100% - calc(var(--clock-thickness) / 2));
   animation: spin infinite linear;
 }
 .clock-loader::before {
@@ -68,11 +69,13 @@ export default {
   top: calc(var(--clock-radius) * 0.25 + var(--clock-hour-length));
   height: var(--clock-hour-length);
   animation-duration: 15s;
+  -webkit-animation-duration: 15s
 }
 
 @keyframes spin {
   to {
     transform: rotate(1turn);
+    -webkit-transform: rotate(1turn);
   }
 }
 </style>

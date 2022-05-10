@@ -183,6 +183,7 @@ body{
     margin: 2px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
     transition: 0.3s;
+    -webkit-transition: 0.3s;
 }
 .skiptoEnding:hover{
     background: #A370F0;
@@ -250,23 +251,31 @@ body{
 .usuario .icon svg {
   width: 1.1em;
   transition: transform 0.3s;
+  -webkit-transition: transform 0.3s;
   color: white;
 }
 .usuario:hover .icon svg {
-  transform: translateX(0.1em);
+    transform: translateX(0.1em);
+  -webkit-transform: translateX(0.1em);
 }
 .usuario:active .icon {
-  transform: scale(0.95);
+    transform: scale(0.95);
+  -webkit-transform: scale(0.95);
 }
-.usuario .photoPerfil img{   
+.usuario .photoPerfil img{
     transition: transform 0.2s ease-in-out;
+    -webkit-transition: transform 0.2s ease-in-out;
 }
 
 .usuario:hover .photoPerfil img{
     transition: color 1s ease-in-out;
+    -webkit-transition: color 1s ease-in-out;
     transform: translateX(0.1em);
+    -webkit-transform: translateX(0.1em);
     transition: transform 0.3s;
+    -webkit-transition: transform 0.3s;
     transform: scale(1.1);
+    -webkit-transform: scale(1.1);
 }
 
 .usuario .icon {
@@ -280,6 +289,7 @@ body{
   border-radius: 0.7em;
   right: 0.3em;
   transition: all 0.3s;
+  -webkit-transition: all 0.3s;
   
 }
 
@@ -301,8 +311,11 @@ body{
 
 .usuario img:hover{
     transform: translateX(0.1em);
+    -webkit-transform: translateX(0.1em);
     transition: transform 0.3s;
+    -webkit-transition: transform 0.3s;
     transform: scale(1.1);
+    -webkit-transform: scale(1.1);
 }
 
 .userText{
@@ -360,6 +373,7 @@ body{
     margin: 2px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
     transition: 0.3s;
+    -webkit-transition: 0.3s;
 }
 .skiptoEnding:hover{
     background: #A370F0;
