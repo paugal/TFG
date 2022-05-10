@@ -150,7 +150,7 @@
 
                         <XyzTransition xyz="fade left-100% out-right-25%">
                             <div class="formRadio numRadio xyz-in"  xyz="fade left" id="p8">
-                                <p class='text'>¿Crees que la historia que cuenta este minijuego es realista?</p>
+                                <p class='text'>¿Te ha gustado el juego?</p>
                                 <div class="testForm">
                                     <p class="infoForm "> Poco</p>
                                     <input  type="radio" id="p81" name="p8" value="1">
