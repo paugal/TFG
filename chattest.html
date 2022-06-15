@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="frame">
+        
+        <div class=" userChat usuario">
+            <div class="icon">
+                <svg  height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+            </div>
+            
+            <div class="photoPerfil">
+                <img class="photoPerfil" src="https://i.ibb.co/yh14wQs/user-image-bully.jpg">
+            </div>
+            <div class=" userText userName">
+                <p style="margin: 0%">Pau</p>
+            </div>
+        </div>
+
+        <div class="chatBox">
+
+        </div>
+
+        <div class="optionsBox">
+
+        </div>
+    </div>
+</body>
+</html>
+<style scoped>
+body{
+    background: black;
+}
+.frame{
+    width: 400px;
+    height: 700px;
+    background: white;
+    margin: auto;
+    padding: 0px;
+    border-radius: 35px;
+    display: grid;
+    grid-template: "a a a" 15%
+                   "b b b" auto
+                   "c c c" 25%;
+}
+.userChat{
+    grid-area: a;
+    background: #7b24ff;
+    border-radius: 35px;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 0;
+    color: #A370F0;
+}
+
+.chatBox{
+    margin-top: 10px;
+    grid-area: b;
+    background: white;
+    border-radius: 35px;
+    width: 100%;
+}
+.optionsBox{
+    grid-area: c;
+    background: #7b24ff;
+    border-radius: 35px;
+    width: 100%;
+    box-shadow: 10px 5px 15px 10px rgba(0,0,0,0.3);
+}
+
+.usuario{
+    display: grid;
+    grid-template-columns: 15% 20% 80% ;
+    grid-template-rows: 100%;
+    grid-template-areas: "c a b";
+    column-gap: 10px;
+    letter-spacing: 0.05em;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.usuario svg{
+    transform: rotate(180deg);
+}
+
+.usuario:hover .icon {
+  width: calc(15% - 0.6em);
+}
+.usuario .icon svg {
+    width: 40px;
+    transition: transform 0.3s;
+    color: white;
+}
+.usuario:hover .icon svg {
+  transform: translateX(0.1em) rotate(180deg);
+}
+.usuario:active .icon {
+  transform: scale(0.95);
+}
+
+.usuario .icon {
+    
+  background: #7b24ff;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 2.9em;
+  border-radius: 0.7em;
+  transition: all 0.3s;
+  
+}
+
+.photoPerfil{
+    display: flex;
+    justify-content: center;
+    grid-area: a;
+    margin: 3px;
+    display: flex;
+    align-items: center;
+}
+.photoPerfil img{
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100%;
+    border: 2px solid #7b24ff;
+    -webkit-border: 2px solid #7b24ff;
+    -moz-border: 2px solid #7b24ff;
+    
+}
+
+.userName{
+    color: white;
+    text-shadow: 0.1em 0.1em 0.6em 0.2em #0000005a;
+    grid-area: b;
+    font-size: 30px;
+    font-weight: 700;
+    display:flex;
+    align-items:flex-end;
+    margin:0%;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+}
+
+
+.fasArrowList{
+    grid-area: c;
+    color: #7b24ff;
+    margin: auto;
+    font-size: 25px;
+}
+</style>
