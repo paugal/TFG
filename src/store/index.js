@@ -23,15 +23,16 @@ export default createStore({
     colorScheme: 'var(--main-color)',
     backgroundImage: "https://i.ibb.co/zRNQYd5/wp4410724.jpg",
 
+    //Imagenes obtenidas en la libreria gratuita de Adobe Stock
     persons:[
       {id: 1, name: 'player', image:  'NULL'},
-      {id: 2, name: 'Marcos', image:  'https://i.ibb.co/S7vP88k/user-image-marcos.jpg'},
-      {id: 3, name: 'Oscar', image:  'https://i.ibb.co/yh14wQs/user-image-bully.jpg'},
-      {id: 4, name: 'Marta', image:  'https://i.ibb.co/12z1DFF/perro.jpg'},
-      {id: 5, name: 'A la playa', image:  'https://i.ibb.co/BgJRxN5/playa.jpg'},
-      {id: 6, name: 'Hugo', image:  'https://i.ibb.co/drKVBBz/gato.jpg'},
-      {id: 7, name: 'Hermano Marcos', image:  'https://i.ibb.co/NCw5YDY/hermano.jpg'},
-      {id: 8, name: 'Mama', image:  'https://i.ibb.co/g7nQJFw/mama.jpg'},
+      {id: 2, name: 'Marcos', image:  'https://i.ibb.co/Rb49Lrq/marcos-min.jpg'},
+      {id: 3, name: 'Oscar', image:  'https://i.ibb.co/HNKNp7k/oscar-min.jpg'},
+      {id: 4, name: 'Marta', image:  'https://i.ibb.co/NnM7PRp/marta-min.jpg'},
+      {id: 5, name: 'A la playa', image:  'https://i.ibb.co/MDXX8ND/grupo-min.jpg'},
+      {id: 6, name: 'Hugo', image:  'https://i.ibb.co/YdSCDXr/hugo-min.jpg'},
+      {id: 7, name: 'Hermano Marcos', image:  'https://i.ibb.co/x8YWzXr/hermano-min.jpg'},
+      {id: 8, name: 'Mama', image:  'https://i.ibb.co/R6TGnrg/mama-min.jpg'},
       ],
     
     msg:[
